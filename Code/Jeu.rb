@@ -46,8 +46,7 @@ class Jeu
 	end
 	def affichageJeu
 		0.upto (@tab.size-1) do |x|
-			puts @tab[x] 
-			puts @tab[x].couleur
+			print "#{@tab[x]} => #{tab[x].couleur}"
 		end
 	end
 end
