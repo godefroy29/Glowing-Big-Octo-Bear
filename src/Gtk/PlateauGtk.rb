@@ -5,11 +5,12 @@ class PlateauGtk
 	attr_reader :table
 	@plateau
 
-	def PlateauGtk.new(fenetre,n)
+
+	def PlateauGtk.creer(fenetre,n)
 		new(fenetre,n)
 	end
 
-	def intialize(fenetre,n)
+	def initialize(fenetre,n)
 		@table = Gtk::Table.new(n,n,true);
 	
 		@plateau = Plateau.new("____");
@@ -18,7 +19,8 @@ class PlateauGtk
 				btn_tmp = Gtk::Button.new("vide")
 				@table.attach(btn_tmp,x,x+1,y,y+1)
 				btn_tmp.signal_connect('clicked'){
-					@plateau.plateau.getColorStr(x+y*n)
+					@plateau.etatSuivant(x+y*n)
+					btn_tmp.label  = @plateau.getColorStr(x+y*n)
 				}
 			}
 		
