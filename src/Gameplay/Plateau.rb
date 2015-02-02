@@ -43,6 +43,15 @@ class Plateau
 			end
 		end
 	end
+	def getColorStr(x)
+		if @tab[x].couleur == 1
+			return "rouge"
+		end
+		if @tab[x].couleur == 0
+			return "bleu"
+		end
+		return "vide"
+	end
 	def affichagePlateau
 		0.upto (@tab.size-1) do |x|
 			print "#{@tab[x]} => #{tab[x].couleur}"

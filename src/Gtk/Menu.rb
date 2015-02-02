@@ -30,6 +30,10 @@ class Menu
 			fenetre.remove(vbox)
 			Credits.afficher(fenetre, langue)
 		}
+
+		fenetre.signal_connect('destroy') {
+  			 Gtk.main_quit
+		}
 		
 		boutonQuitter.signal_connect('clicked'){Gtk.main_quit}
 	

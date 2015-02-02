@@ -12,19 +12,18 @@ class PlateauGtk
 	def intialize(fenetre,n)
 		@table = Gtk::Table.new(n,n,true);
 	
-		@plateau = Plateau.new("0101");
+		@plateau = Plateau.new("____");
 		0.upto(n-1) do|x| 
 			0.upto(n-1) {|y| 
 				btn_tmp = Gtk::Button.new("vide")
 				@table.attach(btn_tmp,x,x+1,y,y+1)
 				btn_tmp.signal_connect('clicked'){
-					@plateau.etatSuivant(x+y*n)
+					@plateau.plateau.getColorStr(x+y*n)
 				}
 			}
-
 		
-	end
-
+		end
+	fenetre.add(@table)
 
 
 		
