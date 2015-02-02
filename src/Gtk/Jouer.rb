@@ -2,6 +2,7 @@
 
 class Jouer
 
+	@plateau
 	@plateauGtk
 
 	def Jouer.afficher(fenetre, langue)
@@ -9,8 +10,8 @@ class Jouer
 		vbox = Gtk::VBox.new(false,10)
 
 	
-
-		@plateauGtk = PlateauGtk.creer(vbox,2)
+		@plateau = Plateau.new("_1_0");
+		@plateauGtk = PlateauGtk.creer(vbox,@plateau,2)
 		
 		boutonRetour.signal_connect('clicked'){
 			fenetre.remove(vbox)

@@ -10,3 +10,9 @@ load "./Gtk/Jouer.rb"
 
 load "./Gameplay/Plateau.rb"
 load "./Gameplay/Tuile.rb"
+
+
+#PATH
+
+PATH_RSRC = "../ressources/"
+PATH_IMG = PATH_RSRC + "img/"
