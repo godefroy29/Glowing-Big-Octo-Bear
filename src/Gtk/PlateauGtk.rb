@@ -12,8 +12,8 @@ class PlateauGtk
 	def initialize(fenetre,plateau,n)
 		@table = Gtk::Table.new(n,n,true);
 
-		pix_blue = Gdk::Pixbuf.new("blue.png",50,50)
-		pix_red = Gdk::Pixbuf.new("red.png",50,50)
+		pix_blue = Gdk::Pixbuf.new(PATH_IMG+"blue.png",50,50)
+		pix_red = Gdk::Pixbuf.new(PATH_IMG+"red.png",50,50)
 		red = Gtk::Image.new(pix_red)
 		blue = Gtk::Image.new(pix_blue)
 
