@@ -11,7 +11,7 @@ class Langue
 	attr_reader:menu,:jouer,:tutoriel,:options,:score,:credits,:quitter,:retour,:texte
 
 	def initialize()
-		@menu,@jouer,@tutoriel,@options,@score,@credits,@quitter,@retour,@texte = "menu","jouer","tutoriel","options","score","credits","quitter","retour au menu","\t\t\tVersion = 0.01\nchef de projet : Godefroy\ndocumentaliste : Cookies \nSdf(sans denomination fixe) : Wookles, étienne, benoit, sylvain\n"
+		@menu,@jouer,@tutoriel,@options,@score,@credits,@quitter,@retour,@texte = "menu","jouer","tutoriel","options","score","credits","quitter","retour au menu","\t\t\tVersion = 0.01\nchef de projet : Godefroy\ndocumentaliste : Cookies \nSdf(sans denomination fixe) : Wookles, Etienne, Benoit, Sylvain\n"
 	end
 
 
