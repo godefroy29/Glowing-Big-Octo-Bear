@@ -31,8 +31,13 @@ class PlateauGtk
 						plateau.etatSuivant(x+y*n)
 						if plateau.getColorNum(x+y*n) == 0
 							btn_tmp.image = Gtk::Image.new(pix_red)
+						elsif plateau.getColorNum(x+y*n) == 1
+							btn_tmp.image = nil						
 						else
 							btn_tmp.image = Gtk::Image.new(pix_blue)
+				
+
+				
 						end
 					}
 				else

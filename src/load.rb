@@ -16,3 +16,4 @@ load "./Gameplay/Tuile.rb"
 
 PATH_RSRC = "../ressources/"
 PATH_IMG = PATH_RSRC + "img/"
+PATH_GRI = PATH_RSRC + "BaseBineroParNiveau.txt"
