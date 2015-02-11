@@ -1,0 +1,47 @@
+<?xml version = "1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!DOCTYPE ref_sons [
+<!ELEMENT ref_sons (reference+)>
+<!ELEMENT reference (intitule_objet, son)>
+<!ELEMENT intitule_objet (#PCDATA)>
+<!ELEMENT son (#PCDATA)>
+]>
+
+<ref_sons>
+	
+	<reference>
+	   <intitule_objet>mario</intitule_objet>
+	   <son>./Sons/mario.wav</son>
+	</reference>
+	
+	<reference>
+	   <intitule_objet>deplacement</intitule_objet>
+	   <son>./Sons/deplacement.wav</son>
+	</reference>
+	
+	<reference>
+	   <intitule_objet>coin</intitule_objet>
+	   <son>./Sons/coin.wav</son>
+	</reference>
+	
+	<reference>
+	   <intitule_objet>preCombat</intitule_objet>
+	   <son>./Sons/preCombat.wav</son>
+	</reference>
+	
+	<reference>
+	   <intitule_objet>combat</intitule_objet>
+	   <son>./Sons/combat.wav</son>
+	</reference>
+	
+	<reference>
+	   <intitule_objet>ronfle</intitule_objet>
+	   <son>./Sons/ronfle.wav</son>
+	</reference>
+	
+	<reference>
+	   <intitule_objet>stable_boy</intitule_objet>
+	   <son>./Sons/stable_boy.wav</son>
+	</reference>
+	
+</ref_sons>
