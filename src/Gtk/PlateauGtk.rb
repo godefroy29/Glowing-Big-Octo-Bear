@@ -4,7 +4,6 @@ class PlateauGtk
 
 	attr_reader :table
 
-
 	def PlateauGtk.creer(fenetre,plateau,n)
 		new(fenetre,plateau,n)
 	end
@@ -16,11 +15,6 @@ class PlateauGtk
 		pix_red = Gdk::Pixbuf.new(PATH_IMG+"red.png",50,50)
 		red = Gtk::Image.new(pix_red)
 		blue = Gtk::Image.new(pix_blue)
-
-
-
-
-
 	
 		0.upto(n-1) do|x| 
 			0.upto(n-1) {|y| 
@@ -35,9 +29,6 @@ class PlateauGtk
 							btn_tmp.image = nil						
 						else
 							btn_tmp.image = Gtk::Image.new(pix_blue)
-				
-
-				
 						end
 					}
 				else
@@ -51,16 +42,6 @@ class PlateauGtk
 					@table.attach(btn_tmp,x,x+1,y,y+1)
 				end
 			}
-		
 		end
-	
-
-
-		
 	end
-
-
-
-
 end
-

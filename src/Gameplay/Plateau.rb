@@ -4,7 +4,10 @@ class Plateau
 	attr_accessor :tab #grille de Plateau
 	attr_reader :solution #memorise la solution
 
-	def initialize(s_tab, solution)#s_tab et solution sont des chaines de caracteres
+	#pour tester la validite de la grille
+	attr_reader :stringSolution #grille finale
+
+	def initialize(s_tab, grilleSolution)#s_tab et solution sont des chaines de caracteres
 		@tab=Array.new
 		@solution=String.new
 		@solution=s_tab
@@ -17,6 +20,10 @@ class Plateau
 				@tab[x]=Tuile.new(1)
 			end
 		end
+
+		@stringSolution=String.new
+		@stringSolution=grilleSolution
+
 	end
 
 	def etatSuivant(numeroTuile)
@@ -44,6 +51,9 @@ class Plateau
 		end
 	end
 
+	def testGrille #string => 0101....	#tab => Tuile<xxxx> # a corriger
+		return @stringSolution == @tab #a tester
+	end
 
 	def getColorStr(x)
 		if @tab[x].couleur == 1
