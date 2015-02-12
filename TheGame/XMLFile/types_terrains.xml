@@ -1,0 +1,52 @@
+<?xml version = "1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!DOCTYPE types_terrains [
+<!ELEMENT types_terrains (type+)>
+<!ELEMENT type (intitule, isAccessible, coutDeplacement, proba, niveau)>
+<!ELEMENT intitule (#PCDATA)>
+<!ELEMENT isAccessible (#PCDATA)>
+<!ELEMENT coutDeplacement (#PCDATA)>
+<!ELEMENT proba (#PCDATA)>
+<!ELEMENT niveau (#PCDATA)>
+]>
+
+<types_terrains>
+
+	<type>
+	   <intitule>eau</intitule>
+	   <isAccessible>false</isAccessible>
+	   <coutDeplacement>-1</coutDeplacement>
+	   <proba>65</proba>
+	   <niveau>3</niveau>
+	</type>
+	<type>
+	   <intitule>plaine</intitule>
+	   <isAccessible>true</isAccessible>
+	   <coutDeplacement>10</coutDeplacement>
+	   <proba>0</proba>
+	   <niveau>1</niveau>
+	</type>
+	<type>
+	   <intitule>foret</intitule>
+	   <isAccessible>true</isAccessible>
+	   <coutDeplacement>20</coutDeplacement>
+	   <proba>80</proba>
+	   <niveau>1</niveau>
+	</type>
+	<type>
+	   <intitule>desert</intitule>
+	   <isAccessible>true</isAccessible>
+	   <coutDeplacement>30</coutDeplacement>
+	   <proba>75</proba>
+	   <niveau>2</niveau>
+	</type>
+	<type>
+	   <intitule>montagne</intitule>
+	   <isAccessible>true</isAccessible>
+	   <coutDeplacement>50</coutDeplacement>
+	   <proba>70</proba>
+	   <niveau>4</niveau>
+	</type>
+	
+
+</types_terrains>

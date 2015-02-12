@@ -1,0 +1,71 @@
+<big><u><b>I - Aim of the game</b></u></big>
+
+The player's goal is to move as much as possible in the game environment. For this, he can fight monsters and recover their items, as weapons and armor, and he can equip it directly or sell/buy better gear from vendors. The game ends when the player dies, state reached when he has no more energy. The player's score is then calculated according to different characteristics (number of enemies killed,  gold won, level, ...), the goal is to get the highest score possible.
+
+<big><u><b>II - Turns</b></u></big>
+
+A turn is the implementation of an action.
+By game actions are included:
+- Moving (1 turn)
+- Resting (10 turns)
+- Actions preceded by pressing the interaction button (interaction with a healer, a merchant, an object) (1 turn).
+
+<big><u><b>III - Energy</b></u></big>
+
+The player has an energy bar allowing him to make moves and combat. He dies when he has no more energy.
+
+<big><u><b>IV - Experience</b></u></big>
+
+The player earns experience when fighting an enemy. Once a threshold is reached, he levels up, meaning that he regains all his energy, and the threshold is increased. A low-level enemy gives less experience than a high level enemy.
+
+<big><u><b>V - Moving</b></u></big>
+
+Moving is made by clicking on the directional keys in the game or on arrow keys. The player can move in all directions (top, left, bottom, right), but he can't swim.
+
+<big><u><b>VI - Fighting</b></u></big>
+
+There are two kind of enemies. Trackers and non-trackers. Trackers follow you when you arrive close to them.
+The enemies also have an energy that depends on their level.
+A fight starts when an enemy is on your box.
+Then, the player has access to an equipment menu (if he has to equip objects) allowing him to equip a weapon and an armor.
+During combat, your energy is consumed according to the energy of the enemy.
+
+<big><u><b>VII - Rest</b></u></big>
+
+Rest allows the player to restore his energy. A rest consumption immobilises him during 10 turns, one turn allows to win 10% of energy.
+The rest may be interrupted when an enemy comes to box player.
+If this is the case, the player does not have access to the equipment menu and he has recovered as much energy as consumed turns.
+
+<big><u><b>VIII - Objects</b></u></big>
+
+The player can find items on enemies or on the ground, he can also buy or sell to merchants.
+There are three types of objects:
+-The gold (which allows the purchase to the merchant and healer)
+-The food (which allows to win energy)
+-The equipment: weapons and armor, which gives a bonus of energy during combat.
+-Boots, which allows to reduce the energy consumed when moving, has a durability (number of turns where the object is usable).
+
+<big><u><b>IX - The inventory</b></u></big>
+
+The player has an inventory where he can store objects. The inventory includes 12 locations.
+
+<big><u><b>X - Merchant</b></u></big>
+
+The merchant provides access to a buying menu and a selling menu.
+The buying menu displays a list of objects based on the level of the player and allows them to buy.
+The selling menu allows you to retrieve gold exchange objects.
+
+<big><u><b>XI - Healer</b></u></big>
+
+The healer gives the player the opportunity to receive a healing. A healing gives energy to the player in exchange of gold.
+
+<big><u><b>XII - Death</b></u></big>
+
+A player dies when he has no more energy.
+
+<big><u><b>XIII - Difficulties</b></u></big>
+
+There are 3 difficulties:
+	-Novice : small map, few ennemis, loads of items and helping buddies.
+	-Medium : Normal map, more ennemis, fewer items and helping buddies.
+	-Expert: Big map,loads of ennemis, few items and helping buddies.
