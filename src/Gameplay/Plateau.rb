@@ -4,7 +4,7 @@ class Plateau
 	attr_accessor :tab #grille de Plateau
 	attr_reader :solution #memorise la solution
 
-	def initialize(s_tab)#s_tab est une chaine de caracteres
+	def initialize(s_tab, solution)#s_tab et solution sont des chaines de caracteres
 		@tab=Array.new
 		@solution=String.new
 		@solution=s_tab
