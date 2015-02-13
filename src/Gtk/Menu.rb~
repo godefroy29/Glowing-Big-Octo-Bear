@@ -26,11 +26,6 @@ class Menu
 			Jouer.afficher(fenetre, langue)
 		}
 		
-		boutonOptions.signal_connect('clicked'){
-			fenetre.remove(vbox)
-			Options.afficher(fenetre, langue) 
-		}
-		
 		boutonCredits.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Credits.afficher(fenetre, langue)
