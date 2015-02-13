@@ -1,0 +1,461 @@
+<?xml version = "1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!DOCTYPE textesJeu [
+<!ELEMENT textesJeu (texte+)>
+<!ELEMENT texte (id,contenu)>
+<!ELEMENT contenu (#PCDATA)>
+]>
+
+<textesJeu>
+
+	<texte>
+		<id>cheminFicAide</id>
+	    <contenu>aideEN.txt</contenu>
+	</texte>
+	
+	<texte>
+		<id>nomMenu</id>
+	    <contenu>Menu</contenu>
+	</texte>
+	<texte>
+		<id>...</id>
+	    <contenu>...</contenu>
+	</texte>
+	
+	<texte>
+		<id>votreNom</id>
+	    <contenu>Your name</contenu>
+	</texte>
+	<texte>
+		<id>difficulte</id>
+	    <contenu>Difficulty</contenu>
+	</texte>
+	<texte>
+		<id>novice</id>
+	    <contenu>Novice</contenu>
+	</texte>
+	<texte>
+		<id>moyen</id>
+	    <contenu>Medium</contenu>
+	</texte>
+	<texte>
+		<id>expert</id>
+	    <contenu>Expert</contenu>
+	</texte>
+	<texte>
+		<id>cestPartie</id>
+	    <contenu>Go !</contenu>
+	</texte>
+	<texte>
+		<id>retourMenu</id>
+	    <contenu>Back to menu</contenu>
+	</texte>
+	
+	<texte>
+		<id>emplacement</id>
+	    <contenu>Place</contenu>
+	</texte>
+	<texte>
+		<id>nom</id>
+	    <contenu>Name</contenu>
+	</texte>
+	<texte>
+		<id>date</id>
+	    <contenu>Date</contenu>
+	</texte>
+	
+	<texte>
+		<id>pseudo</id>
+	    <contenu>Pseudo</contenu>
+	</texte>
+	<texte>
+		<id>ennemisTues</id>
+	    <contenu>Killed enemies</contenu>
+	</texte>
+	<texte>
+		<id>distanceParcourue</id>
+	    <contenu>Distance travelled (m)</contenu>
+	</texte>
+	<texte>
+		<id>orTotal</id>
+	    <contenu>Total gold</contenu>
+	</texte>
+	<texte>
+		<id>tempsJeu</id>
+	    <contenu>Game's time</contenu>
+	</texte>
+	<texte>
+		<id>score</id>
+	    <contenu>Score</contenu>
+	</texte>
+	<texte>
+		<id>infoClassement</id>
+	    <contenu>This is ranking's players following the difficulty. Every column can be sorted out by clicking its name.</contenu>
+	</texte>
+	
+	<texte>
+		<id>langue</id>
+	    <contenu>Language</contenu>
+	</texte>
+	<texte>
+		<id>musique?</id>
+	    <contenu>Music ?</contenu>
+	</texte>
+	<texte>
+		<id>bruitage?</id>
+	    <contenu>Sound effects ?</contenu>
+	</texte>
+	<texte>
+		<id>oui</id>
+	    <contenu>Oui</contenu>
+	</texte>
+	<texte>
+		<id>non</id>
+	    <contenu>Non</contenu>
+	</texte>
+	<texte>
+		<id>francais</id>
+	    <contenu>French</contenu>
+	</texte>
+	<texte>
+		<id>anglais</id>
+	    <contenu>English</contenu>
+	</texte>
+	<texte>
+		<id>valider</id>
+	    <contenu>Confirm</contenu>
+	</texte>
+	
+	
+	<texte>
+		<id>ContinuerPartie</id>
+	    <contenu>Continue</contenu>
+	</texte>
+	<texte>
+		<id>NewPartie</id>
+	    <contenu>New Game</contenu>
+	</texte>
+	<texte>
+		<id>ChargerPartie</id>
+	    <contenu>Load</contenu>
+	</texte>
+	<texte>
+		<id>SauvegarderPartie</id>
+	    <contenu>Save</contenu>
+	</texte>
+	<texte>
+		<id>Classement</id>
+	    <contenu>Ranking</contenu>
+	</texte>
+	<texte>
+		<id>Options</id>
+	    <contenu>Options</contenu>
+	</texte>
+	<texte>
+		<id>Aide</id>
+	    <contenu>Help</contenu>
+	</texte>
+	<texte>
+		<id>Quitter</id>
+	    <contenu>Quit</contenu>
+	</texte>
+
+	<texte>
+		<id>boutonRepos</id>
+	    <contenu>REST(r)</contenu>
+	</texte>
+	<texte>
+		<id>clavierRepos</id>
+	    <contenu>r</contenu>
+	</texte>
+	<texte>
+		<id>boutonInventaire</id>
+	  	<contenu>INVENTORY(i)</contenu>
+	</texte>
+	<texte>
+		<id>clavierInventaire</id>
+	    <contenu>i</contenu>
+	</texte>
+	<texte>
+		<id>boutonMenu</id>
+	    <contenu>MENU(m)</contenu>
+	</texte>
+	<texte>
+		<id>clavierMenu</id>
+	    <contenu>m</contenu>
+	</texte>
+	<texte>
+		<id>boutonInteraction</id>
+	    <contenu>INTERACTION(a)</contenu>
+	</texte>
+	<texte>
+		<id>clavierInteraction</id>
+	    <contenu>a</contenu>
+	</texte>
+	<texte>
+		<id>energie</id>
+		<contenu>Energy</contenu>
+	</texte>
+	<texte>
+		<id>experience</id>
+		<contenu>Experience</contenu>
+	</texte>
+	<texte>
+		<id>niveau</id>
+		<contenu>Level</contenu>
+	</texte>
+	<texte>
+		<id>popupInteraction</id>
+		<contenu>Interaction</contenu>
+	</texte>
+	<texte>
+		<id>choixInteraction</id>
+		<contenu>What do you want to do ?</contenu>
+	</texte>
+	<texte>
+		<id>nothingToDoInteraction</id>
+		<contenu>There's nothing to do here !</contenu>
+	</texte>
+	<texte>
+		<id>interactionModal</id>
+		<contenu>I'm an modale interaction</contenu>
+	</texte>
+	<texte>
+		<id>popupCombat</id>
+		<contenu>Fight</contenu>
+	</texte>
+	<texte>
+		<id>equipArmure</id>
+		<contenu>You've encountered an ennemi, do you want to equip your defensive gear ?</contenu>
+	</texte>
+	<texte>
+		<id>equipArme</id>
+		<contenu>You've encountered an ennemi, do you want to equip a weapon ?</contenu>
+	</texte>
+	<texte>
+		<id>combatModal</id>
+		<contenu>I'm a CombatModal</contenu>
+	</texte>
+	<texte>
+		<id>popupCombatEnnemi_avertissement</id>
+		<contenu>Brace yourself, fight is coming !!!</contenu>
+	</texte>
+	<texte>
+		<id>popupCombatEnnemi_ennemi</id>
+		<contenu>INTITULE level  NIVEAU with  ENERGIE energy.</contenu>
+	</texte>
+	<texte>
+		<id>momentAvantDepl</id>
+		<contenu>before your new movement</contenu>
+	</texte>
+	<texte>
+		<id>momentApresDepl</id>
+		<contenu>after your new movement</contenu>
+	</texte>
+	<texte>
+		<id>momentApresAction</id>
+		<contenu>after your action on your position</contenu>
+	</texte>			
+	<texte>
+		<id>popupAttention</id>
+		<contenu>Warning !</contenu>
+	</texte>
+	<texte>
+		<id>popupCommerce</id>
+		<contenu>Shopkeeper</contenu>
+	</texte>
+	<texte>
+		<id>commerceChoix</id>
+		<contenu>What can i do for you ? ?</contenu>
+	</texte>
+	<texte>
+		<id>achat</id>
+		<contenu>Buy</contenu>
+	</texte>
+	<texte>
+		<id>vendre</id>
+		<contenu>Sell</contenu>
+	</texte>
+	<texte>
+		<id>popupSoigneur</id>
+		<contenu>Healer</contenu>
+	</texte>
+	<texte>
+		<id>soinChoix</id>
+		<contenu>Which heal do you want ?</contenu>
+	</texte>
+	<texte>
+		<id>soinChoix0</id>
+		<contenu>25% energy for 30 gold</contenu>
+	</texte>
+	<texte>
+		<id>soinChoix1</id>
+		<contenu>50% energy for 50 gold</contenu>
+	</texte>
+	<texte>
+		<id>soinChoix2</id>
+		<contenu>75% energy for 70 gold</contenu>
+	</texte>
+	<texte>
+		<id>popUp</id>
+		<contenu>I'm a PopUp</contenu>
+	</texte>
+	<texte>
+		<id>to_sEquipable</id>
+		<contenu> TYPEEQUIP Can still be used: NBUTIL</contenu>
+	</texte>
+	<texte>
+		<id>to_sEncaissable</id>
+		<contenu> INTITULE Value: OR gold</contenu>
+	</texte>
+	<texte>
+		<id>descGuerisseur</id>
+		<contenu> I can heal you !</contenu>
+	</texte>
+	<texte>
+		<id>descMarchand</id>
+		<contenu> Need something ? Or maybe you want to sell something ?</contenu>
+	</texte>
+	<texte>
+		<id>descTypeEquipable</id>
+		<contenu> INTITULE    Protection: PROTEC   Price: PRICE </contenu>
+	</texte>
+	<texte>
+		<id>descTypeMangeable</id>
+		<contenu> INTITULE    Energy when used: ENERGIE  Price: PRICE </contenu>
+	</texte>
+	<texte>
+		<id>sansLeSous</id>
+		<contenu> You don't have enough money ! come back with at least 30 gold </contenu>
+	</texte>
+	<texte>
+		<id>deplacementJoueur</id>
+		<contenu>You move to (CASEPOS ;CASECOORD) which require COUTDEP energy. </contenu>
+	</texte>
+	<texte>
+		<id>enfilerBottes</id>
+		<contenu>You used BOTTES with a protection of PROTEC % </contenu>
+	</texte>
+	<texte>
+		<id>perteEnergie</id>
+		<contenu>You lose ENERGIE energy points</contenu>
+	</texte>
+	<texte>
+		<id>perteBotte</id>
+		<contenu>Your boots are broken !</contenu>
+	</texte>
+	<texte>
+		<id>utilBotte</id>
+		<contenu>You can still use your boots NB times.</contenu>
+	</texte>
+	<texte>
+		<id>mortFatigue</id>
+		<contenu>You died from exhaustion !</contenu>
+	</texte>
+	<texte>
+		<id>combatEnCours</id>
+		<contenu>You fought with INTITULE, level NIVEAU with ENERGIE energy.</contenu>
+	</texte>
+	<texte>
+		<id>utiliserProtec</id>
+		<contenu>You equipped your INTITULE which shield you for PROTEC %.</contenu>
+	</texte>
+	<texte>
+		<id>protectTotale</id>
+		<contenu>Your gear offfers you a full protection !</contenu>
+	</texte>
+	<texte>
+		<id>entretue</id>
+		<contenu>After a long fight, your ennemi lies at your feet, but you are dead too !!</contenu>
+	</texte>
+	<texte>
+		<id>mortCombat</id>
+		<contenu>You died fighting against ENNEMI !!</contenu>
+	</texte>
+	<texte>
+		<id>passageNiveau</id>
+		<contenu>Level up  NIVEAU!! Your energy returns and rises</contenu>
+	</texte>
+	<texte>
+		<id>gainRepos</id>
+		<contenu>You get one more rest.</contenu>
+	</texte>
+	<texte>
+		<id>achete</id>
+		<contenu>You bought INTITULE.</contenu>
+	</texte>
+	<texte>
+		<id>vendu</id>
+		<contenu>You sold INTITULE.</contenu>
+	</texte>
+	<texte>
+		<id>empocher</id>
+		<contenu>You pocket REVENUE.</contenu>
+	</texte>
+	<texte>
+		<id>debourser</id>
+		<contenu>You pay out REVENUE.</contenu>
+	</texte>
+	<texte>
+		<id>utiliserRepos</id>
+		<contenu>You use one rest.</contenu>
+	</texte>
+	<texte>
+		<id>attackRepos</id>
+		<contenu>You've been attacked in your sleep, only TOURS turn on 10 passed.</contenu>
+	</texte>
+	<texte>
+		<id>reposOK</id>
+		<contenu>Your sleep hasn't been stopped, you recover your energy.</contenu>
+	</texte>
+	<texte>
+		<id>ramasserItem</id>
+		<contenu>You've picked up  </contenu>
+	</texte>
+	<texte>
+		<id>tempsTotal</id>
+		<contenu>!!!!!!!! Total time after adding save time :  </contenu>
+	</texte>
+	<texte>
+		<id>tourPasse</id>
+		<contenu>A turn pass.</contenu>
+	</texte>
+	<texte>
+		<id>recupCombat</id>
+		<contenu>You got ITEM during your last fight!</contenu>
+	</texte>
+	<texte>
+		<id>equipement</id>
+		<contenu>You are equiped with EQUIPEMENT.</contenu>
+	</texte>
+	<texte>
+		<id>encaissement</id>
+		<contenu>"MONTANT gold pieces were added to your founds.</contenu>
+	</texte>
+	<texte>
+		<id>repas</id>
+		<contenu>You ate REPAS.</contenu>
+	</texte>
+	<texte>
+		<id>pistage</id>
+		<contenu>PISTEUR of the (CX-CY) case is chasing you !</contenu>
+	</texte>
+	<texte>
+		<id>choixInventairePlein</id>
+		<contenu>Your inventory is full !</contenu>
+	</texte>
+	<texte>
+		<id>fenetreInventairePlein</id>
+		<contenu>You inventory is full, what do you want to do ?</contenu>
+	</texte>
+	<texte>
+		<id>boutonJeter</id>
+		<contenu>Throw</contenu>
+	</texte>
+	<texte>
+		<id>boutonUtiliser</id>
+		<contenu>Use</contenu>
+	</texte>
+</textesJeu>
+
+

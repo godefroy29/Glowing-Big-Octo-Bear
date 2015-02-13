@@ -1,0 +1,33 @@
+ 
+style "Windows"
+{
+	bg_pixmap[NORMAL] = "/img/gui/GTA.PNG"
+	#fg[NORMAL] = "yellow"
+	#fg[INSENSITIVE] = "white"
+}
+widget "fenMenuPrincipal" style "Windows"
+
+style "police18"
+{
+	font_name = "Algerian 16"
+	#bg[NORMAL] = "#CC9664"
+	#bg[ACTIVE] = "#CC9664"
+	#bg[PRELIGHT] = "#CC9664"
+	#bg[SELECTED] = "#CC9664"
+	#bg[INSENSITIVE] = "#CC9664"
+}
+widget_class "GtkWindow.GtkAlignment.GtkVBox.GtkEventBox.GtkLabel" style "police18"
+#widget_class "GtkButton.*" style "police"
+
+style "police12"
+{
+	font_name = "Algerian 12"
+	#bg[NORMAL] = "#CC9664"
+	#bg[ACTIVE] = "#CC9664"
+	#bg[PRELIGHT] = "#CC9664"
+	#bg[SELECTED] = "#CC9664"
+	#bg[INSENSITIVE] = "#CC9664"
+}
+class "GtkLabel" style "police12"
+#gtk-font-name = "Algerian 20"
+

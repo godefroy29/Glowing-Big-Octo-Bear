@@ -1,2 +1,2 @@
 # Projet-L3-SPI
-# Participants : Godefroy Poirier, Etienne Offredi , Benoit Letay, Pierre Kunkel
+## Participants : Godefroy Poirier, Etienne Offredi , Benoit Letay, Pierre Kunkel, Philippe Armanger, Sylvain Loizeau
