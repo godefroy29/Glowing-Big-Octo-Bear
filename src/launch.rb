@@ -1,3 +1,3 @@
 load "load.rb"
 
-Takuzu.launch()
+Takuzu.launch('fr')

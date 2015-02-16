@@ -11,8 +11,8 @@ class Jouer
 		vbox = Gtk::VBox.new(false,10)
 
 		fichier = File.open(PATH_GRI, "r")
-#"__1_11_____10______0_0_0___0________"
-		@plateau = Plateau.new("001011110100101010001101010101110010","001011110100101010001101010101110010");
+#00_________1____0___11_______0_0_1__;001011010011110100001101110010101100
+		@plateau = Plateau.new("00101101001111010000110111001010_100","001011010011110100001101110010101100");
 		@plateauGtk = PlateauGtk.creer(vbox,@plateau,6)
 		
 		boutonRetour.signal_connect('clicked'){

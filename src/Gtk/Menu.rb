@@ -28,7 +28,7 @@ class Menu
 		
 		boutonOptions.signal_connect('clicked'){
 			fenetre.remove(vbox)
-			Options.afficher(fenetre, langue) 
+			Options.afficher(fenetre, langue)
 		}
 		
 		boutonCredits.signal_connect('clicked'){

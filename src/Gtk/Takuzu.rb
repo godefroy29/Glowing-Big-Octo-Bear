@@ -5,12 +5,11 @@
 #Lancement de la fenetre de jeu générée par Gtk
 class Takuzu
 
-	def Takuzu.launch
+	def Takuzu.launch(lang)
 		Gtk.init
 		builder = Gtk::Window.new()
 		builder.set_default_size(1024,768)
 		builder.set_title("TakuZu Deluxe")
-		lang ='en'
 		langue = Langue.new(lang)
 		Menu.afficher(builder, langue)
 

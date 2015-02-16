@@ -5,6 +5,12 @@ load "./Gtk/Credits.rb"
 load "./Gtk/PlateauGtk.rb"
 load "./Gtk/Takuzu.rb"
 load "./Gtk/Jouer.rb"
+load "./Gtk/Options.rb"
+load "./Gtk/Options_graphiques.rb"
+load "./Gtk/Options_profil.rb"
+load "./Gtk/Options_langue.rb"
+load "./Gtk/Options_score.rb"
+
 
 
 
