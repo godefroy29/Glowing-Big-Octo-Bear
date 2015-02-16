@@ -1,77 +1,96 @@
+include Math
+
 class Plateau
 	# new(string s_tab)
 
-	attr_accessor :tab #grille de Plateau
-	attr_reader :solution #memorise la solution
+	attr_accessor :plateauJoueur #grille de Plateau
+	attr_reader :plateauSolution #memorise la solution
 
-	#pour tester la validite de la grille
-	attr_reader :stringSolution #grille finale
+	@@CouleurVide=-1
+	@@CouleurBleu=0
+	@@CouleurRouge=1
+
+	@n
 
 	def initialize(s_tab, grilleSolution)#s_tab et solution sont des chaines de caracteres
-		@tab=Array.new
-		@solution=String.new
-		@solution=s_tab
-		0.upto (s_tab.length-1) do |x|
-			if s_tab[x]=='_' #remplace un "_" par une TuileJouable
-				@tab[x]=TuileJouable.new
-			elsif s_tab[x]=="0"
-				@tab[x]=Tuile.new(0)
-			elsif s_tab[x]=="1"
-				@tab[x]=Tuile.new(1)
+		@n = Math.sqrt(s_tab.length).to_i
+		@plateauJoueur=Array.new(@n) { |i| Array.new(@n)}
+		@plateauSolution=Array.new(@n) { |i| Array.new(@n)}
+		0.upto (@n-1) do |x|
+			0.upto (@n-1) do |y|
+				if s_tab[x+y*@n]=='_' #remplace un "_" par une TuileJouable
+					@plateauJoueur[x][y]=TuileJouable.new
+				elsif s_tab[x+y*@n]=="0"
+					@plateauJoueur[x][y]=Tuile.new(0)
+				elsif s_tab[x+y*@n]=="1"
+					@plateauJoueur[x][y]=Tuile.new(1)
+				end
 			end
 		end
-
-		@stringSolution=String.new
-		@stringSolution=grilleSolution
-
+		0.upto (@n-1) do |x|	
+			0.upto (@n-1) do |y|
+				if grilleSolution[x+y*@n]=="0"
+					@plateauSolution[x][y]=Tuile.new(0)
+				elsif grilleSolution[x+y*@n]=="1"
+					@plateauSolution[x][y]=Tuile.new(1)
+				end
+			end
+		end
 	end
-
-	def etatSuivant(numeroTuile)
-		@tab[numeroTuile].changerEnSuivant
+###############################################
+# Etat #
+###############################################
+	def etatSuivant(x,y)
+		@plateauJoueur[x][y].changerEnSuivant
 		#valeurs possibles -1,0,1
 	end
 
-	def etatBleu(numeroTuile)
-		@tab[numeroTuile].changerEnBleu
+	def etatBleu(x,y)
+		@plateauJoueur[x][y].changerEnBleu
 	end
 
-	def etatRouge(numeroTuile)
-		@tab[numeroTuile].changerEnRouge
+	def etatRouge(x,y)
+		@plateauJoueur[x][y].changerEnRouge
 	end
 
-	def etatVide(numeroTuile)
-		@tab[numeroTuile].changerEnVide
+	def etatVide(x,y)
+		@plateauJoueur[x][y].changerEnVide
 	end
 
-	def aideUneTuille
-		0.upto solution.length-1 do |x|
-			if @tab[x]=="_" #remplace un "_" par une TuileJouable
-				return @tab[x]=@solution[x]
+
+###############################################
+# Test sur grille #
+###############################################
+	def testGrille
+		0.upto (@n-1) do |y|	
+			0.upto (@n-1) do |x|
+				if(@plateauJoueur[x][y].couleur != plateauSolution[x][y].couleur)
+					return false
+				end
 			end
 		end
+		return true
 	end
 
-	def testGrille #string => 0101....	#tab => Tuile<xxxx> # a corriger
-		return @stringSolution == @tab #a tester
-	end
-
-	def getColorStr(x)
-		if @tab[x].couleur == 1
+	def getColorStr(x,y)
+		if @plateauJoueur[x][y].couleur == 1
 			return "rouge"
 		end
-		if @tab[x].couleur == 0
+		if @plateauJoueur[x][y].couleur == 0
 			return "bleu"
 		end
 		return "vide"
 	end
 
-	def getColorNum(x)
-		@tab[x].couleur
+	def getColorNum(x,y)
+		@plateauJoueur[x][y].couleur
 	end
 
-	def affichagePlateau
-		0.upto (@tab.size-1) do |x|
-			print "#{@tab[x]} => #{tab[x].couleur}"
+	def affichagePlateauJoueur
+		0.upto (@n) do |y|	
+			0.upto (@n) do |x|
+				print "#{@plateauJoueur[x][y]} => #{getColorStr(x,y)}"
+			end
 		end
 	end
 end

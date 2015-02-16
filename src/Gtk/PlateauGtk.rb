@@ -18,21 +18,21 @@ class PlateauGtk
 	
 		0.upto(n-1) do|x| 
 			0.upto(n-1) {|y| 
-				if plateau.getColorNum(x+y*n) == - 1 
+				if plateau.getColorNum(x,y) == - 1 
 					btn_tmp = Gtk::Button.new()
 					@table.attach(btn_tmp,x,x+1,y,y+1)
 					btn_tmp.signal_connect('clicked'){
-						plateau.etatSuivant(x+y*n)
-						if plateau.getColorNum(x+y*n) == 0
-							btn_tmp.image = Gtk::Image.new(pix_red)
-						elsif plateau.getColorNum(x+y*n) == 1
-							btn_tmp.image = nil						
-						else
+						plateau.etatSuivant(x,y)
+						if plateau.getColorNum(x,y) == 0
 							btn_tmp.image = Gtk::Image.new(pix_blue)
+						elsif plateau.getColorNum(x,y) == 1
+							btn_tmp.image = Gtk::Image.new(pix_red)						
+						else
+							btn_tmp.image = nil
 						end
 					}
 				else
-					if plateau.getColorNum(x+y*n) == 0
+					if plateau.getColorNum(x,y) == 0
 						btn_tmp = Gtk::Button.new()
 						btn_tmp.image = Gtk::Image.new(pix_blue)
 					else
