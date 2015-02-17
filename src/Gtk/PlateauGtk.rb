@@ -15,7 +15,6 @@ class PlateauGtk
 		pix_red = Gdk::Pixbuf.new(PATH_IMG+"red.png",50,50)
 		red = Gtk::Image.new(pix_red)
 		blue = Gtk::Image.new(pix_blue)
-	
 		0.upto(n-1) do|x| 
 			0.upto(n-1) {|y| 
 				if plateau.getColorNum(x,y) == - 1 

@@ -4,6 +4,7 @@
 class Graphique
 
 	def Graphique.afficher(fenetre, langue)
+		
 		vbox = Gtk::VBox.new(false,10)
 
 		boutonRetour = Gtk::Button.new(langue.retour)

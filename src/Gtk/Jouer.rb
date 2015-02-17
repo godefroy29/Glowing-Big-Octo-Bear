@@ -7,20 +7,31 @@ class Jouer
 
 	def Jouer.afficher(fenetre, langue)
 		boutonRetour = Gtk::Button.new(langue.retour)
+		boutonReset = Gtk::Button.new('reset')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
 
 		fichier = File.open(PATH_GRI, "r")
-#00_________1____0___11_______0_0_1__;001011010011110100001101110010101100
-		@plateau = Plateau.new("00101101001111010000110111001010_100","001011010011110100001101110010101100");
-		@plateauGtk = PlateauGtk.creer(vbox,@plateau,6)
+#_____01______00______11__1_____0______0_1_____1_00___0___1__0_01_______0__________1____0___0_____1_______0__0_0____0__1______01_1_11___0________;
+#110110100100100101010110011001101001110110010010001010101101010101011010101100110010001011001101110010011001010101100110001010101011101001010101
+		stringDebut = "_____01______00______11__1_____0______0_1_____1_00___0___1__0_01_______0__________1____0___0_____1_______0__0_0____0__1______01_1_11___0________"
+		stringFin = "110110100100100101010110011001101001110110010010001010101101010101011010101100110010001011001101110010011001010101100110001010101011101001010101"
+		len = Math.sqrt(stringFin.length).to_i
+		@plateau = Plateau.new(stringDebut,stringFin);
+		@plateauGtk = PlateauGtk.creer(vbox,@plateau,len)
 		
 		boutonRetour.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
 		}
 
-		boutonTestGrille.signal_connect('clicked'){ #a voir avec la fonction dans plateau.rb
+		boutonReset.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			Jouer.afficher(fenetre, langue)
+		}
+
+
+		boutonTestGrille.signal_connect('clicked'){
 			if(@plateau.testGrille)
 				fenetre.remove(vbox)
 				Credits.afficher(fenetre, langue)
@@ -30,6 +41,7 @@ class Jouer
 		vbox.add(@plateauGtk.table)
 
 		vbox.add(boutonTestGrille)
+		vbox.add(boutonReset)
 		vbox.add(boutonRetour)
 		
 		fenetre.add(vbox)

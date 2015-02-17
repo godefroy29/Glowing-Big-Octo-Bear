@@ -5,13 +5,12 @@
 # Version 0.1 : Date : Wed Jan 21 13:47:35 CET 2015
 #
 
-
 class Menu
 
 	def Menu.afficher(fenetre, langue)
 
-		padding = 40
-		
+		padding = 20
+
 		boutonJouer = Gtk::Button.new(langue.jouer)	
 		boutonTutoriel = Gtk::Button.new(langue.tutoriel)
 		boutonOptions = Gtk::Button.new(langue.options)
@@ -55,5 +54,5 @@ class Menu
 		fenetre.add(vbox)
 		fenetre.show_all
 	end
-	
+
 end # Marqueur de fin de classe
