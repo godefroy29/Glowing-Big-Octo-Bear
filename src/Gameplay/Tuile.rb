@@ -39,7 +39,12 @@ class TuileJouable < Tuile
 	def changerEnVide
 		@couleur=-1
 	end
-
+	
+	#Change la couleur de la tuile vers la couleur specifiee
+	def changerVers(couleur)
+		@couleur=couleur
+	end
+	
 	#Change la couleur en couleur suivante R->B->V->R
 	def changerEnSuivant #-1=>1=>0>-1
 		@couleur=@couleur%3-1
