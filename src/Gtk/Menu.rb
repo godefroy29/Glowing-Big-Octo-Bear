@@ -53,6 +53,7 @@ class Menu
 
 		fenetre.add(vbox)
 		fenetre.show_all
+		fenetre.reshow_with_initial_size
 	end
 
 end # Marqueur de fin de classe
