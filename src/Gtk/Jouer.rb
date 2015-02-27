@@ -8,6 +8,7 @@ class Jouer
 	def Jouer.afficher(fenetre, langue)
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonReset = Gtk::Button.new('reset')
+		boutonUndo = Gtk::Button.new('undo')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
 
@@ -23,6 +24,10 @@ class Jouer
 		boutonRetour.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
+		}
+		
+		boutonUndo.signal_connect('clicked'){
+			@plateau.undo
 		}
 
 		boutonReset.signal_connect('clicked'){
@@ -41,6 +46,7 @@ class Jouer
 		vbox.add(@plateauGtk.table)
 
 		vbox.add(boutonTestGrille)
+		vbox.add(boutonUndo)
 		vbox.add(boutonReset)
 		vbox.add(boutonRetour)
 		

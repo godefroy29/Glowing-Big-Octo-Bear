@@ -11,8 +11,10 @@ class Plateau
 	@@CouleurRouge=1
 
 	@n
+	@memstack
 
 	def initialize(s_tab, grilleSolution)#s_tab et solution sont des chaines de caracteres
+	@memstack = Array.new
 		@n = Math.sqrt(s_tab.length).to_i
 		@plateauJoueur=Array.new(@n) { |i| Array.new(@n)}
 		@plateauSolution=Array.new(@n) { |i| Array.new(@n)}
@@ -41,22 +43,30 @@ class Plateau
 # Etat #
 ###############################################
 	def etatSuivant(x,y)
+		@memstack.push(Mouvement.enreg(x,y,@plateauJoueur[x][y].couleur))
 		@plateauJoueur[x][y].changerEnSuivant
 		#valeurs possibles -1,0,1
 	end
 
 	def etatBleu(x,y)
+		@memstack.push(Mouvement.enreg(x,y,@plateauJoueur[x][y].couleur))
 		@plateauJoueur[x][y].changerEnBleu
 	end
 
 	def etatRouge(x,y)
+		@memstack.push(Mouvement.enreg(x,y,@plateauJoueur[x][y].couleur))
 		@plateauJoueur[x][y].changerEnRouge
 	end
 
 	def etatVide(x,y)
+		@memstack.push(Mouvement.enreg(x,y,@plateauJoueur[x][y].couleur))
 		@plateauJoueur[x][y].changerEnVide
 	end
-
+	
+	def undo
+		u=@memstack.pop
+		@plateauJoueur[u.x][u.y].changerVers(u.etatPrecedent)		
+	end
 
 ###############################################
 # Test sur grille #
