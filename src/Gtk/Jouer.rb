@@ -18,7 +18,7 @@ class Jouer
 		stringDebut = "_____01______00______11__1_____0______0_1_____1_00___0___1__0_01_______0__________1____0___0_____1_______0__0_0____0__1______01_1_11___0________"
 		stringFin = "110110100100100101010110011001101001110110010010001010101101010101011010101100110010001011001101110010011001010101100110001010101011101001010101"
 		len = Math.sqrt(stringFin.length).to_i
-		@plateau = Plateau.new(stringDebut,stringFin);
+		@plateau = Plateau.new(stringDebut,stringFin)
 		@plateauGtk = PlateauGtk.creer(vbox,@plateau,len)
 		
 		boutonRetour.signal_connect('clicked'){
@@ -27,7 +27,10 @@ class Jouer
 		}
 		
 		boutonUndo.signal_connect('clicked'){
-			@plateau.undo
+			mouv=@plateau.undo
+			if mouv 
+				@plateauGtk.changerImgBouton(mouv.x,mouv.y,mouv.etatPrecedent)
+			end
 		}
 
 		boutonReset.signal_connect('clicked'){
