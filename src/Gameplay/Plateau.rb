@@ -24,6 +24,7 @@ class Plateau
 					@plateauJoueur[x][y]=TuileJouable.new
 				elsif s_tab[x+y*@n]=="0"
 					@plateauJoueur[x][y]=Tuile.new(0)
+					
 				elsif s_tab[x+y*@n]=="1"
 					@plateauJoueur[x][y]=Tuile.new(1)
 				end
@@ -64,8 +65,12 @@ class Plateau
 	end
 	
 	def undo
-		u=@memstack.pop
-		@plateauJoueur[u.x][u.y].changerVers(u.etatPrecedent)		
+		if !@memstack.empty?
+			u=@memstack.pop
+			@plateauJoueur[u.x][u.y].changerVers(u.etatPrecedent)
+			return u
+		end
+		return false
 	end
 
 ###############################################
