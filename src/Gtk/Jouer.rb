@@ -8,6 +8,7 @@ class Jouer
 	def Jouer.afficher(fenetre, langue)
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonReset = Gtk::Button.new('reset')
+		boutonRedo = Gtk::Button.new('redo')
 		boutonUndo = Gtk::Button.new('undo')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
@@ -32,6 +33,13 @@ class Jouer
 				@plateauGtk.changerImgBouton(mouv.x,mouv.y,mouv.etatPrecedent)
 			end
 		}
+		
+		boutonRedo.signal_connect('clicked'){
+			mouv=@plateau.unundo
+			if mouv 
+				@plateauGtk.changerImgBouton(mouv.x,mouv.y,mouv.etatPrecedent)
+			end
+		}
 
 		boutonReset.signal_connect('clicked'){
 			fenetre.remove(vbox)
@@ -50,6 +58,7 @@ class Jouer
 
 		vbox.add(boutonTestGrille)
 		vbox.add(boutonUndo)
+		vbox.add(boutonRedo)
 		vbox.add(boutonReset)
 		vbox.add(boutonRetour)
 		
