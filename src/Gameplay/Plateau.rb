@@ -13,10 +13,15 @@ class Plateau
 	@n
 	@memStack
 	@undoStack
+	
+	@boutonUndo
+	@boutonRedo
 
-	def initialize(s_tab, grilleSolution)#s_tab et solution sont des chaines de caracteres
+	def initialize(s_tab, grilleSolution,undoB,redoB)#s_tab et solution sont des chaines de caracteres
 		@memStack = Array.new
 		@undoStack = Array.new
+		@boutonUndo = undoB
+		@boutonRedo = redoB
 		@n = Math.sqrt(s_tab.length).to_i
 		@plateauJoueur=Array.new(@n) { |i| Array.new(@n)}
 		@plateauSolution=Array.new(@n) { |i| Array.new(@n)}
@@ -47,6 +52,8 @@ class Plateau
 ###############################################
 	def etatSuivant(x,y)
 		@memStack.push(Mouvement.enreg(x,y,@plateauJoueur[x][y].couleur))
+		@boutonUndo.set_sensitive(true)
+		@boutonRedo.set_sensitive(false)
 		@plateauJoueur[x][y].changerEnSuivant
 		@undoStack.clear
 		#valeurs possibles -1,0,1
@@ -54,30 +61,38 @@ class Plateau
 
 	def etatBleu(x,y)
 		@memStack.push(Mouvement.enreg(x,y,@plateauJoueur[x][y].couleur))
+		@boutonUndo.set_sensitive(true)
+		@boutonRedo.set_sensitive(false)
 		@plateauJoueur[x][y].changerEnBleu
 		@undoStack.clear
 	end
 
 	def etatRouge(x,y)
 		@memStack.push(Mouvement.enreg(x,y,@plateauJoueur[x][y].couleur))
+		@boutonUndo.set_sensitive(true)
+		@boutonRedo.set_sensitive(false)
 		@plateauJoueur[x][y].changerEnRouge
 		@undoStack.clear
 	end
 
 	def etatVide(x,y)
 		@memStack.push(Mouvement.enreg(x,y,@plateauJoueur[x][y].couleur))
+		@boutonUndo.set_sensitive(true)
+		@boutonRedo.set_sensitive(false)
 		@plateauJoueur[x][y].changerEnVide
 		@undoStack.clear
 	end
 	
 	def undo
-		if !@memStack.empty?
+
 			u=@memStack.pop
 			@undoStack.push(Mouvement.enreg(u.x,u.y,@plateauJoueur[u.x][u.y].couleur))
 			@plateauJoueur[u.x][u.y].changerVers(u.etatPrecedent)
+			if @memStack.empty?
+				u.raiseFlag
+			end
 			return u
-		end
-		return false
+	
 	end
 	
 	def unundo
@@ -85,6 +100,9 @@ class Plateau
 			u=@undoStack.pop
 			@memStack.push(Mouvement.enreg(u.x,u.y,@plateauJoueur[u.x][u.y].couleur))
 			@plateauJoueur[u.x][u.y].changerVers(u.etatPrecedent)
+			if @undoStack.empty?
+				u.raiseFlag
+			end
 			return u
 		end
 		return false
