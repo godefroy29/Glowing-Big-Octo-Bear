@@ -8,9 +8,10 @@ class ModelGrille
 
 		ary = $database.execute "SELECT * FROM Grille WHERE difficulte = #{difficulte} AND taille = #{taille} ORDER BY RANDOM() LIMIT 1"
 
-		if ary.isEmpty?
+		if ary.empty?
 			return nil
 		end
+
 
 		grille = Grille.new(
 	    	ary[0]["id_grille"],
@@ -30,7 +31,7 @@ class ModelGrille
 
 		ary = $database.execute "SELECT * FROM Grille WHERE id_grille = #{id}"
 
-		if ary.isEmpty?
+		if ary.empty?
 			return nil
 		end
 

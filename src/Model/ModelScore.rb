@@ -48,7 +48,7 @@ class ModelScore
 
 		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur}"
 
-		if ary.isEmpty?
+		if ary.empty?
 			return nil
 		end
 
@@ -74,7 +74,7 @@ class ModelScore
 
 		ary = $database.execute "SELECT * FROM Score WHERE mode = #{mode}"
 
-		if ary.isEmpty?
+		if ary.empty?
 			return nil
 		end
 
@@ -100,7 +100,7 @@ class ModelScore
 
 		ary = $database.execute "SELECT * FROM Score WHERE id_grille = #{grille}"
 
-		if ary.isEmpty?
+		if ary.empty?
 			return nil
 		end
 

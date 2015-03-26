@@ -7,7 +7,7 @@ class ModelJoueur
 
 		ary = $database.execute "SELECT * FROM Joueur WHERE id_joueur = #{id}"
 
-		if ary.isEmpty?
+		if ary.empty?
 			return nil
 		end
 
@@ -28,7 +28,7 @@ class ModelJoueur
 
 		ary = $database.execute "SELECT * FROM Joueur WHERE pseudo = #{username}"
 
-		if ary.isEmpty?
+		if ary.empty?
 			return nil
 		end
 
