@@ -3,6 +3,7 @@
 class PlateauGtk
 
 	attr_reader :table
+	@widgetArray
 
 	def PlateauGtk.creer(fenetre,plateau,n)
 		new(fenetre,plateau,n)
@@ -10,7 +11,7 @@ class PlateauGtk
 
 	def initialize(fenetre,plateau,n)
 		@table = Gtk::Table.new(n,n,true);
-
+		@btnArray = Array.new(n){ |i| Array.new(n)}
 		pix_blue = Gdk::Pixbuf.new(PATH_IMG+"blue.png",50,50)
 		pix_red = Gdk::Pixbuf.new(PATH_IMG+"red.png",50,50)
 		red = Gtk::Image.new(pix_red)
@@ -30,6 +31,7 @@ class PlateauGtk
 							btn_tmp.image = nil
 						end
 					}
+					@btnArray[x][y] = btn_tmp
 				else
 					if plateau.getColorNum(x,y) == 0
 						btn_tmp = Gtk::Button.new()
@@ -41,6 +43,16 @@ class PlateauGtk
 					@table.attach(btn_tmp,x,x+1,y,y+1)
 				end
 			}
+		end
+	end
+	
+	def changerImgBouton(x,y,couleur)
+		if couleur == 1
+			@btnArray[x][y].image = Gtk::Image.new(Gdk::Pixbuf.new(PATH_IMG+"red.png",50,50))
+		elsif couleur == 0
+			@btnArray[x][y].image = Gtk::Image.new(Gdk::Pixbuf.new(PATH_IMG+"blue.png",50,50))
+		else
+			@btnArray[x][y].image = nil
 		end
 	end
 end
