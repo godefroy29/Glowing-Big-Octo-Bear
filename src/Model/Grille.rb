@@ -1,10 +1,10 @@
 class Grille
 
-	@id
-	@taille
-	@difficulte
-	@base
-	@solution
+	attr_reader :id
+	attr_reader :taille
+	attr_reader :difficulte
+	attr_reader :base
+	attr_reader :solution
 
 	def initialize(id,taille,difficulte,base,solution)
 		@id			=	id

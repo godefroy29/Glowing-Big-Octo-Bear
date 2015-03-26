@@ -7,6 +7,10 @@ class ModelJoueur
 
 		ary = $database.execute "SELECT * FROM Joueur WHERE id_joueur = #{id}"
 
+		if ary.isEmpty?
+			return nil
+		end
+
 		joueur = Joueur.new(
 	    	ary[0]["id_joueur"],
 	    	ary[0]['pseudo'],
@@ -24,6 +28,10 @@ class ModelJoueur
 
 		ary = $database.execute "SELECT * FROM Joueur WHERE pseudo = #{username}"
 
+		if ary.isEmpty?
+			return nil
+		end
+
 		joueur = Joueur.new(
 	    	ary[0]["id_joueur"],
 	    	ary[0]['pseudo'],
@@ -34,10 +42,20 @@ class ModelJoueur
 
 	end
 
+	##
+	#return nil si username déjà utilisé
 	def ModelJoueur.createJoueur(username,password)
 		default = "default.png"
-		$database.execute "INSERT INTO Joueur(pseudo,password,avatar) VALUES ('#{username}','#{password}','#{default}')"
-		return nil
+
+		joueur = ModelJoueur.getJoueurByUsername
+		if joueur == nil
+			$database.execute "INSERT INTO Joueur(pseudo,password,avatar) VALUES ('#{username}','#{password}','#{default}')"
+			return ModelJoueur.getJoueurByUsername(username)
+		else
+			return nil
+		end
+
+		
 	end
 
 

@@ -1,9 +1,9 @@
 class Joueur
 
-	@id
-	@pseudo
-	@password
-	@avatar
+	attr_reader :id
+	attr_reader :pseudo
+	attr_reader :password
+	attr_reader :avatar
 
 	def initialize(id,pseudo,password,avatar)
 		@id			=	id

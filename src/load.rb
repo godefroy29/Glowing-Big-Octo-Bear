@@ -25,6 +25,9 @@ load "./Model/Grille.rb"
 load "./Model/ModelGrille.rb"
 load "./Model/Joueur.rb"
 load "./Model/ModelJoueur.rb"
+load "./Model/Score.rb"
+load "./Model/ModelScore.rb"
+
 
 #==FOR DEV
 
