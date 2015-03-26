@@ -15,7 +15,7 @@ class Jouer
 		boutonUndo = Gtk::Button.new('Undo')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
-		labelTimer = Gtk::Label.new('Timer : '+'0.0')
+		labelTimer = Gtk::Label.new('Timer : '+'0')
 
 
 		grille = ModelGrille.getRandomGrille(1,6)
@@ -55,6 +55,7 @@ class Jouer
 
 		boutonReset.signal_connect('clicked'){
 			fenetre.remove(vbox)
+			@timeDebut = Time.now
 			Jouer.afficher(fenetre, langue)
 		}
 
