@@ -4,6 +4,9 @@ class Jouer
 
 	@plateau
 	@plateauGtk
+	@timeDebut = Time.now
+	@timeFinal
+
 
 	def Jouer.afficher(fenetre, langue)
 		boutonRetour = Gtk::Button.new(langue.retour)
@@ -12,6 +15,7 @@ class Jouer
 		boutonUndo = Gtk::Button.new('Undo')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
+		labelTimer = Gtk::Label.new('Timer : '+'0.0')
 
 
 		grille = ModelGrille.getRandomGrille(1,6)
@@ -69,12 +73,18 @@ class Jouer
 		vbox.add(boutonRedo)
 		vbox.add(boutonReset)
 		vbox.add(boutonRetour)
+		vbox.add(labelTimer)
 		
 		fenetre.add(vbox)
 		fenetre.show_all
+
+		t1 = Thread.new do
+			while (!@plateau.testGrille)
+				sleep 0.01
+				labelTimer.label=('Timer : '+ (Time.now-@timeDebut).to_i.to_s)
+			end
+			@timeFinal = (Time.now-@timeDebut)
+		end
+
 	end
-
-	
-
-
 end
