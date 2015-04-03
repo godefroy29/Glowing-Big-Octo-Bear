@@ -18,6 +18,7 @@ load "./Gtk/Options_score.rb"
 
 
 load "./Gameplay/Plateau.rb"
+load "./Gameplay/Hypothese.rb"
 load "./Gameplay/Tuile.rb"
 load "./Gameplay/Mouvement.rb"
 

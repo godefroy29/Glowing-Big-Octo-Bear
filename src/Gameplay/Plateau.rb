@@ -13,6 +13,7 @@ class Plateau
 	@n
 	@memStack
 	@undoStack
+	@hypothese
 	
 	@boutonUndo
 	@boutonRedo
@@ -92,20 +93,31 @@ class Plateau
 				u.raiseFlag
 			end
 			return u
-	
 	end
 	
 	def unundo
-		if !@undoStack.empty?
-			u=@undoStack.pop
-			@memStack.push(Mouvement.enreg(u.x,u.y,@plateauJoueur[u.x][u.y].couleur))
-			@plateauJoueur[u.x][u.y].changerVers(u.etatPrecedent)
-			if @undoStack.empty?
-				u.raiseFlag
-			end
-			return u
+		u=@undoStack.pop
+		@memStack.push(Mouvement.enreg(u.x,u.y,@plateauJoueur[u.x][u.y].couleur))
+		@plateauJoueur[u.x][u.y].changerVers(u.etatPrecedent)
+		if @undoStack.empty?
+			u.raiseFlag
 		end
-		return false
+		return u
+		
+	end
+	
+	
+	def commencerHypothese
+		@hypothese = @plateauJoueur
+	end
+	
+	
+	def annulerHypothese
+		0.upto(n-1) do|x| 
+			0.upto(n-1) {|y| 
+				@btnArray[x][y].image = @hypotheseArray[x][y]
+			}
+		end
 	end
 
 ###############################################
