@@ -8,6 +8,8 @@ class GenerateJoueur
 		password VARCHAR(255),
 		avatar VARCHAR(255));")
 
+	$database.execute("INSERT INTO Joueur(id_joueur,pseudo,password,avatar) VALUES (0,'anon','','#{$default_avatar}') ")
+
 	end
 
 end
