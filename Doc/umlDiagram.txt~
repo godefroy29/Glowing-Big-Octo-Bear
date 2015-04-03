@@ -1,0 +1,15 @@
+http://yuml.me/diagram/scruffy/class/draw
+
+-> ----------->
+<> <>--------->
+++ <rempli>--->
+
+
+%2F%2FClass Diagram, , [Mouvement|x:int;y:int;etatPrecedent:int|initialize(int int int):void;getX():int;getY():int;getEtatPrecedent():int;Mouvement.enreg(int int int):Mouvement]<   memstack 0..*-++[Plateau|CouleurVide:-1;CouleurBleu:0;CouleurRouge:1;n:int;plateauJoueur:Array;plateauSolution:Array|initialize(String String):void;etatSuivant(int int):void;etatBleu(int int):void;etatRouge(int int):void;etatVide(int int):void;undo():Mouvement;testGrille():boolean;getColorStr(int int):String;getColorNum(int int):int;affichagePlateauJoueur():void],
+[Tuile|couleur:int|initialize(int):void;getCouleur():int;setCouleur(int):void],
+[Tuile]^[TuileJouable||initialize():void;chengerEnRouge():void;chagerEnBleu():void;changerEnVide():void;changeVers(int);ChangerEnSuivant():void],
+[Plateau]-[Tuile],[Takuzu||Takuzu.launch():void]-[Langue|menu:String;jouer:String;tutoriel:String;options:String;score:String;credits:String;quitter:String;retour:String;texte:String;o_graphique:String;o_lang:String;o_profil:String;o_score:String|new(String):void;initialize(String):void],
+[Takuzu]-[Menu||Menu.afficher(GTK::Window Langue)],
+[Menu]-[Jouer||Jouer.afficher(GTK::Window Langue)],
+[Jouer]-plateau>[Plateau],
+[Jouer]-plateauGtk>[PlateauGtk|table:GTK::Table|PlateauGtk.creer(GTK::Window Langue);initialize(GTK::Window Langue);changerImgBouton(int int int) : void]
