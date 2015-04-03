@@ -48,5 +48,9 @@ PATH_DATABASE = PATH_RSRC + "data.sqlite"
 
 #GLOBAL
 
+$default_avatar = "default.png"
+
 $database = SQLite3::Database.open(PATH_DATABASE)
 $database.results_as_hash = true;
+
+$joueur =  ModelJoueur.getAnon

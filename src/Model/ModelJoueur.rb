@@ -12,7 +12,7 @@ class ModelJoueur
 		end
 
 		joueur = Joueur.new(
-	    	ary[0]["id_joueur"],
+	    	ary[0]["id_joueur"], 
 	    	ary[0]['pseudo'],
 	    	ary[0]['password'],
 	    	ary[0]['avatar'])
@@ -26,7 +26,7 @@ class ModelJoueur
 	def ModelJoueur.getJoueurByUsername(username)
 
 
-		ary = $database.execute "SELECT * FROM Joueur WHERE pseudo = #{username}"
+		ary = $database.execute "SELECT * FROM Joueur WHERE pseudo = '#{username}'"
 
 		if ary.empty?
 			return nil
@@ -45,11 +45,9 @@ class ModelJoueur
 	##
 	#return nil si username déjà utilisé
 	def ModelJoueur.createJoueur(username,password)
-		default = "default.png"
-
-		joueur = ModelJoueur.getJoueurByUsername
+		joueur = ModelJoueur.getJoueurByUsername(username)
 		if joueur == nil
-			$database.execute "INSERT INTO Joueur(pseudo,password,avatar) VALUES ('#{username}','#{password}','#{default}')"
+			$database.execute "INSERT INTO Joueur(pseudo,password,avatar) VALUES ('#{username}','#{password}','#{$default_avatar}')"
 			return ModelJoueur.getJoueurByUsername(username)
 		else
 			return nil
@@ -58,6 +56,13 @@ class ModelJoueur
 		
 	end
 
+	def ModelJoueur.getAnon
+		ModelJoueur.getJoueurById(0)
+	end
+
+	def ModelJoueur.testAnon(j)
+		return(j.id ==0)
+	end
 
 
 
