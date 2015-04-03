@@ -23,7 +23,7 @@ class Jouer
 		else
 			grille = ModelGrille.getRandomGrille(1,6)
 		end
-		
+
 		stringDebut = grille.base
 		stringFin = grille.solution
 		len = Math.sqrt(stringFin.length).to_i
@@ -42,6 +42,7 @@ class Jouer
 			@timeFinal = (Time.now-@timeDebut)
 			fenetre.remove(vbox)
 			Credits.afficher(fenetre, langue)
+			#enregistrer score dans bdd
 		end
 		
 		boutonRetour.signal_connect('clicked'){
