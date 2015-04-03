@@ -2,7 +2,7 @@
 FP10
 Profil du joueur
 ------------------------------------
-FS11 - 100%
+FS11
 Créer un profil de jeu
 
 FS12
@@ -27,7 +27,7 @@ Lancer le jeu
 FS21
 Lancer une partie
 
-FS22 - 100%
+FS22
 Partie rapide
 
 FS23
@@ -40,10 +40,10 @@ Fonctions basiques
 FS31 - 100%
 Changer la couleur d'une tuile
 
-FS32 - 100%
+FS32
 Undo
 
-FS33 - 100%
+FS33
 Redo
 
 FS34
