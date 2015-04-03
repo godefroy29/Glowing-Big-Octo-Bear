@@ -132,6 +132,7 @@ class Plateau
 		return "vide"
 	end
 
+
 	def getColorNum(x,y)
 		@plateauJoueur[x][y].couleur
 	end
@@ -142,5 +143,15 @@ class Plateau
 				print "#{@plateauJoueur[x][y]} => #{getColorStr(x,y)}"
 			end
 		end
+	end
+
+	def plateauJoueurToS
+		str = ""
+		0.upto (@n-1) do |y|	
+			0.upto (@n-1) do |x|
+				str + getColorNum(x,y).to_s
+			end
+		end
+		return str
 	end
 end
