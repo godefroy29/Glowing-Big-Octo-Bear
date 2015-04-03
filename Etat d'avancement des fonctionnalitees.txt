@@ -1,0 +1,125 @@
+------------------------------------
+FP10
+Profil du joueur
+------------------------------------
+FS11 - 100%
+Créer un profil de jeu
+
+FS12
+Sélectionner un profil de jeu 
+
+FS13
+Jouer au tutoriel
+
+FS14
+Consulter le profil du joueur actuel
+
+FS15
+Sauvegarder un profil
+
+FS16
+Supprimer un profil
+
+------------------------------------
+FP20
+Lancer le jeu
+------------------------------------
+FS21
+Lancer une partie
+
+FS22 - 100%
+Partie rapide
+
+FS23
+Choisir son mode de jeu
+
+------------------------------------
+FP30 
+Fonctions basiques
+------------------------------------
+FS31 - 100%
+Changer la couleur d'une tuile
+
+FS32 - 100%
+Undo
+
+FS33 - 100%
+Redo
+
+FS34
+Placer une hypothèse de jeu
+
+FS35
+Revenir sur une hypothèse de jeu
+
+FS36
+Valider une hypothèse de jeu
+
+FS37
+Calcul du score 
+
+FS38
+Affichage du score
+
+------------------------------------
+FP40
+Arrêt de jeu
+------------------------------------
+FS41
+Mettre en pause / reprendre une partie
+
+FS42
+Sauvegarder une partie
+
+FS43
+Abandonner une partie
+
+FS44
+Terminer une partie
+
+------------------------------------
+FP50
+Indices / Astuces
+------------------------------------
+FS51
+Pouvoir consulter les règles du jeu en cours de partie
+
+FS52
+Utiliser l'aide indice
+
+FS53
+Utiliser l'aide placement de tuiles
+
+FS54
+Faire un test de la grille
+
+------------------------------------
+FP60
+Options de jeu
+------------------------------------
+FS61
+Changer la couleur des tuiles
+
+FS62
+Changer le thème du jeu
+
+------------------------------------
+FP70
+Fonctions annexes
+------------------------------------
+FS71
+Ouvrir le tableau des scores
+
+FS72
+Trier les scores
+
+FS73 - 100%
+Afficher les crédits
+
+FS74 - 100%
+Quitter le jeu
+
+------------------------------------
+------------------------------------
+FO1 - 100%
+Changer la langue
