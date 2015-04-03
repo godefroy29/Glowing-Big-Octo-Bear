@@ -15,6 +15,7 @@ class Jouer
 		boutonUndo = Gtk::Button.new('Undo')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
+		hbox = Gtk::HBox.new(false,0)
 		labelTimer = Gtk::Label.new('Timer : '+'0')
 
 
@@ -37,9 +38,8 @@ class Jouer
 			mouv=@plateau.undo
 			if mouv.flag
 				boutonUndo.set_sensitive(false)
-			else
-				boutonRedo.set_sensitive(true)
 			end
+			boutonRedo.set_sensitive(true)
 			@plateauGtk.changerImgBouton(mouv.x,mouv.y,mouv.etatPrecedent)
 		}
 		
@@ -47,9 +47,8 @@ class Jouer
 			mouv=@plateau.unundo
 			if mouv.flag
 				boutonRedo.set_sensitive(false)
-			else
-				boutonUndo.set_sensitive(true)
 			end
+			boutonUndo.set_sensitive(true)
 			@plateauGtk.changerImgBouton(mouv.x,mouv.y,mouv.etatPrecedent)
 		}
 
@@ -70,8 +69,9 @@ class Jouer
 		vbox.add(@plateauGtk.table)
 
 		vbox.add(boutonTestGrille)
-		vbox.add(boutonUndo)
-		vbox.add(boutonRedo)
+		hbox.add(boutonUndo)
+		hbox.add(boutonRedo)
+		vbox.add(hbox)
 		vbox.add(boutonReset)
 		vbox.add(boutonRetour)
 		vbox.add(labelTimer)
