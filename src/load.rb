@@ -13,12 +13,13 @@ load "./Gtk/Options_graphiques.rb"
 load "./Gtk/Options_profil.rb"
 load "./Gtk/Options_langue.rb"
 load "./Gtk/Options_score.rb"
+load "./Gtk/ModeDeJeu.rb"
+load "./Gtk/FinPartie.rb"
 
 
 
 
 load "./Gameplay/Plateau.rb"
-load "./Gameplay/Hypothese.rb"
 load "./Gameplay/Tuile.rb"
 load "./Gameplay/Mouvement.rb"
 
