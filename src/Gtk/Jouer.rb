@@ -59,13 +59,13 @@ class Jouer
 				@hypothese=false
 				boutonHypo.set_label('Débuter hypothese')
 				@plateau.annulerHypothese
-				#@plateauGtk.annulerHypothese
+				@plateauGtk.annulerHypothese
 				
 			else
 				@hypothese=true
 				boutonHypo.set_label('Abandonner hypothese')
 				@plateau.debuterHypothese
-				#@plateauGtk.debuterHypothese
+				@plateauGtk.debuterHypothese
 			end
 		}
 		

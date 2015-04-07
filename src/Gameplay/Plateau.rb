@@ -109,20 +109,18 @@ class Plateau
 	
 	
 	def debuterHypothese
-		p @hypothese[0][0]
 		0.upto(@n-1) do|x| 
 			0.upto(@n-1) {|y| 
-				@hypothese[x][y] = @plateauJoueur[x][y]
+				@hypothese[x][y] = @plateauJoueur[x][y].couleur
 			}
 		end
 	end
 	
 	
 	def annulerHypothese
-		p @hypothese[0][0]
 		0.upto(@n-1) do|x| 
 			0.upto(@n-1) {|y| 
-				@plateauJoueur[x][y] = @hypothese[x][y]
+				@plateauJoueur[x][y].changerVers(@hypothese[x][y])
 			}
 		end
 	end
