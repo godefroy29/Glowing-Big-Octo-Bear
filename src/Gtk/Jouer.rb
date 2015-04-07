@@ -57,15 +57,15 @@ class Jouer
 		boutonHypo.signal_connect('clicked'){
 			if @hypothese 
 				@hypothese=false
-				boutonHypo.setlabel('Débuter hypothese')
-				@plateau.supprimerHypothese
-				@plateauGtk.supprimerHypothese
+				boutonHypo.set_label('Débuter hypothese')
+				@plateau.annulerHypothese
+				#@plateauGtk.annulerHypothese
 				
 			else
 				@hypothese=true
-				boutonHypo.setlabel('Abandonner hypothese')
+				boutonHypo.set_label('Abandonner hypothese')
 				@plateau.debuterHypothese
-				@plateauGtk.debuterHypothese
+				#@plateauGtk.debuterHypothese
 			end
 		}
 		
@@ -104,10 +104,10 @@ class Jouer
 
 		vbox.add(@plateauGtk.table)
 
-		vbox.add(boutonTestGrille)
 		hbox.add(boutonUndo)
 		hbox.add(boutonRedo)
 		vbox.add(hbox)
+		vbox.add(boutonHypo)
 		vbox.add(boutonReset)
 		vbox.add(boutonRetour)
 		vbox.add(labelTimer)
