@@ -56,6 +56,16 @@ class ModelJoueur
 		
 	end
 
+
+	def ModelJoueur.suprJoueurById(id)
+
+
+		ary = $database.execute "DELETE FROM Joueur WHERE id_joueur = #{id}"
+
+		return nil;
+
+	end
+
 	def ModelJoueur.getAnon
 		ModelJoueur.getJoueurById(0)
 	end
