@@ -14,6 +14,11 @@ class Tuile
 	def initialize(couleur)
 		@couleur=couleur
 	end
+	
+	#Ne change pas la couleur de la tuile vers la couleur specifiee
+	def changerVers(couleur)
+		@couleur=couleur
+	end
 end # Marqueur de fin de classe
 
 #[Classe Tuile]	Permet d'instancier des Tuiles de couleur pouvant changer de couleur

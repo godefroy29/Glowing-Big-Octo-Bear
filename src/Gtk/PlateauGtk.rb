@@ -3,8 +3,12 @@
 class PlateauGtk
 
 	attr_reader :table
-	@widgetArray
-
+	@btnArray
+	@hypotheseArray
+	@bleu
+	@rouge
+	@n
+	
 	def PlateauGtk.creer(fenetre,plateau,n)
 		new(fenetre,plateau,n)
 	end
@@ -12,8 +16,11 @@ class PlateauGtk
 	def initialize(fenetre,plateau,n)
 		@table = Gtk::Table.new(n,n,true);
 		@btnArray = Array.new(n){ |i| Array.new(n)}
-		pix_blue = Gdk::Pixbuf.new(PATH_IMG+"blue.png",50,50)
-		pix_red = Gdk::Pixbuf.new(PATH_IMG+"red.png",50,50)
+		@bleu = "blue.png"
+		@rouge = "red.png"
+		@n=n
+		pix_blue = Gdk::Pixbuf.new(PATH_IMG+@bleu,50,50)
+		pix_red = Gdk::Pixbuf.new(PATH_IMG+@rouge,50,50)
 		red = Gtk::Image.new(pix_red)
 		blue = Gtk::Image.new(pix_blue)
 		0.upto(n-1) do|x| 
@@ -48,11 +55,34 @@ class PlateauGtk
 	
 	def changerImgBouton(x,y,couleur)
 		if couleur == 1
-			@btnArray[x][y].image = Gtk::Image.new(Gdk::Pixbuf.new(PATH_IMG+"red.png",50,50))
+			@btnArray[x][y].image = Gtk::Image.new(Gdk::Pixbuf.new(PATH_IMG+@rouge,50,50))
 		elsif couleur == 0
-			@btnArray[x][y].image = Gtk::Image.new(Gdk::Pixbuf.new(PATH_IMG+"blue.png",50,50))
+			@btnArray[x][y].image = Gtk::Image.new(Gdk::Pixbuf.new(PATH_IMG+@bleu,50,50))
 		else
 			@btnArray[x][y].image = nil
+		end
+	end
+	
+	def debuterHypothese
+		@hypotheseArray = Array.new(@n){ |i| Array.new(@n)}
+		0.upto(@n-1) do|x| 
+			0.upto(@n-1) {|y| 
+				if @btnArray[x][y] != nil 
+					@hypotheseArray[x][y] = @btnArray[x][y].image 
+				else
+					@hypotheseArray[x][y]='non'
+				end
+			}
+		end
+	end
+	
+	def annulerHypothese
+		0.upto(@n-1) do|x| 
+			0.upto(@n-1) {|y|
+				if @hypotheseArray[x][y] != 'non'
+					@btnArray[x][y].image = @hypotheseArray[x][y]
+				end
+			}
 		end
 	end
 end

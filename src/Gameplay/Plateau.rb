@@ -25,6 +25,7 @@ class Plateau
 		@boutonRedo = redoB
 		@n = Math.sqrt(s_tab.length).to_i
 		@plateauJoueur=Array.new(@n) { |i| Array.new(@n)}
+		@hypothese=Array.new(@n) { |i| Array.new(@n)}
 		@plateauSolution=Array.new(@n) { |i| Array.new(@n)}
 		0.upto (@n-1) do |x|
 			0.upto (@n-1) do |y|
@@ -107,15 +108,19 @@ class Plateau
 	end
 	
 	
-	def commencerHypothese
-		@hypothese = @plateauJoueur
+	def debuterHypothese
+		0.upto(@n-1) do|x| 
+			0.upto(@n-1) {|y| 
+				@hypothese[x][y] = @plateauJoueur[x][y].couleur
+			}
+		end
 	end
 	
 	
 	def annulerHypothese
-		0.upto(n-1) do|x| 
-			0.upto(n-1) {|y| 
-				@btnArray[x][y].image = @hypotheseArray[x][y]
+		0.upto(@n-1) do|x| 
+			0.upto(@n-1) {|y| 
+				@plateauJoueur[x][y].changerVers(@hypothese[x][y])
 			}
 		end
 	end

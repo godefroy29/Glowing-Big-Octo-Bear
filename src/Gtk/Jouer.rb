@@ -6,6 +6,7 @@ class Jouer
 	@plateauGtk
 	@timeDebut = Time.now
 	@timeFinal
+	
 
 
 	def Jouer.afficher(fenetre, langue, mode)
@@ -13,6 +14,7 @@ class Jouer
 		boutonReset = Gtk::Button.new('Reset')
 		boutonRedo = Gtk::Button.new('Redo')
 		boutonUndo = Gtk::Button.new('Undo')
+		boutonHypo = Gtk::Button.new('Débuter hypothese')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
 		hbox = Gtk::HBox.new(false,0)
@@ -52,6 +54,21 @@ class Jouer
 			Menu.afficher(fenetre, langue)
 		}
 
+		boutonHypo.signal_connect('clicked'){
+			if @hypothese 
+				@hypothese=false
+				boutonHypo.set_label('Débuter hypothese')
+				@plateau.annulerHypothese
+				@plateauGtk.annulerHypothese
+				
+			else
+				@hypothese=true
+				boutonHypo.set_label('Abandonner hypothese')
+				@plateau.debuterHypothese
+				@plateauGtk.debuterHypothese
+			end
+		}
+		
 		boutonUndo.signal_connect('clicked'){
 			mouv=@plateau.undo
 			if mouv.flag
@@ -86,10 +103,10 @@ class Jouer
 
 		vbox.add(@plateauGtk.table)
 
-		vbox.add(boutonTestGrille)
 		hbox.add(boutonUndo)
 		hbox.add(boutonRedo)
 		vbox.add(hbox)
+		vbox.add(boutonHypo)
 		vbox.add(boutonReset)
 		vbox.add(boutonRetour)
 		vbox.add(labelTimer)
