@@ -29,12 +29,19 @@ class Profil
 			Menu.afficher(fenetre, langue)
 		}
 
+		boutonSupprimer = Gtk::Button.new("Supprimer profil")
+		boutonSupprimer.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			Profil.supprimer(fenetre, langue)
+		}
+
 		if ModelJoueur.testAnon($joueur)
 			vbox.add(boutonConnection)
 			vbox.add(boutonNouveau)
 		else
 			vbox.add(Profil.afficherProfilJoueur)
 			vbox.add(boutonDeconnexion)
+			vbox.add(boutonSupprimer)
 
 		end
 		vbox.add(boutonRetour)
@@ -139,6 +146,53 @@ class Profil
 		fenetre.add(vbox)
 		fenetre.show_all
 	end
+
+	def Profil.supprimer(fenetre, langue)
+		vbox = Gtk::VBox.new(false,10)
+
+		boutonRetour = Gtk::Button.new(langue.retour)
+		boutonRetour.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			Menu.afficher(fenetre, langue)
+		}
+
+		label = Gtk::Label.new("Attention toute suppression est definitive !!")
+
+		vbox.add(label)
+
+
+		vb = Gtk::VBox.new(true, 6)
+
+		hb = Gtk::HBox.new(false, 6)
+		hb.pack_start(Gtk::Label.new('Entrez votre mot de passe'), false, true, 6)
+		pass = Gtk::Entry.new
+		pass.visibility = false
+		hb.pack_start(pass, true, true)
+		vb.pack_start(hb)
+
+		boutonEnvoyer = Gtk::Button.new(langue.envoyer)
+		boutonEnvoyer.signal_connect('clicked'){
+			if $joueur.password == pass.text
+				ModelJoueur.suprJoueurById($joueur.id)
+				$joueur = ModelJoueur.getAnon
+			end
+			fenetre.remove(vbox)
+			Takuzu.set_title("Takuzu Deluxe - " + $joueur.pseudo)
+			Menu.afficher(fenetre, langue)
+		}
+
+
+
+
+		vb.add(boutonEnvoyer)
+
+		vbox.add(vb)
+		vbox.add(boutonRetour)
+		fenetre.add(vbox)
+		fenetre.show_all
+	end
+
+
 
 	def Profil.afficherProfilJoueur
 		label = Gtk::Label.new("Utilisateur : "+ $joueur.pseudo)

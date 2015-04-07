@@ -103,6 +103,7 @@ class Jouer
 
 		vbox.add(@plateauGtk.table)
 
+		vbox.add(boutonTestGrille)
 		hbox.add(boutonUndo)
 		hbox.add(boutonRedo)
 		vbox.add(hbox)
