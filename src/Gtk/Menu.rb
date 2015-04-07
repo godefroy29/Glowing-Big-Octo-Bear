@@ -12,7 +12,7 @@ class Menu
 		padding = 20
 
 		boutonJouer = Gtk::Button.new(langue.jouer)
-		boutonJouerRapide = Gtk::Button.new(langue.jouer)
+		boutonModeDeJeu = Gtk::Button.new("Mode")
 		boutonTutoriel = Gtk::Button.new(langue.tutoriel)
 		boutonOptions = Gtk::Button.new(langue.options)
 		boutonScore = Gtk::Button.new(langue.score)
@@ -26,9 +26,9 @@ class Menu
 			Jouer.afficher(fenetre, langue, "jouer")
 		}
 
-		boutonJouerRapide.signal_connect('clicked'){
+		boutonModeDeJeu.signal_connect('clicked'){
 			fenetre.remove(vbox)
-			Jouer.afficher(fenetre, langue, "rapide")
+			ModeDeJeu.afficher(fenetre, langue)
 		}
 		
 		boutonOptions.signal_connect('clicked'){
@@ -51,7 +51,7 @@ class Menu
 		
 		# Ajout des boutons a la vbox
 		vbox.pack_start(boutonJouer, false, false, padding)
-		vbox.pack_start(boutonJouerRapide, false, false, padding)
+		vbox.pack_start(boutonModeDeJeu, false, false, padding)
 		vbox.pack_start(boutonTutoriel, false, false, padding)
 		vbox.pack_start(boutonOptions, false, false, padding)
 		vbox.pack_start(boutonScore, false, false, padding)

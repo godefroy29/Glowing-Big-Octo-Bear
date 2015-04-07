@@ -41,7 +41,8 @@ class Jouer
 			end
 			@timeFinal = (Time.now-@timeDebut)
 			fenetre.remove(vbox)
-			Credits.afficher(fenetre, langue)
+			FinPartie.afficher(fenetre, langue, @timeFinal)
+
 			#enregistrer score dans bdd
 		end
 		
