@@ -134,6 +134,18 @@ class Plateau
 		return true
 	end
 
+	def testCurrentGrille
+		nb_error = 0
+			0.upto (@n-1) do |y|
+				0.upto (@n-1) do |x|
+					if(@plateauJoueur[x][y].couleur != @@CouleurVide) && (@plateauJoueur[x][y].couleur != plateauSolution[x][y].couleur)
+				 	nb_error += 1
+					end
+				end
+			end
+		return nb_error
+	end
+
 	def getColorStr(x,y)
 		if @plateauJoueur[x][y].couleur == 1
 			return "rouge"

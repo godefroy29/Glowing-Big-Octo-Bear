@@ -79,10 +79,9 @@ class Jouer
 
 
 		boutonTestGrille.signal_connect('clicked'){
-			if(@plateau.testGrille)
-				fenetre.remove(vbox)
-				Credits.afficher(fenetre, langue)
-			end
+			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::INFO,Gtk::MessageDialog::BUTTONS_CLOSE,"Nombre d'erreurs : " + @plateau.testCurrentGrille.to_s)
+			md.run
+			md.destroy
 		}
 
 		vbox.add(@plateauGtk.table)

@@ -140,5 +140,11 @@ class Profil
 		fenetre.show_all
 	end
 
+	def Profil.afficherProfilJoueur
+		label = Gtk::Label.new("Utilisateur : "+ $joueur.pseudo)
+		return label
+	
+	end
+
 
 end
