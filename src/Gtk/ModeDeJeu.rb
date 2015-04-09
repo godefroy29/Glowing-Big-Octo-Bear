@@ -15,12 +15,12 @@ class ModeDeJeu
 
 		boutonJouerRapide.signal_connect('clicked'){
 			fenetre.remove(vbox)
-			Jouer.afficher(fenetre, langue, "rapide")
+			Jouer.afficher(fenetre, langue, "rapide", 0)
 		}
 		
 		boutonChrono.signal_connect('clicked'){
 			fenetre.remove(vbox)
-			Jouer.afficher(fenetre, langue, "chrono")
+			Jouer.afficher(fenetre, langue, "chrono", 0)
 		}
 
 		fenetre.signal_connect('destroy') {

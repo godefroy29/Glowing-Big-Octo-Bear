@@ -4,12 +4,14 @@ class Jouer
 
 	@plateau
 	@plateauGtk
-	@timeDebut = Time.now
+	@timeDebut 
 	@timeFinal
-	
+	@nb_indices = 0
+	@nb_undo = 0
+	@id_grille
 
 
-	def Jouer.afficher(fenetre, langue, mode)
+	def Jouer.afficher(fenetre, langue, mode, id_grille)
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonReset = Gtk::Button.new('Reset')
 		boutonRedo = Gtk::Button.new('Redo')
@@ -20,13 +22,16 @@ class Jouer
 		hbox = Gtk::HBox.new(false,0)
 		labelTimer = Gtk::Label.new('Timer : '+'0')
 
-		if mode == "rapide"
+		if (mode == "rapide" && id_grille == 0)
 			grille = ModelGrille.getGrilleById(Random.new(Time.now.sec).rand(1..7000))
-		elsif mode == "chrono"
+		elsif (mode == "chrono" && id_grille == 0)
 			grille = ModelGrille.getRandomGrille(1,6)
+		elsif (id_grille != 0)
+			grille = ModelGrille.getGrilleById(id_grille)
 		else
 			grille = ModelGrille.getRandomGrille(1,6)
 		end
+		@id_grille = grille.id
 
 		stringDebut = grille.base
 		stringFin = grille.solution
@@ -45,7 +50,7 @@ class Jouer
 			end
 			@timeFinal = (Time.now-@timeDebut)
 			fenetre.remove(vbox)
-			FinPartie.afficher(fenetre, langue, @timeFinal, mode)
+			FinPartie.afficher(fenetre, langue, @timeFinal, mode, grille, @nb_undo, @nb_indices)
 
 			#enregistrer score dans bdd
 		end
@@ -72,6 +77,7 @@ class Jouer
 		}
 		
 		boutonUndo.signal_connect('clicked'){
+			@nb_undo = @nb_undo + 1
 			mouv=@plateau.undo
 			if mouv.flag
 				boutonUndo.set_sensitive(false)
@@ -90,14 +96,16 @@ class Jouer
 		}
 
 		boutonReset.signal_connect('clicked'){
-			Thread.kill(t1)
-			fenetre.remove(vbox)
 			@timeDebut = Time.now
-			Jouer.afficher(fenetre, langue, mode)
+			@nb_indices = 0
+			@nb_undo = 0
+			fenetre.remove(vbox)
+			Jouer.afficher(fenetre, langue, mode, @id_grille)
 		}
 
 
 		boutonTestGrille.signal_connect('clicked'){
+			@nb_indices = @nb_indices + 1
 			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::INFO,Gtk::MessageDialog::BUTTONS_CLOSE,"Nombre d'erreurs : " + @plateau.testCurrentGrille.to_s)
 			md.run
 			md.destroy
@@ -117,4 +125,6 @@ class Jouer
 		fenetre.add(vbox)
 		fenetre.show_all
 	end
+
+
 end
