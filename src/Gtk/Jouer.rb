@@ -22,6 +22,8 @@ class Jouer
 
 		if mode == "rapide"
 			grille = ModelGrille.getGrilleById(Random.new(Time.now.sec).rand(1..7000))
+		elsif mode == "chrono"
+			grille = ModelGrille.getRandomGrille(1,6)
 		else
 			grille = ModelGrille.getRandomGrille(1,6)
 		end
@@ -43,7 +45,7 @@ class Jouer
 			end
 			@timeFinal = (Time.now-@timeDebut)
 			fenetre.remove(vbox)
-			FinPartie.afficher(fenetre, langue, @timeFinal)
+			FinPartie.afficher(fenetre, langue, @timeFinal, mode)
 
 			#enregistrer score dans bdd
 		end

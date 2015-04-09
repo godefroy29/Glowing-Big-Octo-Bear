@@ -20,7 +20,7 @@ class ModeDeJeu
 		
 		boutonChrono.signal_connect('clicked'){
 			fenetre.remove(vbox)
-			Credits.afficher(fenetre, langue)
+			Jouer.afficher(fenetre, langue, "chrono")
 		}
 
 		fenetre.signal_connect('destroy') {
