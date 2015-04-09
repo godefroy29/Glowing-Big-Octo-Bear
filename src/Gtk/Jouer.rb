@@ -26,8 +26,8 @@ class Jouer
 			grille = ModelGrille.getGrilleById(Random.new(Time.now.sec).rand(1..7000))
 		elsif (mode == "chrono" && id_grille == 0)
 			grille = ModelGrille.getRandomGrille(1,6)
-		elsif (id_grille != 0)
-			grille = ModelGrille.getGrilleById(id_grille)
+		elsif (id_grille < 0)
+			grille = ModelGrille.getGrilleById(id_grille*(-1))
 		else
 			grille = ModelGrille.getRandomGrille(1,6)
 		end
@@ -96,11 +96,11 @@ class Jouer
 		}
 
 		boutonReset.signal_connect('clicked'){
-			@timeDebut = Time.now
+			Thread.kill(t1)
 			@nb_indices = 0
 			@nb_undo = 0
 			fenetre.remove(vbox)
-			Jouer.afficher(fenetre, langue, mode, @id_grille)
+			Jouer.afficher(fenetre, langue, mode, @id_grille*(-1))
 		}
 
 
