@@ -5,7 +5,7 @@ Profil du joueur
 FS11 - 100%
 Créer un profil de jeu
 
-FS12
+FS12 - 100%
 Sélectionner un profil de jeu 
 
 FS13
@@ -17,20 +17,20 @@ Consulter le profil du joueur actuel
 FS15
 Sauvegarder un profil
 
-FS16
+FS16 - 100%
 Supprimer un profil
 
 ------------------------------------
 FP20
 Lancer le jeu
 ------------------------------------
-FS21
+FS21 - 100%
 Lancer une partie
 
 FS22 - 100%
 Partie rapide
 
-FS23
+FS23 - 67% (reste mode choix diff/niveau)
 Choisir son mode de jeu
 
 ------------------------------------
@@ -46,13 +46,13 @@ Undo
 FS33 - 100%
 Redo
 
-FS34
+FS34 - 90% (reste à géré la couleur)
 Placer une hypothèse de jeu
 
-FS35
+FS35 - 100%
 Revenir sur une hypothèse de jeu
 
-FS36
+FS36 - 50% (reste à changer la couleur hypothèse en couleur normale)
 Valider une hypothèse de jeu
 
 FS37
@@ -74,7 +74,7 @@ Sauvegarder une partie
 FS43
 Abandonner une partie
 
-FS44
+FS44 - 100%
 Terminer une partie
 
 ------------------------------------
@@ -90,14 +90,14 @@ Utiliser l'aide indice
 FS53
 Utiliser l'aide placement de tuiles
 
-FS54
+FS54 - 100%
 Faire un test de la grille
 
 ------------------------------------
 FP60
 Options de jeu
 ------------------------------------
-FS61
+FS61 (commit à faire)
 Changer la couleur des tuiles
 
 FS62

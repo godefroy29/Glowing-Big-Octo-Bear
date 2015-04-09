@@ -26,7 +26,7 @@ class ModelScore
 
 		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur} AND id_grille = #{grille} AND mode = #{mode} "
 
-		if ary.isEmpty?
+		if ary.empty?
 			return nil
 		end
 
@@ -126,6 +126,9 @@ class ModelScore
 		score = ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 
 		if score == nil
+			puts("Ajout")
+			puts "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause) 
+	VALUES (#{joueur}, #{grille}, #{mode}, #{chrono}, #{nb_undo}, #{nb_pause})"
 			$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause) 
 			VALUES (#{joueur},
 				#{grille},
@@ -135,12 +138,18 @@ class ModelScore
 				#{nb_pause})"
 			return score
 		else
-			if score.calculScore > Score.calculScore(chrono,nb_undo,nb_pause)
+			puts("	#{score.calculScore} >= #{Score.calculScore(chrono,nb_undo,nb_pause)}")
+			if score.calculScore >= Score.calculScore(chrono,nb_undo,nb_pause)
+				puts("Pas de modif")
 				return score
 			else
+				puts("Modif")
+				puts "UPDATE Score 
+				SET chrono = #{chrono}, nb_undo = #{nb_undo}, nb_pause = #{nb_pause} 
+				WHERE  id_score = #{score.id}"
 				$database.execute "UPDATE Score 
-				SET chrono = #{chrono} AND nb_undo = #{nb_undo} AND nb_pause = #{nb_pause} 
-				WHERE  id_joueur = #{joueur} AND id_grille = #{grille} AND mode = #{mode}"
+				SET chrono = #{chrono}, nb_undo = #{nb_undo}, nb_pause = #{nb_pause} 
+				WHERE  id_score = #{score.id}"
 				return ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 			end
 		end
