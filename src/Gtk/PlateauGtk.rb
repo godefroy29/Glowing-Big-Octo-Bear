@@ -89,4 +89,9 @@ class PlateauGtk
 			}
 		end
 	end
+	
+	def debutPause
+	
+	
+	end
 end

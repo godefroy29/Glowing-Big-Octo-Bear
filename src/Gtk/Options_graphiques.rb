@@ -10,14 +10,15 @@ class Graphique
 	@@c2
 
 	def initialize()
-		@@c1 = Gdk::Color.parse("#330066")
-		@@c2 = Gdk::Color.parse("#003366")
-		@@couleur1 = Gtk::Style.new
+		@@c1 = Gdk::Color.parse("#2222EE")
+		@@c2 = Gdk::Color.parse("#EE2222")
+		@@couleur1 = Gtk::Style.new	
 		@@couleur2 = Gtk::Style.new
 		@@couleur1.set_bg(Gtk::STATE_PRELIGHT, @@c1.red, @@c1.green, @@c1.blue)
 		@@couleur1.set_bg(Gtk::STATE_NORMAL, @@c1.red, @@c1.green, @@c1.blue)
 		@@couleur2.set_bg(Gtk::STATE_PRELIGHT, @@c2.red, @@c2.green, @@c2.blue)
 		@@couleur2.set_bg(Gtk::STATE_NORMAL, @@c2.red, @@c2.green, @@c2.blue)
+
 	end
 
 	def couleur1

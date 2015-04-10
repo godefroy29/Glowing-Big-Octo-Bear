@@ -16,6 +16,7 @@ class Jouer
 		boutonReset = Gtk::Button.new('Reset')
 		boutonRedo = Gtk::Button.new('Redo')
 		boutonUndo = Gtk::Button.new('Undo')
+		boutonPause = Gtk::Button.new('Pause')
 		boutonHypo = Gtk::Button.new('Débuter hypothese')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
@@ -94,6 +95,14 @@ class Jouer
 			boutonUndo.set_sensitive(true)
 			@plateauGtk.changerImgBouton(mouv.x,mouv.y,mouv.etatPrecedent)
 		}
+		
+		boutonPause.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_CLOSE,"  Les 3 règles du Takuzu sont les suivantes :\n_Il est interdit d'aligner plus de deux cases de la même couleur\n_Deux lignes ou colonnes ne doivent pas être identiques\n_Chaque colonne et ligne doivent comporter autant de cases des deux couleurs ")
+			md.run
+			md.destroy
+			fenetre.add(vbox)
+		}
 
 		boutonReset.signal_connect('clicked'){
 			Thread.kill(t1)
@@ -117,6 +126,7 @@ class Jouer
 		hbox.add(boutonUndo)
 		hbox.add(boutonRedo)
 		vbox.add(hbox)
+		vbox.add(boutonPause)
 		vbox.add(boutonHypo)
 		vbox.add(boutonReset)
 		vbox.add(boutonRetour)
