@@ -31,21 +31,21 @@ class PlateauGtk
 					btn_tmp.signal_connect('clicked'){
 						plateau.etatSuivant(x,y)
 						if plateau.getColorNum(x,y) == 0
-							btn_tmp.image = Gtk::Image.new(pix_blue)
+							btn_tmp.style = $optionGraphique.couleur1
 						elsif plateau.getColorNum(x,y) == 1
-							btn_tmp.image = Gtk::Image.new(pix_red)						
+							btn_tmp.style = $optionGraphique.couleur2
 						else
-							btn_tmp.image = nil
+							btn_tmp.style = nil
 						end
 					}
 					@btnArray[x][y] = btn_tmp
 				else
 					if plateau.getColorNum(x,y) == 0
 						btn_tmp = Gtk::Button.new()
-						btn_tmp.image = Gtk::Image.new(pix_blue)
+						btn_tmp.style = $optionGraphique.couleur1
 					else
 						btn_tmp = Gtk::Button.new()
-						btn_tmp.image = Gtk::Image.new(pix_red)
+						btn_tmp.style = $optionGraphique.couleur2
 					end
 					@table.attach(btn_tmp,x,x+1,y,y+1)
 				end
@@ -55,11 +55,11 @@ class PlateauGtk
 	
 	def changerImgBouton(x,y,couleur)
 		if couleur == 1
-			@btnArray[x][y].image = Gtk::Image.new(Gdk::Pixbuf.new(PATH_IMG+@rouge,50,50))
+			@btnArray[x][y].style = $optionGraphique.couleur2
 		elsif couleur == 0
-			@btnArray[x][y].image = Gtk::Image.new(Gdk::Pixbuf.new(PATH_IMG+@bleu,50,50))
+			@btnArray[x][y].style = $optionGraphique.couleur1
 		else
-			@btnArray[x][y].image = nil
+			@btnArray[x][y].style = nil
 		end
 	end
 	

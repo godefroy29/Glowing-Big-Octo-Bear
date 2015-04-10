@@ -54,5 +54,5 @@ $default_avatar = "default.png"
 
 $database = SQLite3::Database.open(PATH_DATABASE)
 $database.results_as_hash = true;
-
+$optionGraphique = Graphique.new()
 $joueur =  ModelJoueur.getAnon
