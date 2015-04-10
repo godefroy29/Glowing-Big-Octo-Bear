@@ -20,12 +20,20 @@ class Score
 
 	def calculScore
 		#TO-DO
-		return 10000 - @chrono - @nb_undo * 10 - @nb_pause * 5
+		return 1000 - @chrono - @nb_undo * 10 - @nb_pause * 5
 	end
 
 	def Score.calculScore(chrono,nb_undo,nb_pause)
 		#TO-DO
-		return 10000 - chrono - nb_undo * 10 - nb_pause * 5
+		return 1000 - chrono - nb_undo * 10 - nb_pause * 5
+	end
+
+	def Score.ajouteScoreRapide(joueur,grille,chrono,nb_undo,nb_pause)
+		ModelScore.createScore(joueur,grille,1,chrono,nb_undo,nb_pause)
+	end
+
+	def Score.ajouteScoreChrono(joueur,grille,chrono,nb_undo,nb_pause)
+		ModelScore.createScore(joueur,grille,2,chrono,nb_undo,nb_pause)
 	end
 
 	def to_s	
