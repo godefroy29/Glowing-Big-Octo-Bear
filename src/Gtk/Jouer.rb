@@ -29,7 +29,7 @@ class Jouer
 		elsif (id_grille < 0)
 			grille = ModelGrille.getGrilleById(id_grille*(-1))
 		else
-			grille = ModelGrille.getRandomGrille(1,6)
+			grille = ModelGrille.getGrilleById(id_grille)
 		end
 		@id_grille = grille.id
 

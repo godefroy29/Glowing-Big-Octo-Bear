@@ -46,7 +46,55 @@ class ModelGrille
 
 	end
 
+	##
+	#Renvoie l'objet Grille correspondant à l'id rentrée en parametre
+	def ModelGrille.getGrilleByDifficulteAndTaille(difficulte, taille)
 
+		ary = $database.execute "SELECT * FROM Grille WHERE difficulte = #{difficulte} AND taille = #{taille} ORDER BY RANDOM() LIMIT 1"
+
+		if ary.empty?
+			return nil
+		end
+
+		temp = ary[0]["id_grille"]
+
+		return temp;
+
+	end
+
+	def ModelGrille.getDifficulte()
+
+
+		ary = $database.execute "SELECT difficulte FROM Grille GROUP BY difficulte"
+
+		if ary.empty?
+			return nil
+		end
+
+		temp = Array.new()
+		ary.each{|x|
+			temp.push(x['difficulte'])
+		}
+
+		return temp;
+	end
+
+	def ModelGrille.getTaille()
+
+
+		ary = $database.execute "SELECT taille FROM Grille GROUP BY taille"
+
+		if ary.empty?
+			return nil
+		end
+
+		temp = Array.new()
+		ary.each{|x|
+			temp.push(x['taille'])
+		}
+
+		return temp;
+	end
 
 end
 
