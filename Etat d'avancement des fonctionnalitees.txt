@@ -46,7 +46,7 @@ Undo
 FS33 - 100%
 Redo
 
-FS34 - 90% (reste à géré la couleur)
+FS34 - 90% (reste à gérer la couleur)
 Placer une hypothèse de jeu
 
 FS35 - 100%
@@ -97,7 +97,7 @@ Faire un test de la grille
 FP60
 Options de jeu
 ------------------------------------
-FS61 (commit à faire)
+FS61 -100%
 Changer la couleur des tuiles
 
 FS62
