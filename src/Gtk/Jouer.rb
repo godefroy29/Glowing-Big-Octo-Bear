@@ -9,6 +9,7 @@ class Jouer
 	@nb_indices = 0
 	@nb_undo = 0
 	@id_grille
+	@hypothese
 
 
 	def Jouer.afficher(fenetre, langue, mode, id_grille)
@@ -22,6 +23,7 @@ class Jouer
 		vbox = Gtk::VBox.new(false,10)
 		hbox = Gtk::HBox.new(false,0)
 		labelTimer = Gtk::Label.new('Timer : '+'0')
+		@hypothese=false
 
 		if (mode == "rapide" && id_grille == 0)
 			grille = ModelGrille.getGrilleById(Random.new(Time.now.sec).rand(1..7000))
