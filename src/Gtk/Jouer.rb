@@ -14,6 +14,7 @@ class Jouer
 	def Jouer.afficher(fenetre, langue, mode, id_grille)
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonReset = Gtk::Button.new('Reset')
+		boutonAide = Gtk::Button.new('Aide')
 		boutonRedo = Gtk::Button.new('Redo')
 		boutonUndo = Gtk::Button.new('Undo')
 		boutonHypo = Gtk::Button.new('Débuter hypothese')
@@ -111,8 +112,13 @@ class Jouer
 			md.destroy
 		}
 
+		boutonAide.signal_connect('clicked'){
+			@plateau.aide
+		}
+
 		vbox.add(@plateauGtk.table)
 
+		vbox.add(boutonAide)
 		vbox.add(boutonTestGrille)
 		hbox.add(boutonUndo)
 		hbox.add(boutonRedo)
