@@ -15,6 +15,8 @@ class PlateauGtk
 
 	def initialize(fenetre,plateau,n)
 		@table = Gtk::Table.new(n,n,true);
+		@table.set_row_spacings(1);
+		@table.set_column_spacings(1);
 		@btnArray = Array.new(n){ |i| Array.new(n)}
 		@bleu = "blue.png"
 		@rouge = "red.png"
@@ -27,6 +29,8 @@ class PlateauGtk
 			0.upto(n-1) {|y| 
 				if plateau.getColorNum(x,y) == - 1 
 					btn_tmp = Gtk::Button.new()
+					btn_tmp.set_width_request(50);
+					btn_tmp.set_height_request(50);
 					@table.attach(btn_tmp,x,x+1,y,y+1)
 					btn_tmp.signal_connect('clicked'){
 						plateau.etatSuivant(x,y)
