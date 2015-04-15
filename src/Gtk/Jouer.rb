@@ -100,9 +100,12 @@ class Jouer
 		
 		boutonPause.signal_connect('clicked'){
 			fenetre.remove(vbox)
+			timePause = Time.now
 			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_CLOSE,"  Les 3 règles du Takuzu sont les suivantes :\n_Il est interdit d'aligner plus de deux cases de la même couleur\n_Deux lignes ou colonnes ne doivent pas être identiques\n_Chaque colonne et ligne doivent comporter autant de cases des deux couleurs ")
 			md.run
 			md.destroy
+			timePause = Time.now()-timePause
+			@timeDebut = @timeDebut +timePause
 			fenetre.add(vbox)
 		}
 
