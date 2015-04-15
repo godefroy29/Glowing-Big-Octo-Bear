@@ -191,30 +191,35 @@ class Plateau
 			when 1
 				0.upto (@n-1) do |y|	
 					0.upto (@n-2) do |x|
-						if(@plateauJoueur[x][y].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x][y].couleur == @plateauJoueur[x+1][y].couleur)
-							if x > 0 && ( @plateauJoueur[x-1][y].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur) )
-								p "#Aide X: case x:#{x-1}/y:#{y} "
+							if (@plateauJoueur[x][y].couleur != Tuile.getCouleurVide ) &&@plateauJoueur[x][y].couleur == @plateauJoueur[x+1][y].couleur
+								if x > 0 && ( @plateauJoueur[x-1][y].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur) )
+									p "#Aide X: case x:#{x-1}/y:#{y} "
+				 				end
+								if x+1 < @n-1 && ( @plateauJoueur[x+2][y].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur))
+									p "#Aide  X: case x:#{x+2}/y:#{y} "
+								end
 							end
-							if x+1 < @n-1 && ( @plateauJoueur[x+2][y].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur))
-								p "#Aide  X: case x:#{x+2}/y:#{y} "
+							if  x > 0 && x < @n &&(@plateauJoueur[x-1][y].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x-1][y].couleur == @plateauJoueur[x+1][y].couleur )
+								p "#Aide  X-2: case x:#{x}/y:#{y} "
 							end
 						end
-
 					end
 				end
 				
 				0.upto (@n-1) do |x|	
 					0.upto (@n-2) do |y|
-						if(@plateauJoueur[x][y].couleur != Tuile.getCouleurVide ) &&  (@plateauJoueur[x][y].couleur == @plateauJoueur[x][y+1].couleur)
-							if y > 0 && (@plateauJoueur[x][y-1].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur)) 
-								p "#Aide Y: case x:#{x}/y:#{y-1} "
-							end
-							if y+1 < @n-1 && ( @plateauJoueur[x][y+1].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur ))
-								p 	"#Aide Y: case x:#{x}/y:#{y+2} "
-							
-							end
-						end
-
+					
+							if (@plateauJoueur[x][y].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x][y].couleur == @plateauJoueur[x][y+1].couleur)
+								if y > 0 && (@plateauJoueur[x][y-1].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur)) 
+									p "#Aide Y: case x:#{x}/y:#{y-1} "
+								end
+								if y+1 < @n-1 && ( @plateauJoueur[x][y+1].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur ))
+									p 	"#Aide Y: case x:#{x}/y:#{y+2} "
+								
+								end
+								if  y > 0 && y < @n &&(@plateauJoueur[x][y-1].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x][y-1].couleur == @plateauJoueur[x][y+1].couleur )
+										p "#Aide  Y-2: case x:#{x}/y:#{y} "
+								end
 					end
 				end
 			end
