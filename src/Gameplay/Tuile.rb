@@ -20,6 +20,14 @@ class Tuile
 		@couleur=couleur
 	end
 
+	def isBlue
+		return couleur == 0
+	end
+
+	def isRed
+		return couleur == 1
+	end
+
 	def Tuile.oppositeColor(couleur)
 		if couleur == 1
 			return 0

@@ -186,53 +186,130 @@ class Plateau
 
 	def aide
 		select = Random.new(Time.now.sec).rand(1..3)
+		list = Array.new
 		0.upto 2 do |x|
 			case select
-			when 1
-				0.upto (@n-1) do |y|	
-					0.upto (@n-2) do |x|
-							if (@plateauJoueur[x][y].couleur != Tuile.getCouleurVide ) &&@plateauJoueur[x][y].couleur == @plateauJoueur[x+1][y].couleur
+			
+				when 1 
+					0.upto (@n-1) do |y|
+						compteurBleu = 0
+						compteurRouge = 0	
+
+						0.upto (@n-2) do |x|
+							if (@plateauJoueur[x][y].couleur != Tuile.getCouleurVide ) &&@plateauJoueur[x][y].couleur == @plateauJoueur[x+1][y].couleur #Première regle
 								if x > 0 && ( @plateauJoueur[x-1][y].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur) )
+									list.push(Aide.new(1,nil,x-1,y))
 									p "#Aide X: case x:#{x-1}/y:#{y} "
-				 				end
+					 			end
 								if x+1 < @n-1 && ( @plateauJoueur[x+2][y].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur))
+									list.push(Aide.new(1,nil,x+2,y))
 									p "#Aide  X: case x:#{x+2}/y:#{y} "
 								end
 							end
-							if  x > 0 && x < @n &&(@plateauJoueur[x-1][y].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x-1][y].couleur == @plateauJoueur[x+1][y].couleur )
+							if  x > 0 && x < @n &&(@plateauJoueur[x-1][y].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x-1][y].couleur == @plateauJoueur[x+1][y].couleur ) #Première regle
+								list.push(Aide.new(1,nil,x,y))
 								p "#Aide  X-2: case x:#{x}/y:#{y} "
+							end
+							if @plateauJoueur[x][y].isBlue 
+								compteurBleu += 1
+							elsif @plateauJoueur[x][y].isRed
+								compteurRouge += 1
+							end
+
+							#regle 2
+							if compteurBleu >= @n/2 || compteurRouge >= @n/2
+								list.push(Aide.new(2,"ligne",y,nil))
+								p "Aide Regle 2 : ligne #{y}"
+							end
+
+							#regle 3
+
+							0.upto(@n-1) do |z|
+								if z != x && testLigneContient(@plateauJoueur[x],@plateauJoueur[z])
+									list.push(Aide.new(3,"ligne",x,z))
+									p "#Aide Regle 3 : ligne #{x} et ligne :#{z} "
+								end
 							end
 						end
 					end
-				end
-				
-				0.upto (@n-1) do |x|	
-					0.upto (@n-2) do |y|
 					
-							if (@plateauJoueur[x][y].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x][y].couleur == @plateauJoueur[x][y+1].couleur)
+					0.upto (@n-1) do |x|
+						compteurBleu = 0
+						compteurRouge = 0	
+
+						0.upto (@n-2) do |y|
+						
+							if (@plateauJoueur[x][y].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x][y].couleur == @plateauJoueur[x][y+1].couleur) #Première regle
 								if y > 0 && (@plateauJoueur[x][y-1].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur)) 
+									list.push(Aide.new(1,nil,x,y-1))
 									p "#Aide Y: case x:#{x}/y:#{y-1} "
 								end
 								if y+1 < @n-1 && ( @plateauJoueur[x][y+1].couleur != Tuile.oppositeColor(@plateauJoueur[x][y].couleur ))
+									list.push(Aide.new(1,nil,x,y+2))
 									p 	"#Aide Y: case x:#{x}/y:#{y+2} "
-								
+									
 								end
-								if  y > 0 && y < @n &&(@plateauJoueur[x][y-1].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x][y-1].couleur == @plateauJoueur[x][y+1].couleur )
-										p "#Aide  Y-2: case x:#{x}/y:#{y} "
+							end
+							if  y > 0 && y < @n &&(@plateauJoueur[x][y-1].couleur != Tuile.getCouleurVide ) && (@plateauJoueur[x][y-1].couleur == @plateauJoueur[x][y+1].couleur ) #Première regle
+								list.push(Aide.new(1,nil,x,y))
+								p "#Aide  Y-2: case x:#{x}/y:#{y} "
+							end
+							if @plateauJoueur[x][y].isBlue 
+								compteurBleu += 1
+							elsif @plateauJoueur[x][y].isRed
+								compteurRouge += 1
+							end
+
+							#regle 2
+							if compteurBleu >= @n/2 || compteurRouge >= @n/2
+								list.push(Aide.new(2,"colonne",x,nil))
+								p "Aide Regle 2 : colonne #{x}"
+							end
+
+							#regle 3
+							0.upto(@n-1) do |z|
+								if z != y && testLigneContient(@plateauJoueur[y],@plateauJoueur[z])
+									list.push(Aide.new(3,"ligne",y,z))
+									p "#Aide Regle 3 : ligne #{y} et ligne :#{z} "
 								end
+							end
+							
+						end
 					end
 				end
-			end
-
-
-
-
+			
 			select += 1 
 			if select > 3 
 				select = 1
 			end
 		end
+	end
 
+	#parametre : Array
+	def testLigneContient(a,a2)
+		0.upto(a.size-1) do |x|
+			if a[x].couleur != Tuile.getCouleurVide || a[x].couleur != a2[x].couleur
+				return false
+			end
+		end
+		return true
 
 	end
+
+	
+end
+
+class Aide
+	@regle
+	@type
+	@x
+	@y
+
+	def initialize(regle,type,x,y)
+		@regle = regle
+		@type = type
+		@x = x
+		@y = y
+	end
+
 end
