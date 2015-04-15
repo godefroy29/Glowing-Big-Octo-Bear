@@ -9,6 +9,7 @@ class Jouer
 	@nb_indices = 0
 	@nb_undo = 0
 	@id_grille
+	@hypothese
 
 
 	def Jouer.afficher(fenetre, langue, mode, id_grille)
@@ -17,11 +18,13 @@ class Jouer
 		boutonAide = Gtk::Button.new('Aide')
 		boutonRedo = Gtk::Button.new('Redo')
 		boutonUndo = Gtk::Button.new('Undo')
+		boutonPause = Gtk::Button.new('Pause')
 		boutonHypo = Gtk::Button.new('Débuter hypothese')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
 		hbox = Gtk::HBox.new(false,0)
 		labelTimer = Gtk::Label.new('Timer : '+'0')
+		@hypothese=false
 
 		if (mode == "rapide" && id_grille == 0)
 			grille = ModelGrille.getGrilleById(Random.new(Time.now.sec).rand(1..7000))
@@ -30,7 +33,7 @@ class Jouer
 		elsif (id_grille < 0)
 			grille = ModelGrille.getGrilleById(id_grille*(-1))
 		else
-			grille = ModelGrille.getRandomGrille(1,6)
+			grille = ModelGrille.getGrilleById(id_grille)
 		end
 		@id_grille = grille.id
 
@@ -95,6 +98,17 @@ class Jouer
 			boutonUndo.set_sensitive(true)
 			@plateauGtk.changerImgBouton(mouv.x,mouv.y,mouv.etatPrecedent)
 		}
+		
+		boutonPause.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			timePause = Time.now
+			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_CLOSE,"  Les 3 règles du Takuzu sont les suivantes :\n_Il est interdit d'aligner plus de deux cases de la même couleur\n_Deux lignes ou colonnes ne doivent pas être identiques\n_Chaque colonne et ligne doivent comporter autant de cases des deux couleurs ")
+			md.run
+			md.destroy
+			timePause = Time.now()-timePause
+			@timeDebut = @timeDebut +timePause
+			fenetre.add(vbox)
+		}
 
 		boutonReset.signal_connect('clicked'){
 			Thread.kill(t1)
@@ -123,6 +137,7 @@ class Jouer
 		hbox.add(boutonUndo)
 		hbox.add(boutonRedo)
 		vbox.add(hbox)
+		vbox.add(boutonPause)
 		vbox.add(boutonHypo)
 		vbox.add(boutonReset)
 		vbox.add(boutonRetour)

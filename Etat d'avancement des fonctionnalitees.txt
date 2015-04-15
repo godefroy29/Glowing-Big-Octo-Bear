@@ -30,7 +30,7 @@ Lancer une partie
 FS22 - 100%
 Partie rapide
 
-FS23 - 67% (reste mode choix diff/niveau)
+FS23 - 100% 
 Choisir son mode de jeu
 
 ------------------------------------
@@ -46,7 +46,7 @@ Undo
 FS33 - 100%
 Redo
 
-FS34 - 90% (reste à géré la couleur)
+FS34 - 100% 
 Placer une hypothèse de jeu
 
 FS35 - 100%
@@ -55,23 +55,23 @@ Revenir sur une hypothèse de jeu
 FS36 - 50% (reste à changer la couleur hypothèse en couleur normale)
 Valider une hypothèse de jeu
 
-FS37
+FS37 - 90% (a actualiser avec les indices)
 Calcul du score 
 
-FS38
+FS38 - 100%
 Affichage du score
 
 ------------------------------------
 FP40
 Arrêt de jeu
 ------------------------------------
-FS41
+FS41 (en cours)
 Mettre en pause / reprendre une partie
 
 FS42
 Sauvegarder une partie
 
-FS43
+FS43 - 100%
 Abandonner une partie
 
 FS44 - 100%
@@ -81,13 +81,13 @@ Terminer une partie
 FP50
 Indices / Astuces
 ------------------------------------
-FS51
+FS51 (avec la pause)
 Pouvoir consulter les règles du jeu en cours de partie
 
-FS52
+FS52 (en cours)
 Utiliser l'aide indice
 
-FS53
+FS53 (en cours)
 Utiliser l'aide placement de tuiles
 
 FS54 - 100%
@@ -97,7 +97,7 @@ Faire un test de la grille
 FP60
 Options de jeu
 ------------------------------------
-FS61 (commit à faire)
+FS61 -100%
 Changer la couleur des tuiles
 
 FS62

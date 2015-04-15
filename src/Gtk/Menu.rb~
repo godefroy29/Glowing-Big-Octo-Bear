@@ -1,38 +1,28 @@
 # encoding: UTF-8
 
 ##
-# Auteur PHILIPPE ARMANGER
+# Auteur LOIZEAU Sylvain
 # Version 0.1 : Date : Wed Jan 21 13:47:35 CET 2015
 #
 
+class PartieRapide
 
-class Menu
+	def PartieRapide.afficher(fenetre, langue)
 
-	def Menu.afficher(fenetre, langue)
-
-		padding = 40
-		
-		boutonJouer = Gtk::Button.new(langue.jouer)	
-		boutonTutoriel = Gtk::Button.new(langue.tutoriel)
-		boutonOptions = Gtk::Button.new(langue.options)
-		boutonScore = Gtk::Button.new(langue.score)
-		boutonCredits = Gtk::Button.new(langue.credits)
-		boutonQuitter = Gtk::Button.new(langue.quitter)
-
+		padding = 20
 		vbox = Gtk::VBox.new(false,10)
+
+		boutonJouer = Gtk::Button.new("Jouer !")
+		boutonQuitter = Gtk::Button.new(langue.quitter)
 
 		boutonJouer.signal_connect('clicked'){
 			fenetre.remove(vbox)
-			Jouer.afficher(fenetre, langue)
-		}
-		
-		boutonCredits.signal_connect('clicked'){
-			fenetre.remove(vbox)
-			Credits.afficher(fenetre, langue)
+			Jouer.afficher(fenetre, langue, "rapide", 1)
 		}
 
-		fenetre.signal_connect('destroy') {
-  			 Gtk.main_quit
+
+		boutonQuitter.signal_connect('clicked') {
+  			 Menu.afficher(fenetre, langue)
 		}
 		
 		boutonQuitter.signal_connect('clicked'){Gtk.main_quit}
@@ -41,14 +31,11 @@ class Menu
 		
 		# Ajout des boutons a la vbox
 		vbox.pack_start(boutonJouer, false, false, padding)
-		vbox.pack_start(boutonTutoriel, false, false, padding)
-		vbox.pack_start(boutonOptions, false, false, padding)
-		vbox.pack_start(boutonScore, false, false, padding)
-		vbox.pack_start(boutonCredits, false, false, padding)
 		vbox.pack_start(boutonQuitter, false, false, padding)
 
 		fenetre.add(vbox)
 		fenetre.show_all
+		fenetre.reshow_with_initial_size
 	end
-	
+
 end # Marqueur de fin de classe
