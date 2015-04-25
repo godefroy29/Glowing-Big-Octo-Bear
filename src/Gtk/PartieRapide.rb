@@ -1,12 +1,12 @@
 # encoding: UTF-8
 
-##
-# Auteur LOIZEAU Sylvain
-# Version 0.1 : Date : Wed Jan 21 13:47:35 CET 2015
-#
-
 class PartieRapide
 
+	##
+	# Méthode affichant la fenetre de partie rapide
+	# Paramètres::
+	# - fenetre : la fenetre dans laquelle afficher les elements
+	# - langue : la langue de la fenetre
 	def PartieRapide.afficher(fenetre, langue)
 
 		padding = 20

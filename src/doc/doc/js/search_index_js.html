@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>search_index.js - RDoc Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Gtk/ProjetGtk_glade.html">ProjetGtk.glade</a>
+  
+    <li><a href="../../Gtk/ProjetGtk_xml.html">ProjetGtk.xml</a>
+  
+    <li><a href="../../doc/Builder_html.html">Builder.html</a>
+  
+    <li><a href="../../doc/Credits_html.html">Credits.html</a>
+  
+    <li><a href="../../doc/FinPartie_html.html">FinPartie.html</a>
+  
+    <li><a href="../../doc/GenerateGrille_html.html">GenerateGrille.html</a>
+  
+    <li><a href="../../doc/GenerateJoueur_html.html">GenerateJoueur.html</a>
+  
+    <li><a href="../../doc/GenerateScore_html.html">GenerateScore.html</a>
+  
+    <li><a href="../../doc/Graphique_html.html">Graphique.html</a>
+  
+    <li><a href="../../doc/Grille_html.html">Grille.html</a>
+  
+    <li><a href="../../doc/Gtk/Menu_rb~_html.html">Menu_rb~.html</a>
+  
+    <li><a href="../../doc/Gtk/Options_rb~_html.html">Options_rb~.html</a>
+  
+    <li><a href="../../doc/Gtk/ProjetGtk_glade_html.html">ProjetGtk_glade.html</a>
+  
+    <li><a href="../../doc/Gtk/ProjetGtk_xml_html.html">ProjetGtk_xml.html</a>
+  
+    <li><a href="../../doc/Jouer_html.html">Jouer.html</a>
+  
+    <li><a href="../../doc/Joueur_html.html">Joueur.html</a>
+  
+    <li><a href="../../doc/Langue_html.html">Langue.html</a>
+  
+    <li><a href="../../doc/Menu_html.html">Menu.html</a>
+  
+    <li><a href="../../doc/ModeDeJeu_html.html">ModeDeJeu.html</a>
+  
+    <li><a href="../../doc/ModelGrille_html.html">ModelGrille.html</a>
+  
+    <li><a href="../../doc/ModelJoueur_html.html">ModelJoueur.html</a>
+  
+    <li><a href="../../doc/ModelScore_html.html">ModelScore.html</a>
+  
+    <li><a href="../../doc/Mouvement_html.html">Mouvement.html</a>
+  
+    <li><a href="../../doc/Object_html.html">Object.html</a>
+  
+    <li><a href="../../doc/Options_html.html">Options.html</a>
+  
+    <li><a href="../../doc/PartieRapide_html.html">PartieRapide.html</a>
+  
+    <li><a href="../../doc/Plateau_html.html">Plateau.html</a>
+  
+    <li><a href="../../doc/PlateauGtk_html.html">PlateauGtk.html</a>
+  
+    <li><a href="../../doc/Profil_html.html">Profil.html</a>
+  
+    <li><a href="../../doc/ProfilCreer_html.html">ProfilCreer.html</a>
+  
+    <li><a href="../../doc/SQLite3_html.html">SQLite3.html</a>
+  
+    <li><a href="../../doc/Score_html.html">Score.html</a>
+  
+    <li><a href="../../doc/Takuzu_html.html">Takuzu.html</a>
+  
+    <li><a href="../../doc/Tuile_html.html">Tuile.html</a>
+  
+    <li><a href="../../doc/TuileJouable_html.html">TuileJouable.html</a>
+  
+    <li><a href="../../doc/doc/Builder_html_html.html">Builder_html.html</a>
+  
+    <li><a href="../../doc/doc/Credits_html_html.html">Credits_html.html</a>
+  
+    <li><a href="../../doc/doc/FinPartie_html_html.html">FinPartie_html.html</a>
+  
+    <li><a href="../../doc/doc/GenerateGrille_html_html.html">GenerateGrille_html.html</a>
+  
+    <li><a href="../../doc/doc/GenerateJoueur_html_html.html">GenerateJoueur_html.html</a>
+  
+    <li><a href="../../doc/doc/GenerateScore_html_html.html">GenerateScore_html.html</a>
+  
+    <li><a href="../../doc/doc/Graphique_html_html.html">Graphique_html.html</a>
+  
+    <li><a href="../../doc/doc/Grille_html_html.html">Grille_html.html</a>
+  
+    <li><a href="../../doc/doc/Gtk/Menu_rb~_html_html.html">Menu_rb~_html.html</a>
+  
+    <li><a href="../../doc/doc/Gtk/Options_rb~_html_html.html">Options_rb~_html.html</a>
+  
+    <li><a href="../../doc/doc/Gtk/ProjetGtk_glade_html_html.html">ProjetGtk_glade_html.html</a>
+  
+    <li><a href="../../doc/doc/Gtk/ProjetGtk_xml_html_html.html">ProjetGtk_xml_html.html</a>
+  
+    <li><a href="../../doc/doc/Jouer_html_html.html">Jouer_html.html</a>
+  
+    <li><a href="../../doc/doc/Joueur_html_html.html">Joueur_html.html</a>
+  
+    <li><a href="../../doc/doc/Langue_html_html.html">Langue_html.html</a>
+  
+    <li><a href="../../doc/doc/Menu_html_html.html">Menu_html.html</a>
+  
+    <li><a href="../../doc/doc/ModeDeJeu_html_html.html">ModeDeJeu_html.html</a>
+  
+    <li><a href="../../doc/doc/ModelGrille_html_html.html">ModelGrille_html.html</a>
+  
+    <li><a href="../../doc/doc/ModelJoueur_html_html.html">ModelJoueur_html.html</a>
+  
+    <li><a href="../../doc/doc/ModelScore_html_html.html">ModelScore_html.html</a>
+  
+    <li><a href="../../doc/doc/Mouvement_html_html.html">Mouvement_html.html</a>
+  
+    <li><a href="../../doc/doc/Object_html_html.html">Object_html.html</a>
+  
+    <li><a href="../../doc/doc/Options_html_html.html">Options_html.html</a>
+  
+    <li><a href="../../doc/doc/PartieRapide_html_html.html">PartieRapide_html.html</a>
+  
+    <li><a href="../../doc/doc/PlateauGtk_html_html.html">PlateauGtk_html.html</a>
+  
+    <li><a href="../../doc/doc/Plateau_html_html.html">Plateau_html.html</a>
+  
+    <li><a href="../../doc/doc/ProfilCreer_html_html.html">ProfilCreer_html.html</a>
+  
+    <li><a href="../../doc/doc/Profil_html_html.html">Profil_html.html</a>
+  
+    <li><a href="../../doc/doc/SQLite3_html_html.html">SQLite3_html.html</a>
+  
+    <li><a href="../../doc/doc/Score_html_html.html">Score_html.html</a>
+  
+    <li><a href="../../doc/doc/Takuzu_html_html.html">Takuzu_html.html</a>
+  
+    <li><a href="../../doc/doc/TuileJouable_html_html.html">TuileJouable_html.html</a>
+  
+    <li><a href="../../doc/doc/Tuile_html_html.html">Tuile_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Builder_html_html_html.html">Builder_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Credits_html_html_html.html">Credits_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/FinPartie_html_html_html.html">FinPartie_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/GenerateGrille_html_html_html.html">GenerateGrille_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/GenerateJoueur_html_html_html.html">GenerateJoueur_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/GenerateScore_html_html_html.html">GenerateScore_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Graphique_html_html_html.html">Graphique_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Grille_html_html_html.html">Grille_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Gtk/Menu_rb~_html_html_html.html">Menu_rb~_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Gtk/Options_rb~_html_html_html.html">Options_rb~_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Gtk/ProjetGtk_glade_html_html_html.html">ProjetGtk_glade_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Gtk/ProjetGtk_xml_html_html_html.html">ProjetGtk_xml_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Jouer_html_html_html.html">Jouer_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Joueur_html_html_html.html">Joueur_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Langue_html_html_html.html">Langue_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Menu_html_html_html.html">Menu_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/ModeDeJeu_html_html_html.html">ModeDeJeu_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/ModelGrille_html_html_html.html">ModelGrille_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/ModelJoueur_html_html_html.html">ModelJoueur_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/ModelScore_html_html_html.html">ModelScore_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Mouvement_html_html_html.html">Mouvement_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Object_html_html_html.html">Object_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Options_html_html_html.html">Options_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/PartieRapide_html_html_html.html">PartieRapide_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/PlateauGtk_html_html_html.html">PlateauGtk_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Plateau_html_html_html.html">Plateau_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/ProfilCreer_html_html_html.html">ProfilCreer_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Profil_html_html_html.html">Profil_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/SQLite3_html_html_html.html">SQLite3_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Score_html_html_html.html">Score_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Takuzu_html_html_html.html">Takuzu_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/TuileJouable_html_html_html.html">TuileJouable_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/Tuile_html_html_html.html">Tuile_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Builder_html_html_html_html.html">Builder_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Credits_html_html_html_html.html">Credits_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/FinPartie_html_html_html_html.html">FinPartie_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/GenerateGrille_html_html_html_html.html">GenerateGrille_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/GenerateJoueur_html_html_html_html.html">GenerateJoueur_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/GenerateScore_html_html_html_html.html">GenerateScore_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Graphique_html_html_html_html.html">Graphique_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Grille_html_html_html_html.html">Grille_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Gtk/Menu_rb~_html_html_html_html.html">Menu_rb~_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Gtk/Options_rb~_html_html_html_html.html">Options_rb~_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Gtk/ProjetGtk_glade_html_html_html_html.html">ProjetGtk_glade_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Gtk/ProjetGtk_xml_html_html_html_html.html">ProjetGtk_xml_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Jouer_html_html_html_html.html">Jouer_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Joueur_html_html_html_html.html">Joueur_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Langue_html_html_html_html.html">Langue_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Menu_html_html_html_html.html">Menu_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/ModeDeJeu_html_html_html_html.html">ModeDeJeu_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/ModelGrille_html_html_html_html.html">ModelGrille_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/ModelJoueur_html_html_html_html.html">ModelJoueur_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/ModelScore_html_html_html_html.html">ModelScore_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Mouvement_html_html_html_html.html">Mouvement_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Object_html_html_html_html.html">Object_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Options_html_html_html_html.html">Options_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/PartieRapide_html_html_html_html.html">PartieRapide_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/PlateauGtk_html_html_html_html.html">PlateauGtk_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Plateau_html_html_html_html.html">Plateau_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/ProfilCreer_html_html_html_html.html">ProfilCreer_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Profil_html_html_html_html.html">Profil_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/SQLite3_html_html_html_html.html">SQLite3_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Score_html_html_html_html.html">Score_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Takuzu_html_html_html_html.html">Takuzu_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/TuileJouable_html_html_html_html.html">TuileJouable_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/Tuile_html_html_html_html.html">Tuile_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/fonts_css_html_html_html.html">fonts_css_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/index_html_html_html_html.html">index_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/js/darkfish_js_html_html_html.html">darkfish_js_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/js/jquery_js_html_html_html.html">jquery_js_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/js/navigation_js_html_html_html.html">navigation_js_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/js/search_index_js_html_html_html.html">search_index_js_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/js/search_js_html_html_html.html">search_js_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/js/searcher_js_html_html_html.html">searcher_js_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/rdoc_css_html_html_html.html">rdoc_css_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/doc/table_of_contents_html_html_html_html.html">table_of_contents_html_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/fonts_css_html_html.html">fonts_css_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/index_html_html_html.html">index_html_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/js/darkfish_js_html_html.html">darkfish_js_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/js/jquery_js_html_html.html">jquery_js_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/js/navigation_js_html_html.html">navigation_js_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/js/search_index_js_html_html.html">search_index_js_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/js/search_js_html_html.html">search_js_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/js/searcher_js_html_html.html">searcher_js_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/rdoc_css_html_html.html">rdoc_css_html.html</a>
+  
+    <li><a href="../../doc/doc/doc/table_of_contents_html_html_html.html">table_of_contents_html_html.html</a>
+  
+    <li><a href="../../doc/doc/fonts_css_html.html">fonts_css.html</a>
+  
+    <li><a href="../../doc/doc/index_html_html.html">index_html.html</a>
+  
+    <li><a href="../../doc/doc/js/darkfish_js_html.html">darkfish_js.html</a>
+  
+    <li><a href="../../doc/doc/js/jquery_js_html.html">jquery_js.html</a>
+  
+    <li><a href="../../doc/doc/js/navigation_js_html.html">navigation_js.html</a>
+  
+    <li><a href="../../doc/doc/js/search_index_js_html.html">search_index_js.html</a>
+  
+    <li><a href="../../doc/doc/js/search_js_html.html">search_js.html</a>
+  
+    <li><a href="../../doc/doc/js/searcher_js_html.html">searcher_js.html</a>
+  
+    <li><a href="../../doc/doc/rdoc_css_html.html">rdoc_css.html</a>
+  
+    <li><a href="../../doc/doc/table_of_contents_html_html.html">table_of_contents_html.html</a>
+  
+    <li><a href="../../doc/fonts_css.html">fonts.css</a>
+  
+    <li><a href="../../doc/index_html.html">index.html</a>
+  
+    <li><a href="../../doc/js/darkfish_js.html">darkfish.js</a>
+  
+    <li><a href="../../doc/js/jquery_js.html">jquery.js</a>
+  
+    <li><a href="../../doc/js/navigation_js.html">navigation.js</a>
+  
+    <li><a href="../../doc/js/search_js.html">search.js</a>
+  
+    <li><a href="../../doc/js/search_index_js.html">search_index.js</a>
+  
+    <li><a href="../../doc/js/searcher_js.html">searcher.js</a>
+  
+    <li><a href="../../doc/rdoc_css.html">rdoc.css</a>
+  
+    <li><a href="../../doc/table_of_contents_html.html">table_of_contents.html</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page doc/js/search_index.js">
+
+<p>var search_data = {“index”:{“<a
+href=""builder","credits","finpartie","generategrille","generatejoueur","generatescore","graphique","grille","jouer","joueur","langue","menu","modedejeu","modelgrille","modeljoueur","modelscore","mouvement","object","options","partierapide","plateau","plateaugtk","profil","profilcreer","sqlite3","score","takuzu","tuile","tuilejouable","affichageplateaujoueur()","afficher()","afficher()","afficher()","afficher()","afficher()","afficher()","afficher()","afficher()","afficher()","afficher()","afficher()","afficher()","afficherprofiljoueur()","ajoutescorechrono()","ajoutescorerapide()","annulerhypothese()","annulerhypothese()","calculscore()","calculscore()","changerenbleu()","changerenrouge()","changerensuivant()","changerenvide()","changerimgbouton()","changervers()","changervers()","connection()","couleur1()","couleur1alt()","couleur2()","couleur2alt()","createjoueur()","createscore()","creer()","creer()","debuterhypothese()","debuterhypothese()","enreg()","etatbleu()","etatrouge()","etatsuivant()","etatvide()","generate()","generate()","generate()","getanon()","getcolornum()","getcolorstr()","getdifficulte()","getgrillebydifficulteandtaille()","getgrillebyid()","getjoueurbyid()","getjoueurbyusername()","getrandomgrille()","getscorearraybygrille()","getscorearraybyjoueur()","getscorearraybymode()","getscorebyid()","getscorebyjoueurgrillemode()","gettaille()","launch()","new()","new()","new()","new()","new()","new()","new()","new()","new()","new()","new()","new()","plateaujoueurtos()","raiseflag()","set_title()","supprimer()","suprjoueurbyid()","testanon()","testcurrentgrille()","testgrille()","to_s()","to_s()","to_s()","undo()","unundo()","validerhypothese()","projetgtk.glade","projetgtk.xml","builder.html","credits.html","finpartie.html","generategrille.html","generatejoueur.html","generatescore.html","graphique.html","grille.html","menu_rb~.html","options_rb~.html","projetgtk_glade.html","projetgtk_xml.html","jouer.html","joueur.html","langue.html","menu.html","modedejeu.html","modelgrille.html","modeljoueur.html","modelscore.html","mouvement.html","object.html","options.html","partierapide.html","plateau.html","plateaugtk.html","profil.html","profilcreer.html","sqlite3.html","score.html","takuzu.html","tuile.html","tuilejouable.html","builder_html.html","credits_html.html","finpartie_html.html","generategrille_html.html","generatejoueur_html.html","generatescore_html.html","graphique_html.html","grille_html.html","menu_rb~_html.html","options_rb~_html.html","projetgtk_glade_html.html","projetgtk_xml_html.html","jouer_html.html","joueur_html.html","langue_html.html","menu_html.html","modedejeu_html.html","modelgrille_html.html","modeljoueur_html.html","modelscore_html.html","mouvement_html.html","object_html.html","options_html.html","partierapide_html.html","plateaugtk_html.html","plateau_html.html","profilcreer_html.html","profil_html.html","sqlite3_html.html","score_html.html","takuzu_html.html","tuilejouable_html.html","tuile_html.html","builder_html_html.html","credits_html_html.html","finpartie_html_html.html","generategrille_html_html.html","generatejoueur_html_html.html","generatescore_html_html.html","graphique_html_html.html","grille_html_html.html","menu_rb~_html_html.html","options_rb~_html_html.html","projetgtk_glade_html_html.html","projetgtk_xml_html_html.html","jouer_html_html.html","joueur_html_html.html","langue_html_html.html","menu_html_html.html","modedejeu_html_html.html","modelgrille_html_html.html","modeljoueur_html_html.html","modelscore_html_html.html","mouvement_html_html.html","object_html_html.html","options_html_html.html","partierapide_html_html.html","plateaugtk_html_html.html","plateau_html_html.html","profilcreer_html_html.html","profil_html_html.html","sqlite3_html_html.html","score_html_html.html","takuzu_html_html.html","tuilejouable_html_html.html","tuile_html_html.html","fonts_css_html.html","index_html_html.html","darkfish_js_html.html","jquery_js_html.html","navigation_js_html.html","search_index_js_html.html","search_js_html.html","searcher_js_html.html","rdoc_css_html.html","table_of_contents_html_html.html","fonts_css.html","index_html.html","darkfish_js.html","jquery_js.html","navigation_js.html","search_index_js.html","search_js.html","searcher_js.html","rdoc_css.html","table_of_contents_html.html","fonts.css","index.html","darkfish.js","jquery.js","navigation.js","search.js","search_index.js","searcher.js","rdoc.css","table_of_contents.html"">searchIndex”:</a>,“<a
+href=""builder","credits","finpartie","generategrille","generatejoueur","generatescore","graphique","grille","jouer","joueur","langue","menu","modedejeu","modelgrille","modeljoueur","modelscore","mouvement","object","options","partierapide","plateau","plateaugtk","profil","profilcreer","sqlite3","score","takuzu","tuile","tuilejouable","plateau#affichageplateaujoueur()","credits::afficher()","finpartie::afficher()","graphique::afficher()","jouer::afficher()","langue::afficher()","menu::afficher()","modedejeu::afficher()","options::afficher()","partierapide::afficher()","profil::afficher()","profilcreer::afficher()","score::afficher()","profil::afficherprofiljoueur()","score::ajoutescorechrono()","score::ajoutescorerapide()","plateau#annulerhypothese()","plateaugtk#annulerhypothese()","score::calculscore()","score#calculscore()","tuilejouable#changerenbleu()","tuilejouable#changerenrouge()","tuilejouable#changerensuivant()","tuilejouable#changerenvide()","plateaugtk#changerimgbouton()","tuile#changervers()","tuilejouable#changervers()","profil::connection()","graphique#couleur1()","graphique#couleur1alt()","graphique#couleur2()","graphique#couleur2alt()","modeljoueur::createjoueur()","modelscore::createscore()","plateaugtk::creer()","profil::creer()","plateau#debuterhypothese()","plateaugtk#debuterhypothese()","mouvement::enreg()","plateau#etatbleu()","plateau#etatrouge()","plateau#etatsuivant()","plateau#etatvide()","generategrille::generate()","generatejoueur::generate()","generatescore::generate()","modeljoueur::getanon()","plateau#getcolornum()","plateau#getcolorstr()","modelgrille::getdifficulte()","modelgrille::getgrillebydifficulteandtaille()","modelgrille::getgrillebyid()","modeljoueur::getjoueurbyid()","modeljoueur::getjoueurbyusername()","modelgrille::getrandomgrille()","modelscore::getscorearraybygrille()","modelscore::getscorearraybyjoueur()","modelscore::getscorearraybymode()","modelscore::getscorebyid()","modelscore::getscorebyjoueurgrillemode()","modelgrille::gettaille()","takuzu::launch()","builder::new()","graphique::new()","grille::new()","joueur::new()","langue::new()","langue#new()","mouvement::new()","plateau::new()","plateaugtk::new()","score::new()","tuile::new()","tuilejouable::new()","plateau#plateaujoueurtos()","mouvement#raiseflag()","takuzu::set_title()","profil::supprimer()","modeljoueur::suprjoueurbyid()","modeljoueur::testanon()","plateau#testcurrentgrille()","plateau#testgrille()","grille#to_s()","joueur#to_s()","score#to_s()","plateau#undo()","plateau#unundo()","plateaugtk#validerhypothese()","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""">longSearchIndex”:</a>,“<a
+href=""Builder","","Builder.html","",""">info”:[</a>,[“<a
+href=""FinPartie","","FinPartie.html","",""">Credits”,“”,“Credits.html”,“”,“”],</a>,[“<a
+href=""GenerateJoueur","","GenerateJoueur.html","",""">GenerateGrille”,“”,“GenerateGrille.html”,“”,“”],</a>,[“<a
+href=""Graphique","","Graphique.html","",""">GenerateScore”,“”,“GenerateScore.html”,“”,“”],</a>,[“<a
+href=""Jouer","","Jouer.html","",""">Grille”,“”,“Grille.html”,“”,“”],</a>,[“Joueur”,“”,“Joueur.html”,“”,“”],[“Langue”,“”,“Langue.html”,“”,“&lt;p&gt;TODO
+: commentaire, fin d&amp;#39;integration de la <a
+href=""Menu","","Menu.html","",""">languen”],</a>,[“<a
+href=""ModelGrille","","ModelGrille.html","",""">ModeDeJeu”,“”,“ModeDeJeu.html”,“”,“”],</a>,[“<a
+href=""ModelScore","","ModelScore.html","",""">ModelJoueur”,“”,“ModelJoueur.html”,“”,“”],</a>,[“<a
+href=""Object","","Object.html","",""">Mouvement”,“”,“Mouvement.html”,“”,“”],</a>,[“<a
+href=""PartieRapide","","PartieRapide.html","",""">Options”,“”,“Options.html”,“”,“”],</a>,[“<a
+href=""PlateauGtk","","PlateauGtk.html","",""">Plateau”,“”,“Plateau.html”,“”,“”],</a>,[“<a
+href=""ProfilCreer","","ProfilCreer.html","",""">Profil”,“”,“Profil.html”,“”,“”],</a>,[“<a
+href=""Score","","Score.html","",""">SQLite3”,“”,“SQLite3.html”,“”,“”],</a>,[“Takuzu”,“”,“Takuzu.html”,“”,“&lt;p&gt;Lancement
+de la fenetre de jeu générée par
+Gtkn”],[“Tuile”,“”,“Tuile.html”,“”,“&lt;p&gt;Classe <a
+href="../../Tuile.html">Tuile</a> &amp;mdash; Permet d&amp;#39;instancier
+des Tuiles de couleur
+fixenn”],[“TuileJouable”,“”,“TuileJouable.html”,“”,“&lt;p&gt;Classe <a
+href="../../Tuile.html">Tuile</a> &amp;mdash; Permet d&amp;#39;instancier
+des Tuiles de couleur pouvant changer de <a
+href=""affichagePlateauJoueur","Plateau","Plateau.html#method-i-affichagePlateauJoueur","()",""">couleurnn”],</a>,[“afficher”,“Credits”,“Credits.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant les créditsn&lt;p&gt;Paramètres
+&amp;mdash; n&lt;p&gt;fenetre : la fenetre dans laquelle afficher les
+elementsn&lt;p&gt;langue
+…n”],[“afficher”,“FinPartie”,“FinPartie.html#method-c-afficher”,“(fenetre,
+langue, temps, mode, grille, nb_undo, nb_indices)”,“&lt;p&gt;Méthode
+affichant la fenetre de fin de partien&lt;p&gt;Paramètres &amp;mdash;
+n&lt;p&gt;fenetre : la fenetre dans laquelle afficher les
+…n”],[“afficher”,“Graphique”,“Graphique.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la fenetre de choix de
+couleurn&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher
+…n”],[“afficher”,“Jouer”,“Jouer.html#method-c-afficher”,“(fenetre, langue,
+mode, id_grille)”,“&lt;p&gt;Méthode affichant la fenetre de fin de
+partien&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher les
+…n”],[“afficher”,“Langue”,“Langue.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la fenetre de fin de
+partien&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher les
+…n”],[“afficher”,“Menu”,“Menu.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant le menu principale du
+jeun&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher les
+…n”],[“afficher”,“ModeDeJeu”,“ModeDeJeu.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la selection du mode de
+jeun&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher les
+…n”],[“afficher”,“Options”,“Options.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant le menu des
+optionsn&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher les elements
+…n”],[“afficher”,“PartieRapide”,“PartieRapide.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la fenetre de partie
+rapiden&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher les
+…n”],[“afficher”,“Profil”,“Profil.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la fenetre de
+profiln&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher les elements
+…n”],[“afficher”,“ProfilCreer”,“ProfilCreer.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la fenetre de creation de
+profiln&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher
+…n”],[“afficher”,“Score”,“Score.html#method-c-afficher”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la fenetre des
+scoresn&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher les elements
+…n”],[“afficherProfilJoueur”,“Profil”,“Profil.html#method-c-afficherProfilJoueur”,“()”,“&lt;p&gt;TODO
+: a <a
+href=""ajouteScoreChrono","Score","Score.html#method-c-ajouteScoreChrono","(joueur,grille,chrono,nb_undo,nb_pause)",""">finirn”],</a>,[“<a
+href=""annulerHypothese","Plateau","Plateau.html#method-i-annulerHypothese","()",""">ajouteScoreRapide”,“Score”,“Score.html#method-c-ajouteScoreRapide”,“(joueur,grille,chrono,nb_undo,nb_pause)”,“”],</a>,[“annulerHypothese”,“PlateauGtk”,“PlateauGtk.html#method-i-annulerHypothese”,“()”,“&lt;p&gt;Méthode
+permettant d&amp;#39;annuler une <a
+href=""calculScore","Score","Score.html#method-c-calculScore","(chrono,nb_undo,nb_pause)",""">hypothèsen”],</a>,[“calculScore”,“Score”,“Score.html#method-i-calculScore”,“()”,“”],[“changerEnBleu”,“TuileJouable”,“TuileJouable.html#method-i-changerEnBleu”,“()”,“&lt;p&gt;Change
+la couleur de la tuile en
+bleun”],[“changerEnRouge”,“TuileJouable”,“TuileJouable.html#method-i-changerEnRouge”,“()”,“&lt;p&gt;Change
+la couleur de la tuile en
+rougen”],[“changerEnSuivant”,“TuileJouable”,“TuileJouable.html#method-i-changerEnSuivant”,“()”,“&lt;p&gt;Change
+la couleur en couleur suivante
+R-&amp;gt;B-&amp;gt;V-&amp;gt;Rn”],[“changerEnVide”,“TuileJouable”,“TuileJouable.html#method-i-changerEnVide”,“()”,“&lt;p&gt;Change
+la couleur de la tuile en
+viden”],[“changerImgBouton”,“PlateauGtk”,“PlateauGtk.html#method-i-changerImgBouton”,“(x,y,couleur)”,“&lt;p&gt;Méthode
+permettant de changer une tuile de couleurn&lt;p&gt;Paramètres &amp;mdash;
+n&lt;p&gt;x : coordonées en xn&lt;p&gt;y : coordonées en
+yn”],[“changerVers”,“Tuile”,“Tuile.html#method-i-changerVers”,“(couleur)”,“&lt;p&gt;Ne
+change pas la couleur de la tuile vers la couleur
+specifieen”],[“changerVers”,“TuileJouable”,“TuileJouable.html#method-i-changerVers”,“(couleur)”,“&lt;p&gt;Change
+la couleur de la tuile vers la couleur
+specifieen”],[“connection”,“Profil”,“Profil.html#method-c-connection”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la fenetre de
+connectionn&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre
+dans laquelle afficher les
+…n”],[“couleur1”,“Graphique”,“Graphique.html#method-i-couleur1”,“()”,“&lt;p&gt;Méthode
+permettant de récupérer la couleur1n&lt;p&gt;Retour &amp;mdash;
+n&lt;p&gt;couleur1 : la couleur de la première
+tuilenn”],[“couleur1Alt”,“Graphique”,“Graphique.html#method-i-couleur1Alt”,“()”,“&lt;p&gt;Méthode
+permettant de récupérer la couleurAlt1n&lt;p&gt;Retour &amp;mdash;
+n&lt;p&gt;couleurAlt1 : la couleur de la première tuile hypothèse
+…nn”],[“couleur2”,“Graphique”,“Graphique.html#method-i-couleur2”,“()”,“&lt;p&gt;Méthode
+permettant de récupérer la couleur2n&lt;p&gt;Retour &amp;mdash;
+n&lt;p&gt;couleur2 : la couleur de la deuxième
+tuilenn”],[“couleur2Alt”,“Graphique”,“Graphique.html#method-i-couleur2Alt”,“()”,“&lt;p&gt;Méthode
+permettant de récupérer la couleurAlt2n&lt;p&gt;Retour &amp;mdash;
+n&lt;p&gt;couleurAlt2 : la couleur de la deuxième tuile hypothèse
+…nn”],[“createJoueur”,“ModelJoueur”,“ModelJoueur.html#method-c-createJoueur”,“(username,password)”,“&lt;p&gt;return
+nil si username déjà <a
+href=""createScore","ModelScore","ModelScore.html#method-c-createScore","(joueur,grille,mode,chrono,nb_undo,nb_pause)",""">utilisén”],</a>,[“creer”,“PlateauGtk”,“PlateauGtk.html#method-c-creer”,“(fenetre,plateau,n)”,“&lt;p&gt;Méthode
+de creation de PlateauGtkn&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre
+: la fenetre dans laquelle afficher les elements
+…n”],[“creer”,“Profil”,“Profil.html#method-c-creer”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la fenetre de creation de
+profiln&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher …<a
+href=”“debuterHypothese”,“Plateau”,“Plateau.html#method-i-debuterHypothese”,“()”,“”“>n”],</a>,[“debuterHypothese”,“PlateauGtk”,“PlateauGtk.html#method-i-debuterHypothese”,“()”,“&lt;p&gt;Méthode
+permettant de débuter une <a
+href=""enreg","Mouvement","Mouvement.html#method-c-enreg","(x,y,etat)",""">hypothèsen”],</a>,[“<a
+href=""etatRouge","Plateau","Plateau.html#method-i-etatRouge","(x,y)",""">etatBleu”,“Plateau”,“Plateau.html#method-i-etatBleu”,“(x,y)”,“”],</a>,[“etatSuivant”,“Plateau”,“Plateau.html#method-i-etatSuivant”,“(x,y)”,“&lt;p&gt;Etat
+#<a
+href=”“etatVide”,“Plateau”,“Plateau.html#method-i-etatVide”,“(x,y)”,“”“>n”],</a>,[“<a
+href=""generate","GenerateJoueur","GenerateJoueur.html#method-c-generate","()",""">generate”,“GenerateGrille”,“GenerateGrille.html#method-c-generate”,“()”,“”],</a>,[“<a
+href=""getAnon","ModelJoueur","ModelJoueur.html#method-c-getAnon","()",""">generate”,“GenerateScore”,“GenerateScore.html#method-c-generate”,“()”,“”],</a>,[“<a
+href=""getColorStr","Plateau","Plateau.html#method-i-getColorStr","(x,y)",""">getColorNum”,“Plateau”,“Plateau.html#method-i-getColorNum”,“(x,y)”,“”],</a>,[“getDifficulte”,“ModelGrille”,“ModelGrille.html#method-c-getDifficulte”,“()”,“”],[“getGrilleByDifficulteAndTaille”,“ModelGrille”,“ModelGrille.html#method-c-getGrilleByDifficulteAndTaille”,“(difficulte,
+taille)”,“&lt;p&gt;Renvoie l&amp;#39;objet <a
+href="../../Grille.html">Grille</a> correspondant à l&amp;#39;id rentrée en
+parametren”],[“getGrilleById”,“ModelGrille”,“ModelGrille.html#method-c-getGrilleById”,“(id)”,“&lt;p&gt;Renvoie
+l&amp;#39;objet <a href="../../Grille.html">Grille</a> correspondant à
+l&amp;#39;id rentrée en
+parametren”],[“getJoueurById”,“ModelJoueur”,“ModelJoueur.html#method-c-getJoueurById”,“(id)”,“&lt;p&gt;Renvoie
+l&amp;#39;objet Utilisateur correspondant à l&amp;#39;id rentrée
+ennparametren”],[“getJoueurByUsername”,“ModelJoueur”,“ModelJoueur.html#method-c-getJoueurByUsername”,“(username)”,“&lt;p&gt;Renvoie
+l&amp;#39;objet Utilisateur correspondant au pseudo rentrée
+ennparametren”],[“getRandomGrille”,“ModelGrille”,“ModelGrille.html#method-c-getRandomGrille”,“(difficulte,taille)”,“&lt;p&gt;Renvoie
+un objet grille aléatoirement choisit sur les critères de fifficulte et de
+taille passé en parametre …<a
+href=”“getScoreArrayByGrille”,“ModelScore”,“ModelScore.html#method-c-getScoreArrayByGrille”,“(grille)”,“”“>n”],</a>,[“<a
+href=""getScoreArrayByMode","ModelScore","ModelScore.html#method-c-getScoreArrayByMode","(mode)",""">getScoreArrayByJoueur”,“ModelScore”,“ModelScore.html#method-c-getScoreArrayByJoueur”,“(joueur)”,“”],</a>,[“getScoreById”,“ModelScore”,“ModelScore.html#method-c-getScoreById”,“(id)”,“&lt;p&gt;Renvoie
+l&amp;#39;objet <a href="../../Score.html">Score</a> correspondant à
+l&amp;#39;id rentrée en <a
+href=""getScoreByJoueurGrilleMode","ModelScore","ModelScore.html#method-c-getScoreByJoueurGrilleMode","(joueur,grille,mode)",""">parametren”],</a>,[“<a
+href=""launch","Takuzu","Takuzu.html#method-c-launch","()",""">getTaille”,“ModelGrille”,“ModelGrille.html#method-c-getTaille”,“()”,“”],</a>,[“<a
+href=""new","Graphique","Graphique.html#method-c-new","()",""">new”,“Builder”,“Builder.html#method-c-new”,“()”,“”],</a>,[“<a
+href=""new","Joueur","Joueur.html#method-c-new","(id,pseudo,password,avatar)",""">new”,“Grille”,“Grille.html#method-c-new”,“(id,taille,difficulte,base,solution)”,“”],</a>,[“<a
+href=""new","Langue","Langue.html#method-i-new","(lang)",""">new”,“Langue”,“Langue.html#method-c-new”,“(lang)”,“”],</a>,[“new”,“Mouvement”,“Mouvement.html#method-c-new”,“(x,y,
+etat)”,“”],[“new”,“Plateau”,“Plateau.html#method-c-new”,“(s_tab, <a
+href=""new","PlateauGtk","PlateauGtk.html#method-c-new","(fenetre,plateau,n)",""">grilleSolution,undoB,redoB)”,“”],</a>,[“new”,“Score”,“Score.html#method-c-new”,“(id,joueur,grille,mode,chrono,nb_undo,nb_pause)”,“”],[“new”,“Tuile”,“Tuile.html#method-c-new”,“(couleur)”,“&lt;p&gt;new
+&amp;mdash; Constructeur de la classe
+Tuilenn&lt;p&gt;&lt;strong&gt;paramètre :
+&lt;/strong&gt;n&lt;p&gt;&lt;p&gt; couleur  &amp;mdash; couleur de la
+casen”],[“new”,“TuileJouable”,“TuileJouable.html#method-c-new”,“()”,“&lt;p&gt;new
+&amp;mdash; Constructeur de la classe Tuilenn&lt;p&gt;couleur est initalisé
+à -<a
+href=""plateauJoueurToS","Plateau","Plateau.html#method-i-plateauJoueurToS","()",""">1n”],</a>,[“<a
+href=""set_title","Takuzu","Takuzu.html#method-c-set_title","(s)",""">raiseFlag”,“Mouvement”,“Mouvement.html#method-i-raiseFlag”,“()”,“”],</a>,[“supprimer”,“Profil”,“Profil.html#method-c-supprimer”,“(fenetre,
+langue)”,“&lt;p&gt;Méthode affichant la fenetre de suppression de
+profiln&lt;p&gt;Paramètres &amp;mdash; n&lt;p&gt;fenetre : la fenetre dans
+laquelle afficher …<a
+href=”“suprJoueurById”,“ModelJoueur”,“ModelJoueur.html#method-c-suprJoueurById”,“(id)”,“”“>n”],</a>,[“<a
+href=""testCurrentGrille","Plateau","Plateau.html#method-i-testCurrentGrille","()",""">testAnon”,“ModelJoueur”,“ModelJoueur.html#method-c-testAnon”,“(j)”,“”],</a>,[“testGrille”,“Plateau”,“Plateau.html#method-i-testGrille”,“()”,“&lt;p&gt;Test
+sur grille #<a
+href=”“to_s”,“Grille”,“Grille.html#method-i-to_s”,“()”,“”“>n”],</a>,[“<a
+href=""to_s","Score","Score.html#method-i-to_s","()",""">to_s”,“Joueur”,“Joueur.html#method-i-to_s”,“()”,“”],</a>,[“<a
+href=""unundo","Plateau","Plateau.html#method-i-unundo","()",""">undo”,“Plateau”,“Plateau.html#method-i-undo”,“()”,“”],</a>,[“validerHypothese”,“PlateauGtk”,“PlateauGtk.html#method-i-validerHypothese”,“()”,“&lt;p&gt;Méthode
+permettant de valider une
+hypothèsen”],[“ProjetGtk.glade”,“”,“Gtk/ProjetGtk_glade.html”,“”,“&lt;p&gt;&amp;lt;interface&amp;gt;nn&lt;pre&gt;&amp;lt;requires
+lib=&amp;quot;gtk+&amp;quot;
+version=&amp;quot;2.24&amp;quot;/&amp;gt;n&amp;lt;!–
+interface-naming-policy project-wide –&amp;gt;
+…&lt;/pre&gt;n”],[“ProjetGtk.xml”,“”,“Gtk/ProjetGtk_xml.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt; &amp;lt;html lang=“en”
+class=“”&amp;gt;nn&lt;pre&gt;&amp;lt;head prefix=&amp;quot;og: <a
+href="http://ogp.me/ns">ogp.me/ns</a>#
+…&lt;/pre&gt;n”],[“Builder.html”,“”,“doc/Builder_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Credits.html”,“”,“doc/Credits_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“FinPartie.html”,“”,“doc/FinPartie_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“GenerateGrille.html”,“”,“doc/GenerateGrille_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“GenerateJoueur.html”,“”,“doc/GenerateJoueur_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“GenerateScore.html”,“”,“doc/GenerateScore_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Graphique.html”,“”,“doc/Graphique_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Grille.html”,“”,“doc/Grille_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Menu_rb~.html”,“”,“doc/Gtk/Menu_rb~_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Menu.rb~
+…n”],[“Options_rb~.html”,“”,“doc/Gtk/Options_rb~_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Options.rb~
+…n”],[“ProjetGtk_glade.html”,“”,“doc/Gtk/ProjetGtk_glade_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ProjetGtk.glade
+…n”],[“ProjetGtk_xml.html”,“”,“doc/Gtk/ProjetGtk_xml_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ProjetGtk.xml
+…n”],[“Jouer.html”,“”,“doc/Jouer_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Joueur.html”,“”,“doc/Joueur_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Langue.html”,“”,“doc/Langue_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Menu.html”,“”,“doc/Menu_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“ModeDeJeu.html”,“”,“doc/ModeDeJeu_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“ModelGrille.html”,“”,“doc/ModelGrille_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“ModelJoueur.html”,“”,“doc/ModelJoueur_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“ModelScore.html”,“”,“doc/ModelScore_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Mouvement.html”,“”,“doc/Mouvement_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Object.html”,“”,“doc/Object_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Options.html”,“”,“doc/Options_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“PartieRapide.html”,“”,“doc/PartieRapide_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Plateau.html”,“”,“doc/Plateau_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“PlateauGtk.html”,“”,“doc/PlateauGtk_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Profil.html”,“”,“doc/Profil_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“ProfilCreer.html”,“”,“doc/ProfilCreer_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“SQLite3.html”,“”,“doc/SQLite3_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;module
+…n”],[“Score.html”,“”,“doc/Score_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Takuzu.html”,“”,“doc/Takuzu_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Tuile.html”,“”,“doc/Tuile_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“TuileJouable.html”,“”,“doc/TuileJouable_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;class
+…n”],[“Builder_html.html”,“”,“doc/doc/Builder_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Builder.html
+…n”],[“Credits_html.html”,“”,“doc/doc/Credits_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Credits.html
+…n”],[“FinPartie_html.html”,“”,“doc/doc/FinPartie_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;FinPartie.html
+…n”],[“GenerateGrille_html.html”,“”,“doc/doc/GenerateGrille_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;GenerateGrille.html
+…n”],[“GenerateJoueur_html.html”,“”,“doc/doc/GenerateJoueur_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;GenerateJoueur.html
+…n”],[“GenerateScore_html.html”,“”,“doc/doc/GenerateScore_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;GenerateScore.html
+…n”],[“Graphique_html.html”,“”,“doc/doc/Graphique_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Graphique.html
+…n”],[“Grille_html.html”,“”,“doc/doc/Grille_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Grille.html
+…n”],[“Menu_rb~_html.html”,“”,“doc/doc/Gtk/Menu_rb~_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Menu_rb~.html
+…n”],[“Options_rb~_html.html”,“”,“doc/doc/Gtk/Options_rb~_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Options_rb~.html
+…n”],[“ProjetGtk_glade_html.html”,“”,“doc/doc/Gtk/ProjetGtk_glade_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ProjetGtk_glade.html
+…n”],[“ProjetGtk_xml_html.html”,“”,“doc/doc/Gtk/ProjetGtk_xml_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ProjetGtk_xml.html
+…n”],[“Jouer_html.html”,“”,“doc/doc/Jouer_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Jouer.html
+…n”],[“Joueur_html.html”,“”,“doc/doc/Joueur_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Joueur.html
+…n”],[“Langue_html.html”,“”,“doc/doc/Langue_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Langue.html
+…n”],[“Menu_html.html”,“”,“doc/doc/Menu_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Menu.html
+…n”],[“ModeDeJeu_html.html”,“”,“doc/doc/ModeDeJeu_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ModeDeJeu.html
+…n”],[“ModelGrille_html.html”,“”,“doc/doc/ModelGrille_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ModelGrille.html
+…n”],[“ModelJoueur_html.html”,“”,“doc/doc/ModelJoueur_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ModelJoueur.html
+…n”],[“ModelScore_html.html”,“”,“doc/doc/ModelScore_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ModelScore.html
+…n”],[“Mouvement_html.html”,“”,“doc/doc/Mouvement_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Mouvement.html
+…n”],[“Object_html.html”,“”,“doc/doc/Object_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Object.html
+…n”],[“Options_html.html”,“”,“doc/doc/Options_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Options.html
+…n”],[“PartieRapide_html.html”,“”,“doc/doc/PartieRapide_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;PartieRapide.html
+…n”],[“PlateauGtk_html.html”,“”,“doc/doc/PlateauGtk_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;PlateauGtk.html
+…n”],[“Plateau_html.html”,“”,“doc/doc/Plateau_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Plateau.html
+…n”],[“ProfilCreer_html.html”,“”,“doc/doc/ProfilCreer_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ProfilCreer.html
+…n”],[“Profil_html.html”,“”,“doc/doc/Profil_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Profil.html
+…n”],[“SQLite3_html.html”,“”,“doc/doc/SQLite3_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;SQLite3.html
+…n”],[“Score_html.html”,“”,“doc/doc/Score_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Score.html
+…n”],[“Takuzu_html.html”,“”,“doc/doc/Takuzu_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Takuzu.html
+…n”],[“TuileJouable_html.html”,“”,“doc/doc/TuileJouable_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;TuileJouable.html
+…n”],[“Tuile_html.html”,“”,“doc/doc/Tuile_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Tuile.html
+…n”],[“Builder_html_html.html”,“”,“doc/doc/doc/Builder_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Builder_html.html
+…n”],[“Credits_html_html.html”,“”,“doc/doc/doc/Credits_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Credits_html.html
+…n”],[“FinPartie_html_html.html”,“”,“doc/doc/doc/FinPartie_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;FinPartie_html.html
+…n”],[“GenerateGrille_html_html.html”,“”,“doc/doc/doc/GenerateGrille_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;GenerateGrille_html.html
+…n”],[“GenerateJoueur_html_html.html”,“”,“doc/doc/doc/GenerateJoueur_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;GenerateJoueur_html.html
+…n”],[“GenerateScore_html_html.html”,“”,“doc/doc/doc/GenerateScore_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;GenerateScore_html.html
+…n”],[“Graphique_html_html.html”,“”,“doc/doc/doc/Graphique_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Graphique_html.html
+…n”],[“Grille_html_html.html”,“”,“doc/doc/doc/Grille_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Grille_html.html
+…n”],[“Menu_rb~_html_html.html”,“”,“doc/doc/doc/Gtk/Menu_rb~_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Menu_rb~_html.html
+…n”],[“Options_rb~_html_html.html”,“”,“doc/doc/doc/Gtk/Options_rb~_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Options_rb~_html.html
+…n”],[“ProjetGtk_glade_html_html.html”,“”,“doc/doc/doc/Gtk/ProjetGtk_glade_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ProjetGtk_glade_html.html
+…n”],[“ProjetGtk_xml_html_html.html”,“”,“doc/doc/doc/Gtk/ProjetGtk_xml_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ProjetGtk_xml_html.html
+…n”],[“Jouer_html_html.html”,“”,“doc/doc/doc/Jouer_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Jouer_html.html
+…n”],[“Joueur_html_html.html”,“”,“doc/doc/doc/Joueur_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Joueur_html.html
+…n”],[“Langue_html_html.html”,“”,“doc/doc/doc/Langue_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Langue_html.html
+…n”],[“Menu_html_html.html”,“”,“doc/doc/doc/Menu_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Menu_html.html
+…n”],[“ModeDeJeu_html_html.html”,“”,“doc/doc/doc/ModeDeJeu_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ModeDeJeu_html.html
+…n”],[“ModelGrille_html_html.html”,“”,“doc/doc/doc/ModelGrille_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ModelGrille_html.html
+…n”],[“ModelJoueur_html_html.html”,“”,“doc/doc/doc/ModelJoueur_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ModelJoueur_html.html
+…n”],[“ModelScore_html_html.html”,“”,“doc/doc/doc/ModelScore_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ModelScore_html.html
+…n”],[“Mouvement_html_html.html”,“”,“doc/doc/doc/Mouvement_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Mouvement_html.html
+…n”],[“Object_html_html.html”,“”,“doc/doc/doc/Object_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Object_html.html
+…n”],[“Options_html_html.html”,“”,“doc/doc/doc/Options_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Options_html.html
+…n”],[“PartieRapide_html_html.html”,“”,“doc/doc/doc/PartieRapide_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;PartieRapide_html.html
+…n”],[“PlateauGtk_html_html.html”,“”,“doc/doc/doc/PlateauGtk_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;PlateauGtk_html.html
+…n”],[“Plateau_html_html.html”,“”,“doc/doc/doc/Plateau_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Plateau_html.html
+…n”],[“ProfilCreer_html_html.html”,“”,“doc/doc/doc/ProfilCreer_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;ProfilCreer_html.html
+…n”],[“Profil_html_html.html”,“”,“doc/doc/doc/Profil_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Profil_html.html
+…n”],[“SQLite3_html_html.html”,“”,“doc/doc/doc/SQLite3_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;SQLite3_html.html
+…n”],[“Score_html_html.html”,“”,“doc/doc/doc/Score_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Score_html.html
+…n”],[“Takuzu_html_html.html”,“”,“doc/doc/doc/Takuzu_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Takuzu_html.html
+…n”],[“TuileJouable_html_html.html”,“”,“doc/doc/doc/TuileJouable_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;TuileJouable_html.html
+…n”],[“Tuile_html_html.html”,“”,“doc/doc/doc/Tuile_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Tuile_html.html
+…n”],[“fonts_css_html.html”,“”,“doc/doc/doc/fonts_css_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;fonts_css.html
+…n”],[“index_html_html.html”,“”,“doc/doc/doc/index_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;index_html.html
+…n”],[“darkfish_js_html.html”,“”,“doc/doc/doc/js/darkfish_js_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;darkfish_js.html
+…n”],[“jquery_js_html.html”,“”,“doc/doc/doc/js/jquery_js_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;jquery_js.html
+…n”],[“navigation_js_html.html”,“”,“doc/doc/doc/js/navigation_js_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;navigation_js.html
+…n”],[“search_index_js_html.html”,“”,“doc/doc/doc/js/search_index_js_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;search_index_js.html
+…n”],[“search_js_html.html”,“”,“doc/doc/doc/js/search_js_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;search_js.html
+…n”],[“searcher_js_html.html”,“”,“doc/doc/doc/js/searcher_js_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;searcher_js.html
+…n”],[“rdoc_css_html.html”,“”,“doc/doc/doc/rdoc_css_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;rdoc_css.html
+…n”],[“table_of_contents_html_html.html”,“”,“doc/doc/doc/table_of_contents_html_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;table_of_contents_html.html
+…n”],[“fonts_css.html”,“”,“doc/doc/fonts_css_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;fonts.css
+…n”],[“index_html.html”,“”,“doc/doc/index_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;index.html
+…n”],[“darkfish_js.html”,“”,“doc/doc/js/darkfish_js_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;darkfish.js
+…n”],[“jquery_js.html”,“”,“doc/doc/js/jquery_js_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;jquery.js
+…n”],[“navigation_js.html”,“”,“doc/doc/js/navigation_js_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;navigation.js
+…n”],[“search_index_js.html”,“”,“doc/doc/js/search_index_js_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;search_index.js
+…n”],[“search_js.html”,“”,“doc/doc/js/search_js_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;search.js
+…n”],[“searcher_js.html”,“”,“doc/doc/js/searcher_js_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;searcher.js
+…n”],[“rdoc_css.html”,“”,“doc/doc/rdoc_css_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;rdoc.css
+…n”],[“table_of_contents_html.html”,“”,“doc/doc/table_of_contents_html_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta
+charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;table_of_contents.html
+…n”],[“fonts.css”,“”,“doc/fonts_css.html”,“”,“n&lt;pre&gt;Copyright 2010,
+2012 Adobe Systems Incorporated (<a
+href="http://www.adobe.com/),\nwith">www.adobe.com/),nwith</a> Reserved
+Font Name &amp;quot;Source&amp;quot;.
+…&lt;/pre&gt;n”],[“index.html”,“”,“doc/index_html.html”,“”,“&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;RDoc
+…n”],[“darkfish.js”,“”,“doc/js/darkfish_js.html”,“”,“n&lt;pre&gt;Darkfish
+Page Functionsn$Id: darkfish.js 53 2009-01-07 02:52:03Z deveiant $nnAuthor:
+Michael Granger
+…&lt;/pre&gt;n”],[“jquery.js”,“”,“doc/js/jquery_js.html”,“”,“n&lt;pre&gt;!
+jQuery v1.6.4 <a href="http://jquery.com">jquery.com</a>/ | <a
+href="http://jquery.org/license</pre>n<p>(function(a,b){function”>jquery.org/license</pre>n<p>(function(a,b){function</a>
+cu(a){return f.isWindow
+…n“],[”navigation.js“,”“,”doc/js/navigation_js.html“,”“,”n&lt;pre&gt;Navigation
+allows movement using the arrow keys through the search results.nnWhen
+using this library
+…&lt;/pre&gt;n“],[”search.js“,”“,”doc/js/search_js.html“,”“,”&lt;p&gt;Search
+= function(data, input, result) {nn&lt;pre&gt;this.data = data;nthis.$input
+= $(input);nthis.$result = $(result);
+…&lt;/pre&gt;n“],[”search_index.js“,”“,”doc/js/search_index_js.html“,”“,”&lt;p&gt;var
+search_data = {“index”:{“searchIndex”:,“longSearchIndex”:,“info”:[,[“
+…n“],[”searcher.js“,”“,”doc/js/searcher_js.html“,”“,”&lt;p&gt;Searcher =
+function(data) {nn&lt;pre&gt;this.data = data;nthis.handlers =
+[];&lt;/pre&gt;n&lt;p&gt;}n“],[”rdoc.css“,”“,”doc/rdoc_css.html“,”“,”n&lt;pre&gt;&amp;quot;Darkfish&amp;quot;
+Rdoc CSSn$Id: rdoc.css 54 2009-01-27 01:09:48Z deveiant $nnAuthor: Michael
+Granger &amp;lt;ged@FaerieMUD.org&amp;gt;
+…&lt;/pre&gt;n“],[”table_of_contents.html“,”“,”doc/table_of_contents_html.html“,”“,”&lt;p&gt;&amp;lt;!DOCTYPE
+html&amp;gt;n&lt;p&gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt;
+&amp;lt;meta charset=“UTF-8”&amp;gt;n&lt;p&gt;&amp;lt;title&amp;gt;Table
+…n“]]}}</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,8 +1,13 @@
-#ModeDeJeu
 # encoding: UTF-8
 
 class ModeDeJeu
 
+	##
+	# Méthode affichant la selection du mode de jeu
+	# Paramètres::
+	# - fenetre : la fenetre dans laquelle afficher les elements
+	# - langue : la langue de la fenetre
+	
 	def ModeDeJeu.afficher(fenetre, langue)
 
 		padding = 20
@@ -41,4 +46,4 @@ class ModeDeJeu
 		fenetre.reshow_with_initial_size
 	end
 
-end # Marqueur de fin de classe
+end

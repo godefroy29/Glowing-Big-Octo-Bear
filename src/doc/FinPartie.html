@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FinPartie - RDoc Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-afficher">::afficher</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FinPartie">
+  <h1 id="class-FinPartie" class="class">
+    class FinPartie
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-afficher" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">afficher</span><span
+            class="method-args">(fenetre, langue, temps, mode, grille, nb_undo, nb_indices)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Méthode affichant la fenetre de fin de partie</p>
+<dl class="rdoc-list note-list"><dt>Paramètres
+<dd></dd></dl>
+<ul><li>
+<p>fenetre : la fenetre dans laquelle afficher les elements</p>
+</li><li>
+<p>langue : la langue de la fenetre</p>
+</li><li>
+<p>temps : le temps de jeu une fois la partie finie</p>
+</li><li>
+<p>mode : le mode de jeu que le joueur a choisit en lançant la partie</p>
+</li><li>
+<p>grille : l&#39;id de la grille jouée</p>
+</li><li>
+<p>nb_undo : nombre de undo fait par le joueur</p>
+</li><li>
+<p>nb_indices : nombre d&#39;indices utilisés apr le joueur</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="afficher-source">
+            <pre><span class="ruby-comment"># File Gtk/FinPartie.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">FinPartie</span>.<span class="ruby-identifier">afficher</span>(<span class="ruby-identifier">fenetre</span>, <span class="ruby-identifier">langue</span>, <span class="ruby-identifier">temps</span>, <span class="ruby-identifier">mode</span>, <span class="ruby-identifier">grille</span>, <span class="ruby-identifier">nb_undo</span>, <span class="ruby-identifier">nb_indices</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;rapide&quot;</span>
+                <span class="ruby-identifier">winText</span> = <span class="ruby-node">&quot;Vous avez fait une partie rapide\nVous avez mis #{temps.to_i.to_s} secondes pour reussir la grille !\nVotre score est de #{Score.calculScore(temps,nb_undo,nb_indices).to_i}&quot;</span>
+                <span class="ruby-constant">Score</span>.<span class="ruby-identifier">ajouteScoreRapide</span>(<span class="ruby-identifier">$joueur</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">grille</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">temps</span>.<span class="ruby-identifier">to_i</span>,<span class="ruby-identifier">nb_undo</span>,<span class="ruby-identifier">nb_indices</span>)
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;chrono&quot;</span>
+                <span class="ruby-identifier">winText</span> = <span class="ruby-identifier">winText</span> = <span class="ruby-node">&quot;Vous avez fait une partie rapide\nVous avez mis #{temps.to_i.to_s} secondes pour reussir la grille !\nVotre temps va etre enregistre&quot;</span>
+                <span class="ruby-constant">Score</span>.<span class="ruby-identifier">ajouteScoreChrono</span>(<span class="ruby-identifier">$joueur</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">grille</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">temps</span>.<span class="ruby-identifier">to_i</span>,<span class="ruby-identifier">nb_undo</span>,<span class="ruby-identifier">nb_indices</span>)
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">winText</span> = <span class="ruby-identifier">winText</span> = <span class="ruby-node">&quot;Vous avez fait une partie rapide\nVous avez mis #{temps.to_i.to_s} secondes pour reussir la grille !\nVotre score est de #{Score.calculScore(temps,nb_undo,nb_indices).to_i}&quot;</span>
+                <span class="ruby-constant">Score</span>.<span class="ruby-identifier">ajouteScoreRapide</span>(<span class="ruby-identifier">$joueur</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">grille</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">temps</span>.<span class="ruby-identifier">to_i</span>,<span class="ruby-identifier">nb_undo</span>,<span class="ruby-identifier">nb_indices</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">label</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">winText</span>)
+        <span class="ruby-identifier">boutonRetour</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">langue</span>.<span class="ruby-identifier">retour</span>)
+        <span class="ruby-identifier">vbox</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">VBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>,<span class="ruby-value">10</span>)
+        
+        <span class="ruby-identifier">boutonRetour</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;clicked&#39;</span>){
+                <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">vbox</span>)
+                <span class="ruby-constant">Menu</span>.<span class="ruby-identifier">afficher</span>(<span class="ruby-identifier">fenetre</span>, <span class="ruby-identifier">langue</span>)
+        }
+
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">label</span>)
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boutonRetour</span>)
+
+        <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">vbox</span>)
+        <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">show_all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ModelScore - RDoc Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-createScore">::createScore</a>
+    
+    <li ><a href="#method-c-getScoreArrayByGrille">::getScoreArrayByGrille</a>
+    
+    <li ><a href="#method-c-getScoreArrayByJoueur">::getScoreArrayByJoueur</a>
+    
+    <li ><a href="#method-c-getScoreArrayByMode">::getScoreArrayByMode</a>
+    
+    <li ><a href="#method-c-getScoreById">::getScoreById</a>
+    
+    <li ><a href="#method-c-getScoreByJoueurGrilleMode">::getScoreByJoueurGrilleMode</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ModelScore">
+  <h1 id="class-ModelScore" class="class">
+    class ModelScore
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-createScore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">createScore</span><span
+            class="method-args">(joueur,grille,mode,chrono,nb_undo,nb_pause)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Créé un objet <a href="Score.html">Score</a></p>
+
+<pre>Paramètres::
+- joueur : id du joueur créant ce score
+- grille : id de la grille jouée
+- mode : mode joué
+- chrono : temps joué sur cette partie
+- nb_undo : nombre de undo fait
+- nb_pause : nombre de pause effectuée</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="createScore-source">
+            <pre><span class="ruby-comment"># File Model/ModelScore.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">ModelScore</span>.<span class="ruby-identifier">createScore</span>(<span class="ruby-identifier">joueur</span>,<span class="ruby-identifier">grille</span>,<span class="ruby-identifier">mode</span>,<span class="ruby-identifier">chrono</span>,<span class="ruby-identifier">nb_undo</span>,<span class="ruby-identifier">nb_pause</span>)
+        <span class="ruby-comment">#Test si le joueur dispose déjà d&#39;un score sur cette grille</span>
+        <span class="ruby-identifier">score</span> = <span class="ruby-constant">ModelScore</span>.<span class="ruby-identifier">getScoreByJoueurGrilleMode</span>(<span class="ruby-identifier">joueur</span>,<span class="ruby-identifier">grille</span>,<span class="ruby-identifier">mode</span>)
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">score</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+                <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Ajout&quot;</span>)
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause) 
+                VALUES (#{joueur}, #{grille}, #{mode}, #{chrono}, #{nb_undo}, #{nb_pause})&quot;</span>
+                <span class="ruby-identifier">$database</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause) 
+                VALUES (#{joueur},
+                        #{grille},
+                        #{mode},
+                        #{chrono},
+                        #{nb_undo},
+                        #{nb_pause})&quot;</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-identifier">score</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;       #{score.calculScore} &gt;= #{Score.calculScore(chrono,nb_undo,nb_pause)}&quot;</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">score</span>.<span class="ruby-identifier">calculScore</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Score</span>.<span class="ruby-identifier">calculScore</span>(<span class="ruby-identifier">chrono</span>,<span class="ruby-identifier">nb_undo</span>,<span class="ruby-identifier">nb_pause</span>)
+                        <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Pas de modif&quot;</span>)
+                        <span class="ruby-keyword">return</span> <span class="ruby-identifier">score</span>
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Modif&quot;</span>)
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;UPDATE Score 
+                        SET chrono = #{chrono}, nb_undo = #{nb_undo}, nb_pause = #{nb_pause} 
+                        WHERE  id_score = #{score.id}&quot;</span>
+                        <span class="ruby-identifier">$database</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;UPDATE Score 
+                        SET chrono = #{chrono}, nb_undo = #{nb_undo}, nb_pause = #{nb_pause} 
+                        WHERE  id_score = #{score.id}&quot;</span>
+                        <span class="ruby-keyword">return</span> <span class="ruby-constant">ModelScore</span>.<span class="ruby-identifier">getScoreByJoueurGrilleMode</span>(<span class="ruby-identifier">joueur</span>,<span class="ruby-identifier">grille</span>,<span class="ruby-identifier">mode</span>)
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-getScoreArrayByGrille" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getScoreArrayByGrille</span><span
+            class="method-args">(grille)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Renvoie l&#39;objet <a href="Score.html">Score</a> correspondant à l&#39;id
+rentré en parametre</p>
+
+<pre>Paramètres::
+- grille : id de la grille voulu
+Retour::
+- score : le score correspondaant à la grille voulu</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="getScoreArrayByGrille-source">
+            <pre><span class="ruby-comment"># File Model/ModelScore.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">ModelScore</span>.<span class="ruby-identifier">getScoreArrayByGrille</span>(<span class="ruby-identifier">grille</span>)
+        <span class="ruby-identifier">ary</span> = <span class="ruby-identifier">$database</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Score WHERE id_grille = #{grille}&quot;</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">empty?</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">score</span> = <span class="ruby-identifier">new</span> <span class="ruby-constant">Array</span>
+
+        <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">score</span>[<span class="ruby-identifier">x</span>] = <span class="ruby-constant">Score</span>.<span class="ruby-identifier">new</span>(
+                <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;id_score&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;id_joueur&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;id_grille&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;mode&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;chrono&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;nb_undo&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;nb_pause&#39;</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">score</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-getScoreArrayByJoueur" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getScoreArrayByJoueur</span><span
+            class="method-args">(joueur)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Renvoie l&#39;objet <a href="Score.html">Score</a> correspondant à l&#39;id
+rentré en parametre</p>
+
+<pre>Paramètres::
+- joueur : id du joueur voulu
+Retour::
+- score : le score correspondant au joueur voulu</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="getScoreArrayByJoueur-source">
+            <pre><span class="ruby-comment"># File Model/ModelScore.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">ModelScore</span>.<span class="ruby-identifier">getScoreArrayByJoueur</span>(<span class="ruby-identifier">joueur</span>)
+        <span class="ruby-identifier">ary</span> = <span class="ruby-identifier">$database</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Score WHERE id_joueur = #{joueur}&quot;</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">empty?</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">score</span> = <span class="ruby-identifier">new</span> <span class="ruby-constant">Array</span>
+
+        <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">score</span>[<span class="ruby-identifier">x</span>] = <span class="ruby-constant">Score</span>.<span class="ruby-identifier">new</span>(
+                <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;id_score&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;id_joueur&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;id_grille&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;mode&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;chrono&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;nb_undo&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;nb_pause&#39;</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">score</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-getScoreArrayByMode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getScoreArrayByMode</span><span
+            class="method-args">(mode)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Renvoie l&#39;objet <a href="Score.html">Score</a> correspondant à l&#39;id
+rentré en parametre</p>
+
+<pre>Paramètres::
+- mode : id du mode voulu
+Retour::
+- score : le score correspondant au mode voulu</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="getScoreArrayByMode-source">
+            <pre><span class="ruby-comment"># File Model/ModelScore.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">ModelScore</span>.<span class="ruby-identifier">getScoreArrayByMode</span>(<span class="ruby-identifier">mode</span>)
+        <span class="ruby-identifier">ary</span> = <span class="ruby-identifier">$database</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Score WHERE mode = #{mode}&quot;</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">empty?</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">score</span> = <span class="ruby-identifier">new</span> <span class="ruby-constant">Array</span>
+
+        <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">score</span>[<span class="ruby-identifier">x</span>] = <span class="ruby-constant">Score</span>.<span class="ruby-identifier">new</span>(
+                <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;id_score&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;id_joueur&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;id_grille&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;mode&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;chrono&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;nb_undo&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-identifier">x</span>][<span class="ruby-string">&#39;nb_pause&#39;</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">score</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-getScoreById" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getScoreById</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Renvoie l&#39;objet <a href="Score.html">Score</a> correspondant à l&#39;id
+rentré en parametre</p>
+
+<pre>Paramètres::
+- id : id du score voulu
+Retour::
+- score : le score ayant l&#39;id voulu</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="getScoreById-source">
+            <pre><span class="ruby-comment"># File Model/ModelScore.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">ModelScore</span>.<span class="ruby-identifier">getScoreById</span>(<span class="ruby-identifier">id</span>)
+        <span class="ruby-identifier">ary</span> = <span class="ruby-identifier">$database</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Score WHERE id_score = #{id}&quot;</span>
+
+        <span class="ruby-identifier">score</span> = <span class="ruby-constant">Score</span>.<span class="ruby-identifier">new</span>(
+                <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;id_score&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;id_joueur&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;id_grille&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;mode&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;chrono&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;nb_undo&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;nb_pause&#39;</span>])
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">score</span>;
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-getScoreByJoueurGrilleMode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getScoreByJoueurGrilleMode</span><span
+            class="method-args">(joueur,grille,mode)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Renvoie un objet score choisit par un joueur, une grille et un mode</p>
+<dl class="rdoc-list note-list"><dt>Paramètres
+<dd></dd></dl>
+<ul><li>
+<p>joueur : id du joueur voulu</p>
+</li><li>
+<p>grille : id de la grille voulu</p>
+</li><li>
+<p>mode : id du mode voulu</p>
+</li></ul>
+<dl class="rdoc-list note-list"><dt>Retour
+<dd></dd></dl>
+<ul><li>
+<p>score : le score attendu</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="getScoreByJoueurGrilleMode-source">
+            <pre><span class="ruby-comment"># File Model/ModelScore.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">ModelScore</span>.<span class="ruby-identifier">getScoreByJoueurGrilleMode</span>(<span class="ruby-identifier">joueur</span>,<span class="ruby-identifier">grille</span>,<span class="ruby-identifier">mode</span>)
+        <span class="ruby-identifier">ary</span> = <span class="ruby-identifier">$database</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Score WHERE id_joueur = #{joueur} AND id_grille = #{grille} AND mode = #{mode} &quot;</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">empty?</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">score</span> = <span class="ruby-constant">Score</span>.<span class="ruby-identifier">new</span>(
+                <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;id_score&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;id_joueur&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;id_grille&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;mode&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;chrono&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;nb_undo&#39;</span>],
+       <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&#39;nb_pause&#39;</span>])
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">score</span>;
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

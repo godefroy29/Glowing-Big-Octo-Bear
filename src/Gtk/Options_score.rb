@@ -1,5 +1,12 @@
+# encoding: UTF-8
+
 class Score
 
+	##
+	# Méthode affichant la fenetre des scores
+	# Paramètres::
+	# - fenetre : la fenetre dans laquelle afficher les elements
+	# - langue : la langue de la fenetre
 	def Score.afficher(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 

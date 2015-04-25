@@ -1,5 +1,4 @@
-#Options_graphiques.rb
-
+# encoding: UTF-8
 
 class Graphique
 
@@ -32,21 +31,44 @@ class Graphique
 		@@couleur2Alt.set_bg(Gtk::STATE_NORMAL, @@c2Alt.red, @@c2Alt.green, @@c2Alt.blue)
 	end
 
+	##
+	# Méthode permettant de récupérer la couleur1
+	# Retour::
+	# - couleur1 : la couleur de la première tuile
 	def couleur1
 		return @@couleur1
 	end
 
+	##
+	# Méthode permettant de récupérer la couleur2
+	# Retour::
+	# - couleur2 : la couleur de la deuxième tuile
 	def couleur2
 		return @@couleur2
 	end
 	
+	##
+	# Méthode permettant de récupérer la couleurAlt1
+	# Retour::
+	# - couleurAlt1 : la couleur de la première tuile hypothèse
 	def couleur1Alt
 		return @@couleur1Alt
 	end
 
+	##
+	# Méthode permettant de récupérer la couleurAlt2
+	# Retour::
+	# - couleurAlt2 : la couleur de la deuxième tuile hypothèse
 	def couleur2Alt
 		return @@couleur2Alt
 	end
+
+
+	##
+	# Méthode affichant la fenetre de choix de couleur
+	# Paramètres::
+	# - fenetre : la fenetre dans laquelle afficher les elements
+	# - langue : la langue de la fenetre
 
 	def Graphique.afficher(fenetre, langue)
 		

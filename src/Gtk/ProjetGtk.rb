@@ -8,7 +8,7 @@
 require 'gtk2'
 
 class Builder < Gtk::Builder
-	
+  
   def initialize 
     super()
     self.add_from_file(__FILE__.sub(".rb",".glade"))
@@ -27,30 +27,8 @@ class Builder < Gtk::Builder
         method(handler) 
       }
       window.signal_connect('destroy'){
-      	Gtk.main_quit
+        Gtk.main_quit
       }
-	end
+  end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

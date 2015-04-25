@@ -9,6 +9,12 @@ class PlateauGtk
 	@rouge
 	@n
 	
+	##
+	# Méthode de creation de PlateauGtk
+	# Paramètres::
+	# - fenetre : la fenetre dans laquelle afficher les elements
+	# - langue : la langue de la fenetre
+	# - n : taille
 	def PlateauGtk.creer(fenetre,plateau,n)
 		new(fenetre,plateau,n)
 	end
@@ -53,6 +59,12 @@ class PlateauGtk
 		end
 	end
 	
+	##
+	# Méthode permettant de changer une tuile de couleur
+	# Paramètres::
+	# - x : coordonées en x
+	# - y : coordonées en y
+	# - couleur : couleur de la tuile lorsqu'on appel la fonction
 	def changerImgBouton(x,y,couleur)
 		if couleur == 1
 			@btnArray[x][y].style = @rouge
@@ -63,6 +75,8 @@ class PlateauGtk
 		end
 	end
 	
+	##
+	# Méthode permettant de débuter une hypothèse
 	def debuterHypothese
 		@hypotheseArray = Array.new(@n){ |i| Array.new(@n)}
 		@bleu = $optionGraphique.couleur1Alt
@@ -78,6 +92,8 @@ class PlateauGtk
 		end
 	end
 	
+	##
+	# Méthode permettant de valider une hypothèse
 	def validerHypothese
 		@bleu = $optionGraphique.couleur1
 		@rouge = $optionGraphique.couleur2
@@ -94,6 +110,8 @@ class PlateauGtk
 		end
 	end
 	
+	##
+	# Méthode permettant d'annuler une hypothèse
 	def annulerHypothese
 		@bleu = $optionGraphique.couleur1
 		@rouge = $optionGraphique.couleur2
@@ -106,8 +124,4 @@ class PlateauGtk
 		end
 	end
 	
-	def debutPause
-	
-	
-	end
 end

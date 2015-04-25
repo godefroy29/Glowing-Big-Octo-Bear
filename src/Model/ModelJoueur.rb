@@ -1,10 +1,12 @@
 class ModelJoueur
 
 	##
-	#Renvoie l'objet Utilisateur correspondant à l'id rentrée en parametre
+	# Renvoie un objet joueur choisit par un id
+	# Paramètres::
+	# - id : id du joueur voulu
+	# Retour::
+	# - joueur : le joueur ayant l'id voulu
 	def ModelJoueur.getJoueurById(id)
-
-
 		ary = $database.execute "SELECT * FROM Joueur WHERE id_joueur = #{id}"
 
 		if ary.empty?
@@ -16,16 +18,16 @@ class ModelJoueur
 	    	ary[0]['pseudo'],
 	    	ary[0]['password'],
 	    	ary[0]['avatar'])
-
 		return joueur;
-
 	end
 
 	##
-	#Renvoie l'objet Utilisateur correspondant au pseudo rentrée en parametre
+	# Renvoie un objet joueur choisit par un username
+	# Paramètres::
+	# - username : username du joueur
+	# Retour::
+	# - joueur : le joueur ayant lusername choisi
 	def ModelJoueur.getJoueurByUsername(username)
-
-
 		ary = $database.execute "SELECT * FROM Joueur WHERE pseudo = '#{username}'"
 
 		if ary.empty?
@@ -37,13 +39,14 @@ class ModelJoueur
 	    	ary[0]['pseudo'],
 	    	ary[0]['password'],
 	    	ary[0]['avatar'])
-
 		return joueur;
-
 	end
 
 	##
-	#return nil si username déjà utilisé
+	# Créé un joueur
+	# Paramètres::
+	# - username : username désiré
+	# - password : password désiré
 	def ModelJoueur.createJoueur(username,password)
 		joueur = ModelJoueur.getJoueurByUsername(username)
 		if joueur == nil
@@ -52,28 +55,32 @@ class ModelJoueur
 		else
 			return nil
 		end
-
-		
 	end
 
-
+	##
+	# Supprime un objet joueur choisit par un id
+	# Paramètres::
+	# - id : id du joueur voulu
 	def ModelJoueur.suprJoueurById(id)
-
-
 		ary = $database.execute "DELETE FROM Joueur WHERE id_joueur = #{id}"
-
 		return nil;
-
 	end
 
+	##
+	# Appel de ModelJoueur.getJoueurById pour l'id de l'anonyme
 	def ModelJoueur.getAnon
 		ModelJoueur.getJoueurById(0)
 	end
 
+##
+# Test si le joueur est le joueur anonyme
+# Paramètres::
+# - j : l'id du joueur actuel
+# Retour :
+# - estAnonyme : true si le joueur l'anonyme, false sinon
 	def ModelJoueur.testAnon(j)
-		return(j.id ==0)
+		estAnonyme = j.id == 0
+		return(estAnonyme)
 	end
-
-
 
 end

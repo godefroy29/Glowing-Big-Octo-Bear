@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Jouer - RDoc Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-afficher">::afficher</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Jouer">
+  <h1 id="class-Jouer" class="class">
+    class Jouer
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-hypothese" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">hypothese</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Indique si on place ou non des hypothèse de jeu</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-id_grille" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">id_grille</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Id de la grille jouée</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-nb_indices" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nb_indices</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Nombre d&#39;indices utilisés</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-nb_undo" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nb_undo</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Nombre de undo effectués</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-plateau" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">plateau</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p><a href="Plateau.html">Plateau</a> de jeu</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-plateauGtk" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">plateauGtk</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p><a href="Plateau.html">Plateau</a> de jeu (Gtk)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-timeDebut" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">timeDebut</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Temps de départ</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-timeFinal" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">timeFinal</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Temps de fin</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-afficher" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">afficher</span><span
+            class="method-args">(fenetre, langue, mode, id_grille)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Méthode affichant la fenetre de fin de partie</p>
+<dl class="rdoc-list note-list"><dt>Paramètres
+<dd></dd></dl>
+<ul><li>
+<p>fenetre : la fenetre dans laquelle afficher les elements</p>
+</li><li>
+<p>langue : la langue de la fenetre</p>
+</li><li>
+<p>mode : le mode de jeu choisit</p>
+</li><li>
+<p><a href="Jouer.html#attribute-i-id_grille">#id_grille</a> : l&#39;id de la
+grille sélectionnée</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="afficher-source">
+            <pre><span class="ruby-comment"># File Gtk/Jouer.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Jouer</span>.<span class="ruby-identifier">afficher</span>(<span class="ruby-identifier">fenetre</span>, <span class="ruby-identifier">langue</span>, <span class="ruby-identifier">mode</span>, <span class="ruby-identifier">id_grille</span>)
+        <span class="ruby-ivar">@nb_indices</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@nb_undo</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@hypothese</span>=<span class="ruby-keyword">false</span>
+
+        <span class="ruby-identifier">boutonRetour</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">langue</span>.<span class="ruby-identifier">retour</span>)
+        <span class="ruby-identifier">boutonReset</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Reset&#39;</span>)
+        <span class="ruby-identifier">boutonRedo</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Redo&#39;</span>)
+        <span class="ruby-identifier">boutonUndo</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Undo&#39;</span>)
+        <span class="ruby-identifier">boutonPause</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Pause&#39;</span>)
+        <span class="ruby-identifier">boutonHypo</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Débuter hypothese&#39;</span>)
+        <span class="ruby-identifier">boutonValHypo</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Valider Hypothese&#39;</span>)
+        <span class="ruby-identifier">boutonTestGrille</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Test&quot;</span>)<span class="ruby-comment">#a integrer dans la langue</span>
+        <span class="ruby-identifier">vbox</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">VBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>,<span class="ruby-value">10</span>)
+        <span class="ruby-identifier">hbox2</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">HBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>,<span class="ruby-value">0</span>)
+        <span class="ruby-identifier">hbox</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">HBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>,<span class="ruby-value">0</span>)
+        <span class="ruby-identifier">labelTimer</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Timer : &#39;</span><span class="ruby-operator">+</span><span class="ruby-string">&#39;0&#39;</span>)
+
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;rapide&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">id_grille</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+                <span class="ruby-identifier">grille</span> = <span class="ruby-constant">ModelGrille</span>.<span class="ruby-identifier">getGrilleById</span>(<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">sec</span>).<span class="ruby-identifier">rand</span>(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">7000</span>))
+        <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;chrono&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">id_grille</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+                <span class="ruby-identifier">grille</span> = <span class="ruby-constant">ModelGrille</span>.<span class="ruby-identifier">getRandomGrille</span>(<span class="ruby-value">1</span>,<span class="ruby-value">6</span>)
+        <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">id_grille</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>)
+                <span class="ruby-identifier">grille</span> = <span class="ruby-constant">ModelGrille</span>.<span class="ruby-identifier">getGrilleById</span>(<span class="ruby-identifier">id_grille</span><span class="ruby-operator">*</span>(<span class="ruby-value">-1</span>))
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">grille</span> = <span class="ruby-constant">ModelGrille</span>.<span class="ruby-identifier">getGrilleById</span>(<span class="ruby-identifier">id_grille</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@id_grille</span> = <span class="ruby-identifier">grille</span>.<span class="ruby-identifier">id</span>
+
+        <span class="ruby-identifier">stringDebut</span> = <span class="ruby-identifier">grille</span>.<span class="ruby-identifier">base</span>
+        <span class="ruby-identifier">stringFin</span> = <span class="ruby-identifier">grille</span>.<span class="ruby-identifier">solution</span>
+        <span class="ruby-identifier">len</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">stringFin</span>.<span class="ruby-identifier">length</span>).<span class="ruby-identifier">to_i</span>
+        <span class="ruby-ivar">@plateau</span> = <span class="ruby-constant">Plateau</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">stringDebut</span>,<span class="ruby-identifier">stringFin</span>,<span class="ruby-identifier">boutonUndo</span>,<span class="ruby-identifier">boutonRedo</span>)
+        <span class="ruby-ivar">@plateauGtk</span> = <span class="ruby-constant">PlateauGtk</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">vbox</span>,<span class="ruby-ivar">@plateau</span>,<span class="ruby-identifier">len</span>)
+        
+        <span class="ruby-identifier">boutonValHypo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">false</span>)
+        <span class="ruby-identifier">boutonUndo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">false</span>)
+        <span class="ruby-identifier">boutonRedo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">false</span>)
+        
+        <span class="ruby-identifier">t1</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-ivar">@timeDebut</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+                <span class="ruby-keyword">while</span> (<span class="ruby-operator">!</span><span class="ruby-ivar">@plateau</span>.<span class="ruby-identifier">testGrille</span>)
+                        <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>
+                        <span class="ruby-identifier">labelTimer</span>.<span class="ruby-identifier">label</span>=(<span class="ruby-string">&#39;Timer : &#39;</span><span class="ruby-operator">+</span> (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span><span class="ruby-operator">-</span><span class="ruby-ivar">@timeDebut</span>).<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">to_s</span>)
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-ivar">@timeFinal</span> = (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span><span class="ruby-operator">-</span><span class="ruby-ivar">@timeDebut</span>)
+                <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">vbox</span>)
+                <span class="ruby-constant">FinPartie</span>.<span class="ruby-identifier">afficher</span>(<span class="ruby-identifier">fenetre</span>, <span class="ruby-identifier">langue</span>, <span class="ruby-ivar">@timeFinal</span>, <span class="ruby-identifier">mode</span>, <span class="ruby-identifier">grille</span>, <span class="ruby-ivar">@nb_undo</span>, <span class="ruby-ivar">@nb_indices</span>)
+        <span class="ruby-keyword">end</span>
+        
+        <span class="ruby-identifier">boutonRetour</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;clicked&#39;</span>){
+                <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-identifier">t1</span>)
+                <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">vbox</span>)
+                <span class="ruby-constant">Menu</span>.<span class="ruby-identifier">afficher</span>(<span class="ruby-identifier">fenetre</span>, <span class="ruby-identifier">langue</span>)
+        }
+
+        <span class="ruby-identifier">boutonValHypo</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;clicked&#39;</span>){
+                <span class="ruby-ivar">@hypothese</span>=<span class="ruby-keyword">false</span>
+                <span class="ruby-identifier">boutonHypo</span>.<span class="ruby-identifier">set_label</span>(<span class="ruby-string">&#39;Débuter hypothese&#39;</span>)
+                <span class="ruby-identifier">boutonValHypo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">false</span>)
+                <span class="ruby-ivar">@plateauGtk</span>.<span class="ruby-identifier">validerHypothese</span>
+        }
+        
+        <span class="ruby-identifier">boutonHypo</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;clicked&#39;</span>){
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@hypothese</span> 
+                        <span class="ruby-ivar">@hypothese</span>=<span class="ruby-keyword">false</span>
+                        <span class="ruby-identifier">boutonValHypo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">false</span>)
+                        <span class="ruby-identifier">boutonHypo</span>.<span class="ruby-identifier">set_label</span>(<span class="ruby-string">&#39;Débuter hypothese&#39;</span>)
+                        <span class="ruby-ivar">@plateau</span>.<span class="ruby-identifier">annulerHypothese</span>
+                        <span class="ruby-ivar">@plateauGtk</span>.<span class="ruby-identifier">annulerHypothese</span>
+                        
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-ivar">@hypothese</span>=<span class="ruby-keyword">true</span>
+                        <span class="ruby-identifier">boutonValHypo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">true</span>)
+                        <span class="ruby-identifier">boutonHypo</span>.<span class="ruby-identifier">set_label</span>(<span class="ruby-string">&#39;Abandonner hypothese&#39;</span>)
+                        <span class="ruby-ivar">@plateau</span>.<span class="ruby-identifier">debuterHypothese</span>
+                        <span class="ruby-ivar">@plateauGtk</span>.<span class="ruby-identifier">debuterHypothese</span>
+                <span class="ruby-keyword">end</span>
+        }
+        
+        <span class="ruby-identifier">boutonUndo</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;clicked&#39;</span>){
+                <span class="ruby-ivar">@nb_undo</span> = <span class="ruby-ivar">@nb_undo</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+                <span class="ruby-identifier">mouv</span>=<span class="ruby-ivar">@plateau</span>.<span class="ruby-identifier">undo</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">mouv</span>.<span class="ruby-identifier">flag</span>
+                        <span class="ruby-identifier">boutonUndo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">false</span>)
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-identifier">boutonRedo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">true</span>)
+                <span class="ruby-ivar">@plateauGtk</span>.<span class="ruby-identifier">changerImgBouton</span>(<span class="ruby-identifier">mouv</span>.<span class="ruby-identifier">x</span>,<span class="ruby-identifier">mouv</span>.<span class="ruby-identifier">y</span>,<span class="ruby-identifier">mouv</span>.<span class="ruby-identifier">etatPrecedent</span>)
+        }
+        
+        <span class="ruby-identifier">boutonRedo</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;clicked&#39;</span>){
+                <span class="ruby-identifier">mouv</span>=<span class="ruby-ivar">@plateau</span>.<span class="ruby-identifier">unundo</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">mouv</span>.<span class="ruby-identifier">flag</span>
+                        <span class="ruby-identifier">boutonRedo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">false</span>)
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-identifier">boutonUndo</span>.<span class="ruby-identifier">set_sensitive</span>(<span class="ruby-keyword">true</span>)
+                <span class="ruby-ivar">@plateauGtk</span>.<span class="ruby-identifier">changerImgBouton</span>(<span class="ruby-identifier">mouv</span>.<span class="ruby-identifier">x</span>,<span class="ruby-identifier">mouv</span>.<span class="ruby-identifier">y</span>,<span class="ruby-identifier">mouv</span>.<span class="ruby-identifier">etatPrecedent</span>)
+        }
+        
+        <span class="ruby-identifier">boutonPause</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;clicked&#39;</span>){
+                <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">vbox</span>)
+                <span class="ruby-identifier">timePause</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+                <span class="ruby-identifier">md</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">fenetre</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Dialog</span><span class="ruby-operator">::</span><span class="ruby-constant">DESTROY_WITH_PARENT</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">QUESTION</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTONS_CLOSE</span>,<span class="ruby-string">&quot;  Les 3 règles du Takuzu sont les suivantes :\n_Il est interdit d&#39;aligner plus de deux cases de la même couleur\n_Deux lignes ou colonnes ne doivent pas être identiques\n_Chaque colonne et ligne doivent comporter autant de cases des deux couleurs &quot;</span>)
+                <span class="ruby-identifier">md</span>.<span class="ruby-identifier">run</span>
+                <span class="ruby-identifier">md</span>.<span class="ruby-identifier">destroy</span>
+                <span class="ruby-identifier">timePause</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>()<span class="ruby-operator">-</span><span class="ruby-identifier">timePause</span>
+                <span class="ruby-ivar">@timeDebut</span> = <span class="ruby-ivar">@timeDebut</span> <span class="ruby-operator">+</span><span class="ruby-identifier">timePause</span>
+                <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">vbox</span>)
+        }
+
+        <span class="ruby-identifier">boutonReset</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;clicked&#39;</span>){
+                <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-identifier">t1</span>)
+                <span class="ruby-ivar">@nb_indices</span> = <span class="ruby-value">0</span>
+                <span class="ruby-ivar">@nb_undo</span> = <span class="ruby-value">0</span>
+                <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">vbox</span>)
+                <span class="ruby-constant">Jouer</span>.<span class="ruby-identifier">afficher</span>(<span class="ruby-identifier">fenetre</span>, <span class="ruby-identifier">langue</span>, <span class="ruby-identifier">mode</span>, <span class="ruby-ivar">@id_grille</span><span class="ruby-operator">*</span>(<span class="ruby-value">-1</span>))
+        }
+
+        <span class="ruby-identifier">boutonTestGrille</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;clicked&#39;</span>){
+                <span class="ruby-ivar">@nb_indices</span> = <span class="ruby-ivar">@nb_indices</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+                <span class="ruby-identifier">md</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">fenetre</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Dialog</span><span class="ruby-operator">::</span><span class="ruby-constant">DESTROY_WITH_PARENT</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">INFO</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTONS_CLOSE</span>,<span class="ruby-string">&quot;Nombre d&#39;erreurs : &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@plateau</span>.<span class="ruby-identifier">testCurrentGrille</span>.<span class="ruby-identifier">to_s</span>)
+                <span class="ruby-identifier">md</span>.<span class="ruby-identifier">run</span>
+                <span class="ruby-identifier">md</span>.<span class="ruby-identifier">destroy</span>
+        }
+
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@plateauGtk</span>.<span class="ruby-identifier">table</span>)
+
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boutonTestGrille</span>)
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boutonPause</span>)
+        <span class="ruby-identifier">hbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boutonUndo</span>)
+        <span class="ruby-identifier">hbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boutonRedo</span>)
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">hbox</span>)
+        <span class="ruby-identifier">hbox2</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boutonHypo</span>)
+        <span class="ruby-identifier">hbox2</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boutonValHypo</span>)
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">hbox2</span>)
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boutonReset</span>)
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boutonRetour</span>)
+        <span class="ruby-identifier">vbox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">labelTimer</span>)
+        
+        <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">vbox</span>)
+        <span class="ruby-identifier">fenetre</span>.<span class="ruby-identifier">show_all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

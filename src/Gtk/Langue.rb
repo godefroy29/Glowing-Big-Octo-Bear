@@ -1,12 +1,9 @@
 # encoding: UTF-8
 
-##
-# Auteur PHILIPPE ARMANGER
-# Version 0.1 : Date : Wed Jan 21 13:54:13 CET 2015
-#
+# TODO : commentaire, fin d'integration de la langue
 
 class Langue
-# Va contenir les différents contenus de textes selon le choix de la langue 
+ 
 
 	attr_reader :menu,:jouer,:tutoriel,:options,:score,:credits,:quitter,:retour #bouton du menu
 	attr_reader :texte #credits
