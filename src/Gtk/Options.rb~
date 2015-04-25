@@ -6,6 +6,13 @@
 
 class Options
 
+
+	def afficherDifficulte()
+		while(@comboBoxDifficulte.active != -1)
+			@comboBoxDifficulte.remove_text(0)
+		end
+	end
+
 	def Options.afficher(fenetre, langue)
 
 	padding = 40

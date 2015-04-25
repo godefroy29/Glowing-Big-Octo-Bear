@@ -2,43 +2,17 @@
 
 class Jouer
 
-	# Plateau de jeu
-	attr_accessor :plateau
-	
-	# Plateau de jeu (Gtk)
-	attr_accessor :plateauGtk
+	@plateau
+	@plateauGtk
+	@timeDebut 
+	@timeFinal
+	@nb_indices = 0
+	@nb_undo = 0
+	@id_grille
+	@hypothese
 
-	# Temps de départ
-	attr_accessor :timeDebut
 
-	# Temps de fin
-	attr_accessor :timeFinal
-
-	# Nombre d'indices utilisés
-	attr_accessor :nb_indices
-
-	# Nombre de undo effectués
-	attr_accessor :nb_undo
-
-	# Id de la grille jouée
-	attr_accessor :id_grille
-
-	# Indique si on place ou non des hypothèse de jeu
-	attr_accessor :hypothese
-
-	##
-	# Méthode affichant la fenetre de fin de partie
-	# Paramètres::
-	# - fenetre : la fenetre dans laquelle afficher les elements
-	# - langue : la langue de la fenetre
-	# - mode : le mode de jeu choisit
-	# - id_grille : l'id de la grille sélectionnée
-	
 	def Jouer.afficher(fenetre, langue, mode, id_grille)
-		@nb_indices = 0
-		@nb_undo = 0
-		@hypothese=false
-
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonReset = Gtk::Button.new('Reset')
 		boutonRedo = Gtk::Button.new('Redo')
@@ -51,6 +25,7 @@ class Jouer
 		hbox2 = Gtk::HBox.new(false,0)
 		hbox = Gtk::HBox.new(false,0)
 		labelTimer = Gtk::Label.new('Timer : '+'0')
+		@hypothese=false
 
 		if (mode == "rapide" && id_grille == 0)
 			grille = ModelGrille.getGrilleById(Random.new(Time.now.sec).rand(1..7000))
@@ -82,6 +57,8 @@ class Jouer
 			@timeFinal = (Time.now-@timeDebut)
 			fenetre.remove(vbox)
 			FinPartie.afficher(fenetre, langue, @timeFinal, mode, grille, @nb_undo, @nb_indices)
+
+			#enregistrer score dans bdd
 		end
 		
 		boutonRetour.signal_connect('clicked'){
@@ -152,6 +129,7 @@ class Jouer
 			Jouer.afficher(fenetre, langue, mode, @id_grille*(-1))
 		}
 
+
 		boutonTestGrille.signal_connect('clicked'){
 			@nb_indices = @nb_indices + 1
 			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::INFO,Gtk::MessageDialog::BUTTONS_CLOSE,"Nombre d'erreurs : " + @plateau.testCurrentGrille.to_s)
@@ -176,5 +154,6 @@ class Jouer
 		fenetre.add(vbox)
 		fenetre.show_all
 	end
+
 
 end

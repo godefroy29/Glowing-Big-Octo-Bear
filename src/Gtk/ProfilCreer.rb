@@ -1,10 +1,5 @@
 class ProfilCreer
 
-	##
-	# Méthode affichant la fenetre de creation de profil
-	# Paramètres::
-	# - fenetre : la fenetre dans laquelle afficher les elements
-	# - langue : la langue de la fenetre
 	def ProfilCreer.afficher(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
@@ -14,7 +9,9 @@ class ProfilCreer
 			Menu.afficher(fenetre, langue)
 		}
 
+
 		vb = Gtk::VBox.new(true, 6)
+
 		hb = Gtk::HBox.new(false, 6)
 		hb.pack_start(Gtk::Label.new('Nom'), false, true, 6)
 		nom = Gtk::Entry.new
@@ -35,6 +32,8 @@ class ProfilCreer
 			Profil.afficher(fenetre, langue)
 		}
 
+
+
 		vb.add(boutonEnvoyer)
 
 		vbox.add(vb)
@@ -42,5 +41,10 @@ class ProfilCreer
 		fenetre.add(vbox)
 		fenetre.show_all
 	end
+
+
+
+
+
 
 end

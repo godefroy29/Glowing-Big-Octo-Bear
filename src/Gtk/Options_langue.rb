@@ -1,13 +1,5 @@
-# encoding: UTF-8
-
 class Langue
 
-	##
-	# Méthode affichant la fenetre de fin de partie
-	# Paramètres::
-	# - fenetre : la fenetre dans laquelle afficher les elements
-	# - langue : la langue de la fenetre
-	
 	def Langue.afficher(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
@@ -42,5 +34,4 @@ class Langue
 		fenetre.add(vbox)
 		fenetre.show_all
 	end
-
 end

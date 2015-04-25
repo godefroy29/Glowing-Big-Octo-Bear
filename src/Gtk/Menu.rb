@@ -1,12 +1,11 @@
 # encoding: UTF-8
 
-class Menu
+##
+# Auteur PHILIPPE ARMANGER
+# Version 0.1 : Date : Wed Jan 21 13:47:35 CET 2015
+#
 
-	##
-	# Méthode affichant le menu principale du jeu
-	# Paramètres::
-	# - fenetre : la fenetre dans laquelle afficher les elements
-	# - langue : la langue de la fenetre
+class Menu
 
 	def Menu.afficher(fenetre, langue)
 
@@ -63,5 +62,5 @@ class Menu
 		fenetre.show_all
 		fenetre.reshow_with_initial_size
 	end
-	
-end
+
+end # Marqueur de fin de classe

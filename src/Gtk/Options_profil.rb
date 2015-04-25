@@ -1,12 +1,5 @@
-# encoding: UTF-8
-
 class Profil
 
-	##
-	# Méthode affichant la fenetre de profil
-	# Paramètres::
-	# - fenetre : la fenetre dans laquelle afficher les elements
-	# - langue : la langue de la fenetre
 	def Profil.afficher(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
@@ -56,11 +49,7 @@ class Profil
 		fenetre.show_all
 	end
 
-	##
-	# Méthode affichant la fenetre de creation de profil
-	# Paramètres::
-	# - fenetre : la fenetre dans laquelle afficher les elements
-	# - langue : la langue de la fenetre
+
 	def Profil.creer(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
@@ -70,7 +59,9 @@ class Profil
 			Menu.afficher(fenetre, langue)
 		}
 
+
 		vb = Gtk::VBox.new(true, 6)
+
 		hb = Gtk::HBox.new(false, 6)
 		hb.pack_start(Gtk::Label.new('Nom'), false, true, 6)
 		nom = Gtk::Entry.new
@@ -98,6 +89,8 @@ class Profil
 			end
 		}
 
+
+
 		vb.add(boutonEnvoyer)
 
 		vbox.add(vb)
@@ -106,11 +99,6 @@ class Profil
 		fenetre.show_all
 	end
 
-	##
-	# Méthode affichant la fenetre de connection
-	# Paramètres::
-	# - fenetre : la fenetre dans laquelle afficher les elements
-	# - langue : la langue de la fenetre
 	def Profil.connection(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
@@ -120,7 +108,9 @@ class Profil
 			Menu.afficher(fenetre, langue)
 		}
 
+
 		vb = Gtk::VBox.new(true, 6)
+
 		hb = Gtk::HBox.new(false, 6)
 		hb.pack_start(Gtk::Label.new('Nom'), false, true, 6)
 		nom = Gtk::Entry.new
@@ -146,6 +136,9 @@ class Profil
 			Menu.afficher(fenetre, langue)
 		}
 
+
+
+
 		vb.add(boutonEnvoyer)
 
 		vbox.add(vb)
@@ -154,11 +147,6 @@ class Profil
 		fenetre.show_all
 	end
 
-	##
-	# Méthode affichant la fenetre de suppression de profil
-	# Paramètres::
-	# - fenetre : la fenetre dans laquelle afficher les elements
-	# - langue : la langue de la fenetre
 	def Profil.supprimer(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
@@ -172,7 +160,9 @@ class Profil
 
 		vbox.add(label)
 
+
 		vb = Gtk::VBox.new(true, 6)
+
 		hb = Gtk::HBox.new(false, 6)
 		hb.pack_start(Gtk::Label.new('Entrez votre mot de passe'), false, true, 6)
 		pass = Gtk::Entry.new
@@ -191,6 +181,9 @@ class Profil
 			Menu.afficher(fenetre, langue)
 		}
 
+
+
+
 		vb.add(boutonEnvoyer)
 
 		vbox.add(vb)
@@ -200,8 +193,7 @@ class Profil
 	end
 
 
-	##
-	#TODO : a finir
+
 	def Profil.afficherProfilJoueur
 		label = Gtk::Label.new("Utilisateur : "+ $joueur.pseudo)
 		return label
