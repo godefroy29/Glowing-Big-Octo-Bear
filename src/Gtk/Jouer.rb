@@ -143,7 +143,7 @@ class Jouer
 			if aide.regle == 1
 				s = "Regle 1 : Tuile x:#{aide.x+1},y:#{aide.y+1}"
 			elsif aide.regle == 2
-				s = "Regle 2 : #{aide.type} #{aide.x+1} et #{aide.type} #{aide.y+1}"
+				s = "Regle 2 : #{aide.type} #{aide.x+1} "
 			elsif aide.regle == 3
 				s = "Regle 3 : #{aide.type} #{aide.x+1} et #{aide.type} #{aide.y+1}"
 			end
