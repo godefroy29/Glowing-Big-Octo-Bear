@@ -122,9 +122,9 @@ class Jouer
 		}
 
 		boutonReset.signal_connect('clicked'){
-			Thread.kill(t1)
-			@nb_indices = 0
-			@nb_undo = 0
+			#Thread.kill(t1)
+			#@nb_indices = 0
+			#@nb_undo = 0
 			fenetre.remove(vbox)
 			Jouer.afficher(fenetre, langue, mode, @id_grille*(-1))
 		}

@@ -20,7 +20,7 @@ class Langue
 	def initialize(lang)
 		if lang == 'fr'
 			@menu,@jouer,@tutoriel,@options,@score,@credits,@quitter,@retour,@nouveauProfil,@envoyer = "Menu","Jouer","Tutoriel","Options","Score","Credits","Quitter","Retour au menu","Creer un profil","Envoyer"
-			@texte = "\t\t\tVersion = 0.01\nchef de projet : Godefroy\ndocumentaliste : Cookies \nSdf(sans denomination fixe) : Wookles, Etienne, Benoit, Sylvain\n"
+			@texte = "\t\t\tVersion = 0.01\nChef de projet : \n\tGodefroy\nDocumentaliste : \n\tCookies \nSdf(sans denomination fixe) : \n\tWookles, Etienne, Benoit, Sylvain\n"
 			@o_graphique,@o_lang,@o_profil,@o_score = "Graphiques","Langage","Profil","Score"
 		else
 			@menu,@jouer,@tutoriel,@options,@score,@credits,@quitter,@retour,@nouveauProfil,@envoyer = "Menu","Play","How to play","Options","Score","Credits","Leave","Return to menu","New User","Send"
