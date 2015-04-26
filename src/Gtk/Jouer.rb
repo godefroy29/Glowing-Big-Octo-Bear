@@ -14,6 +14,7 @@ class Jouer
 
 	def Jouer.afficher(fenetre, langue, mode, id_grille)
 		boutonRetour = Gtk::Button.new(langue.retour)
+		boutonSauvegarde = Gtk::Button.new("Sauvegarde rapide")
 		boutonReset = Gtk::Button.new('Reset')
 		boutonAide = Gtk::Button.new('Aide')
 		boutonRedo = Gtk::Button.new('Redo')
@@ -28,6 +29,9 @@ class Jouer
 		labelTimer = Gtk::Label.new('Timer : '+'0')
 		@hypothese=false
 
+
+
+		
 		if (mode == "rapide" && id_grille == 0)
 			grille = ModelGrille.getGrilleById(Random.new(Time.now.sec).rand(1..7000))
 		elsif (mode == "chrono" && id_grille == 0)
@@ -37,6 +41,14 @@ class Jouer
 		else
 			grille = ModelGrille.getGrilleById(id_grille)
 		end
+		
+		#if (mode == "rapide" && !(ModelJoueur.testAnon($joueur)))
+		#	old = ModelScore.getScoreByJoueurAndMode($joueur,0)
+		#	if old != nil
+		#		grille = ModelGrille.getGrilleById(old.id_grille)
+		#	end
+		#end
+		
 		@id_grille = grille.id
 
 		stringDebut = grille.base
@@ -63,10 +75,19 @@ class Jouer
 		end
 		
 		boutonRetour.signal_connect('clicked'){
+			
+			fenetre.remove(vbox)
+			Menu.afficher(fenetre, langue)
+		}
+
+		boutonSauvegarde.signal_connect('clicked'){
+			Score.ajouteScoreSauvegarde($joueur.id,grille.id,temps.to_i,nb_undo,nb_indices)
+			Thread.kill(t1)
 			Thread.kill(t1)
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
 		}
+
 
 		boutonValHypo.signal_connect('clicked'){
 			@hypothese=false
@@ -169,6 +190,9 @@ class Jouer
 		hbox2.add(boutonValHypo)
 		vbox.add(hbox2)
 		vbox.add(boutonReset)
+		if (mode == "rapide" && !(ModelJoueur.testAnon($joueur)))
+			vbox.add(boutonSauvegarde)
+		end
 		vbox.add(boutonRetour)
 		vbox.add(labelTimer)
 		

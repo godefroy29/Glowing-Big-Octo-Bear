@@ -21,6 +21,24 @@ class ModelScore
 
 	end
 
+	def ModelScore.getScoreByJoueurAndMode(joueur,mode)
+
+
+		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur} AND mode = #{mode} "
+
+		score = Score.new(
+			ary[0]['id_score'],
+	    	ary[0]['id_joueur'],
+	    	ary[0]['id_grille'],
+	    	ary[0]['mode'],
+	    	ary[0]['chrono'],
+	    	ary[0]['nb_undo'],
+	    	ary[0]['nb_pause'])
+
+		return score;
+
+	end
+
 	def ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 
 
@@ -153,6 +171,17 @@ class ModelScore
 				return ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 			end
 		end
+
+	end
+
+	
+
+	def ModelJoueur.suprScoreById(id)
+
+
+		ary = $database.execute "DELETE FROM Score WHERE id_score = #{id}"
+
+		return nil;
 
 	end
 
