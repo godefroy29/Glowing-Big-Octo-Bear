@@ -139,7 +139,22 @@ class Jouer
 		}
 
 		boutonAide.signal_connect('clicked'){
-			@plateau.aide
+			aide = @plateau.aide
+			if aide.regle == 1
+				s = "Regle 1 : Tuile x:#{aide.x+1},y:#{aide.y+1}"
+			elsif aide.regle == 2
+				s = "Regle 2 : #{aide.type} #{aide.x+1} et #{aide.type} #{aide.y+1}"
+			elsif aide.regle == 3
+				s = "Regle 3 : #{aide.type} #{aide.x+1} et #{aide.type} #{aide.y+1}"
+			end
+			md = Gtk::MessageDialog.new(
+				fenetre,
+				Gtk::Dialog::DESTROY_WITH_PARENT,
+				Gtk::MessageDialog::INFO,
+				Gtk::MessageDialog::BUTTONS_CLOSE,
+				s)
+			md.run
+			md.destroy
 		}
 
 		vbox.add(@plateauGtk.table)
