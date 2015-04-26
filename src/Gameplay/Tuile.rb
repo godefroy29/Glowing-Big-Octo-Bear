@@ -19,6 +19,28 @@ class Tuile
 	def changerVers(couleur)
 		@couleur=couleur
 	end
+
+	def isBlue
+		return couleur == 0
+	end
+
+	def isRed
+		return couleur == 1
+	end
+
+	def Tuile.oppositeColor(couleur)
+		if couleur == 1
+			return 0
+		end
+		if couleur == 0
+			return 1
+		end
+		return -1
+	end
+
+	def Tuile.getCouleurVide
+		return -1
+	end
 end # Marqueur de fin de classe
 
 #[Classe Tuile]	Permet d'instancier des Tuiles de couleur pouvant changer de couleur
