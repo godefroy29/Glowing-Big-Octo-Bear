@@ -7,6 +7,13 @@ class Score
 		scoreAff = ""
 		0.upto score.size-1 do |x|
 			scoreAff = scoreAff +
+			scoreAff[x]['id_score'].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "\n\n"
 		end
 
 		scoreJoueur = Gtk::Label.new()
