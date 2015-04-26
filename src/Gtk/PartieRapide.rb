@@ -7,12 +7,14 @@
 
 class PartieRapide
 
-	def PartieRapide.afficher(fenetre, langue)
+	def PartieRapide.afficher(fenetre, langue, mode)
 
 		padding = 20
 		vbox = Gtk::VBox.new(false,10)
 
 		boutonJouer = Gtk::Button.new("Jouer !")
+		boutonAlea = Gtk::Button.new("Grille aleatoire")
+		boutonRetour = Gtk::Button.new("Retour au menu")
 		boutonQuitter = Gtk::Button.new(langue.quitter)
 		labelDifficulte = Gtk::Label.new("Difficulte")
 		comboBoxDifficulte = Gtk::ComboBox.new()
@@ -49,7 +51,17 @@ class PartieRapide
 
 		boutonJouer.signal_connect('clicked'){
 			fenetre.remove(vbox)
-			Jouer.afficher(fenetre, langue, "rapide", id_grille)
+			Jouer.afficher(fenetre, langue, mode, id_grille)
+		}
+
+		boutonAlea.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			Jouer.afficher(fenetre, langue, mode, (Random.new(Time.now.sec).rand(1..7000)))#get alea
+		}
+
+		boutonRetour.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			Menu.afficher(fenetre, langue)
 		}
 
 		boutonQuitter.signal_connect('clicked') {
@@ -69,6 +81,8 @@ class PartieRapide
 		vbox.pack_start(labelTaille, false, false, padding)
 		vbox.pack_start(comboBoxTaille, false, false, padding)
 		vbox.pack_start(boutonJouer, false, false, padding)
+		vbox.pack_start(boutonAlea, false, false, padding)
+		vbox.pack_start(boutonRetour, false, false, padding)
 		vbox.pack_start(boutonQuitter, false, false, padding)
 
 		fenetre.add(vbox)

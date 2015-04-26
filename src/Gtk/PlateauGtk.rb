@@ -78,9 +78,25 @@ class PlateauGtk
 		end
 	end
 	
+	def validerHypothese
+		@bleu = $optionGraphique.couleur1
+		@rouge = $optionGraphique.couleur2
+		0.upto(@n-1) do|x| 
+			0.upto(@n-1) {|y|
+				if @btnArray[x][y] != nil
+					if @btnArray[x][y].style == $optionGraphique.couleur1Alt
+						@btnArray[x][y].style = $optionGraphique.couleur1
+					elsif @btnArray[x][y].style == $optionGraphique.couleur2Alt
+						@btnArray[x][y].style = $optionGraphique.couleur2
+					end
+				end
+			}
+		end
+	end
+	
 	def annulerHypothese
-	@bleu = $optionGraphique.couleur1
-	@rouge = $optionGraphique.couleur2
+		@bleu = $optionGraphique.couleur1
+		@rouge = $optionGraphique.couleur2
 		0.upto(@n-1) do|x| 
 			0.upto(@n-1) {|y|
 				if @hypotheseArray[x][y] != 'non'

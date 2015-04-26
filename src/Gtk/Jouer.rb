@@ -20,8 +20,10 @@ class Jouer
 		boutonUndo = Gtk::Button.new('Undo')
 		boutonPause = Gtk::Button.new('Pause')
 		boutonHypo = Gtk::Button.new('Débuter hypothese')
+		boutonValHypo = Gtk::Button.new('Valider Hypothese')
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
+		hbox2 = Gtk::HBox.new(false,0)
 		hbox = Gtk::HBox.new(false,0)
 		labelTimer = Gtk::Label.new('Timer : '+'0')
 		@hypothese=false
@@ -43,6 +45,7 @@ class Jouer
 		@plateau = Plateau.new(stringDebut,stringFin,boutonUndo,boutonRedo)
 		@plateauGtk = PlateauGtk.creer(vbox,@plateau,len)
 		
+		boutonValHypo.set_sensitive(false)
 		boutonUndo.set_sensitive(false)
 		boutonRedo.set_sensitive(false)
 		
@@ -65,15 +68,24 @@ class Jouer
 			Menu.afficher(fenetre, langue)
 		}
 
+		boutonValHypo.signal_connect('clicked'){
+			@hypothese=false
+			boutonHypo.set_label('Débuter hypothese')
+			boutonValHypo.set_sensitive(false)
+			@plateauGtk.validerHypothese
+		}
+		
 		boutonHypo.signal_connect('clicked'){
 			if @hypothese 
 				@hypothese=false
+				boutonValHypo.set_sensitive(false)
 				boutonHypo.set_label('Débuter hypothese')
 				@plateau.annulerHypothese
 				@plateauGtk.annulerHypothese
 				
 			else
 				@hypothese=true
+				boutonValHypo.set_sensitive(true)
 				boutonHypo.set_label('Abandonner hypothese')
 				@plateau.debuterHypothese
 				@plateauGtk.debuterHypothese
@@ -111,9 +123,9 @@ class Jouer
 		}
 
 		boutonReset.signal_connect('clicked'){
-			Thread.kill(t1)
-			@nb_indices = 0
-			@nb_undo = 0
+			#Thread.kill(t1)
+			#@nb_indices = 0
+			#@nb_undo = 0
 			fenetre.remove(vbox)
 			Jouer.afficher(fenetre, langue, mode, @id_grille*(-1))
 		}
@@ -134,11 +146,13 @@ class Jouer
 
 		vbox.add(boutonAide)
 		vbox.add(boutonTestGrille)
+		vbox.add(boutonPause)
 		hbox.add(boutonUndo)
 		hbox.add(boutonRedo)
 		vbox.add(hbox)
-		vbox.add(boutonPause)
-		vbox.add(boutonHypo)
+		hbox2.add(boutonHypo)
+		hbox2.add(boutonValHypo)
+		vbox.add(hbox2)
 		vbox.add(boutonReset)
 		vbox.add(boutonRetour)
 		vbox.add(labelTimer)
