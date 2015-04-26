@@ -52,7 +52,7 @@ class ModelScore
 			return nil
 		end
 
-		score = new Array
+		score = Array.new
 
 		0.upto ary.size-1 do |x|
 		score[x] = Score.new(
@@ -78,7 +78,7 @@ class ModelScore
 			return nil
 		end
 
-		score = new Array
+		score = Array.new
 
 		0.upto ary.size-1 do |x|
 		score[x] = Score.new(
@@ -104,7 +104,7 @@ class ModelScore
 			return nil
 		end
 
-		score = new Array
+		score = Array.new
 
 		0.upto ary.size-1 do |x|
 		score[x] = Score.new(
