@@ -144,13 +144,6 @@ class ModelScore
 		score = ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 
 		if score == nil
-			$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause) 
-			VALUES (#{joueur},
-				#{grille},
-				#{mode},
-				#{chrono},
-				#{nb_undo},
-				#{nb_pause})"
 			return score
 		else
 			if score.calculScore >= Score.calculScore(chrono,nb_undo,nb_pause)

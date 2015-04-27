@@ -1,0 +1,61 @@
+# encoding: UTF-8
+##
+# Auteur PHILIPPE ARMANGER
+# Version 0.1 : Date : Fri Feb 13 10:15:00 CET 2015
+#
+
+class Score
+
+	def Score.afficher(fenetre, langue)
+
+	padding = 40
+	
+	#Création des boutons
+	boutonRetour = Gtk::Button.new(langue.retour)
+
+	#Création d'une vbox
+	vbox = Gtk::VBox.new(false,10)
+
+	ary = ModelScore.getScoreArrayByJoueur($joueur.id_joueur)
+
+
+	boutonRetour.signal_connect('clicked'){
+		fenetre.remove(vbox)
+		Options.afficher(fenetre, langue)
+	}
+
+	# Ajout des boutons a la vbox
+	vbox.pack_start(boutonGraphique, false, false, padding)
+	vbox.pack_start(boutonProfil, false, false, padding)
+	vbox.pack_start(boutonLangue, false, false, padding)
+	vbox.pack_start(boutonScore, false, false, padding)
+	vbox.pack_start(boutonRetour, false, false, padding)
+
+	fenetre.add(vbox)
+	fenetre.show_all
+	
+	end
+	
+end # Marqueur de fin de classe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

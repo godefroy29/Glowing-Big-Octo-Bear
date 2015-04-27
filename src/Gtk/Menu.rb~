@@ -15,6 +15,7 @@ class Menu
 		boutonModeDeJeu = Gtk::Button.new(langue.jouer)
 		boutonTutoriel = Gtk::Button.new(langue.tutoriel)
 		boutonOptions = Gtk::Button.new(langue.options)
+		boutonScore = Gtk::Button.new(langue.score)
 		boutonCredits = Gtk::Button.new(langue.credits)
 		boutonQuitter = Gtk::Button.new(langue.quitter)
 
@@ -23,11 +24,6 @@ class Menu
 		boutonJouer.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Jouer.afficher(fenetre, langue, "rapide", 1)
-		}
-		
-		boutonTutoriel.signal_connect('clicked'){
-			fenetre.remove(vbox)
-			Tuto.afficher(fenetre, langue)
 		}
 
 		boutonModeDeJeu.signal_connect('clicked'){
@@ -38,6 +34,11 @@ class Menu
 		boutonOptions.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Options.afficher(fenetre, langue)
+		}
+
+		boutonScore.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			Score.afficher(fenetre, langue)
 		}
 		
 		boutonCredits.signal_connect('clicked'){
@@ -58,6 +59,7 @@ class Menu
 		vbox.pack_start(boutonModeDeJeu, false, false, padding)
 		vbox.pack_start(boutonTutoriel, false, false, padding)
 		vbox.pack_start(boutonOptions, false, false, padding)
+		vbox.pack_start(boutonScore, false, false, padding)
 		vbox.pack_start(boutonCredits, false, false, padding)
 		vbox.pack_start(boutonQuitter, false, false, padding)
 

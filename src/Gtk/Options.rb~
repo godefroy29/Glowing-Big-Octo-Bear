@@ -38,7 +38,7 @@ class Options
 	
 	boutonScore.signal_connect('clicked'){
 		fenetre.remove(vbox)
-		Options_score.afficher(fenetre, langue)
+		Score.afficher(fenetre, langue)
 	}
 	
 	boutonRetour.signal_connect('clicked'){

@@ -212,11 +212,7 @@ class Plateau
 					compteurRouge += 1
 				end
 
-				#regle 2
-				if compteurBleu >= @n/2 || compteurRouge >= @n/2
-					list.push(Aide.new(2,"ligne",y,nil))
-					#p "Aide Regle 2 : ligne #{y}"
-				end
+				
 
 				
 			end
@@ -225,6 +221,11 @@ class Plateau
 			elsif @plateauJoueur[@n-1][y].isRed
 					compteurRouge += 1
 			end
+			#regle 2
+				if compteurBleu >= @n/2 || compteurRouge >= @n/2
+					list.push(Aide.new(2,"ligne",y,nil))
+					#p "Aide Regle 2 : ligne #{y}"
+				end
 			#regle 3
 			if compteurBleu + compteurRouge == @n-2 #2 tuiles vides	
 				0.upto(@n-1) do |z|
@@ -265,17 +266,18 @@ class Plateau
 					compteurRouge += 1
 				end
 
-				#regle 2
-				if compteurBleu >= @n/2 || compteurRouge >= @n/2
-					list.push(Aide.new(2,"colonne",x,nil))
-					#p "Aide Regle 2 : colonne #{x}"
-				end
+				
 			end
 			if @plateauJoueur[x][@n-1].isBlue 
 					compteurBleu += 1
 			elsif @plateauJoueur[x][@n-1].isRed
 					compteurRouge += 1
 			end
+			#regle 2
+				if compteurBleu >= @n/2 || compteurRouge >= @n/2
+					list.push(Aide.new(2,"colonne",x,nil))
+					#p "Aide Regle 2 : colonne #{x}"
+				end
 			#regle 3
 			if compteurBleu + compteurRouge == @n-2 #2 tuiles vides
 				0.upto(@n-1) do |z|
