@@ -16,7 +16,7 @@ load "./Gtk/Options_score.rb"
 load "./Gtk/ModeDeJeu.rb"
 load "./Gtk/PartieRapide.rb"
 load "./Gtk/FinPartie.rb"
-
+load "./Gtk/Tuto.rb"
 
 
 

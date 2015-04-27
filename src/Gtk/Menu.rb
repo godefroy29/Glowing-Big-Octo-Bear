@@ -24,6 +24,11 @@ class Menu
 			fenetre.remove(vbox)
 			Jouer.afficher(fenetre, langue, "rapide", 1)
 		}
+		
+		boutonTutoriel.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			Tuto.afficher(fenetre, langue)
+		}
 
 		boutonModeDeJeu.signal_connect('clicked'){
 			fenetre.remove(vbox)
