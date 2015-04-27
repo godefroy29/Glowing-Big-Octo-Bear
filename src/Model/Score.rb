@@ -28,6 +28,14 @@ class Score
 		return 1000 - chrono - nb_undo * 10 - nb_pause * 5
 	end
 
+	def Score.ajouteScoreSauvegarde(joueur,grille,chrono,nb_undo,nb_pause)
+		old = ModelScore.getScoreByJoueurAndMode(joueur,0)
+		if old != nil
+			ModelScore.suprScoreById(old.id)
+		end
+		ModelScore.createScore(joueur,grille,0,chrono,nb_undo,nb_pause)
+	end
+
 	def Score.ajouteScoreRapide(joueur,grille,chrono,nb_undo,nb_pause)
 		ModelScore.createScore(joueur,grille,1,chrono,nb_undo,nb_pause)
 	end

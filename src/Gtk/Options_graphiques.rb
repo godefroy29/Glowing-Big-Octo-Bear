@@ -95,6 +95,19 @@ class Graphique
 			fenetre.remove(vbox)
 			Options.afficher(fenetre, langue)
 		}
+
+		label = Gtk::Label.new()
+		label.set_markup("<big>Couleur</big>\nCliquez sur une tuile pour changer sa couleur !")
+
+		boutonCouleur2Alt.set_size_request(100,100)
+		boutonCouleur1Alt.set_size_request(100,100)
+		boutonCouleur2.set_size_request(100,100)
+		boutonCouleur1.set_size_request(100,100)
+		label.set_size_request(0,175)
+		boutonRetour.set_size_request(0,25)
+		boutonOptions.set_size_request(0,25)
+
+		vbox.add(label)
 		vbox1.add(Gtk::Label.new('Couleur classique'))
 		vbox1.add(boutonCouleur1)
 		vbox1.add(boutonCouleur2)

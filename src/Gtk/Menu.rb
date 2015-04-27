@@ -50,7 +50,7 @@ class Menu
 		vbox = Gtk::VBox.new(false,10)
 		
 		# Ajout des boutons a la vbox
-		vbox.pack_start(boutonJouer, false, false, padding)
+		#vbox.pack_start(boutonJouer, false, false, padding)
 		vbox.pack_start(boutonModeDeJeu, false, false, padding)
 		vbox.pack_start(boutonTutoriel, false, false, padding)
 		vbox.pack_start(boutonOptions, false, false, padding)

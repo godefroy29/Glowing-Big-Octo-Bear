@@ -1,13 +1,14 @@
 class Profil
 
 	def Profil.afficher(fenetre, langue)
-		vbox = Gtk::VBox.new(false,10)
+		vbox = Gtk::VBox.new(false,40)
 
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonRetour.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
 		}
+		boutonRetour.set_size_request(0,25)
 
 		boutonNouveau = Gtk::Button.new(langue.nouveauProfil)
 		boutonNouveau.signal_connect('clicked'){
@@ -35,12 +36,26 @@ class Profil
 			Profil.supprimer(fenetre, langue)
 		}
 
+		labelConnexion = Gtk::Label.new()
+		labelConnexion.set_markup("<big>Connectez-vous ou ...</big>")
+		labelCreer = Gtk::Label.new()
+		labelCreer.set_markup("<big>... creez un nouveau profil !</big>")
+
+		labelDeconnection = Gtk::Label.new()
+		labelDeconnection.set_markup("<big>Deconnectez-vous ou ...</big>")
+		labelSuppression = Gtk::Label.new()
+		labelSuppression.set_markup("<big>... supprimez votre profil !</big>")
+
 		if ModelJoueur.testAnon($joueur)
+			vbox.add(labelConnexion)
 			vbox.add(boutonConnection)
+			vbox.add(labelCreer)
 			vbox.add(boutonNouveau)
 		else
 			vbox.add(Profil.afficherProfilJoueur)
+			vbox.add(labelDeconnection)
 			vbox.add(boutonDeconnexion)
+			vbox.add(labelSuppression)
 			vbox.add(boutonSupprimer)
 
 		end

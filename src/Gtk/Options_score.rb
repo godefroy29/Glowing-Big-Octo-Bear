@@ -3,6 +3,22 @@ class Score
 	def Score.afficher(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
+		score = ModelScore.getScoreArrayByJoueur($joueur.id)
+		scoreAff = ""
+		0.upto score.size-1 do |x|
+			scoreAff = scoreAff +
+			scoreAff[x]['id_score'].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "|" +
+	    	scoreAff[x].to_s + "\n\n"
+		end
+
+		scoreJoueur = Gtk::Label.new()
+		scoreJoueur.set_markup("<big>"+scoreAff+"</big>")
+
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonRetour.signal_connect('clicked'){
 			fenetre.remove(vbox)
@@ -15,6 +31,7 @@ class Score
 			Options.afficher(fenetre, langue)
 		}
 
+		vbox.add(scoreJoueur)
 		vbox.add(boutonOptions)
 		vbox.add(boutonRetour)
 		fenetre.add(vbox)
