@@ -16,7 +16,7 @@ class Options_score
 		message = "Score: " + x.calculScore.to_s + 
 			", grille: " + x.grille.to_s + 
 			", mode: " + x.mode.to_s + 
-			", chrono: " + x.chrono.to_s +
+			"\nchrono: " + x.chrono.to_s +
 			", nombre de pause: " + x.nb_pause.to_s + 
 			", nombre de undo: " + x.nb_undo.to_s
 		lbl = Gtk::Label.new(message)

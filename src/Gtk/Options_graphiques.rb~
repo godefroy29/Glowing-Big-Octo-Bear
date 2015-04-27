@@ -72,8 +72,8 @@ class Graphique
 					@@c1Alt = Gdk::Color.parse("#2222BB")
 					@@c2Alt = Gdk::Color.parse("#BB2222")
 				when 2
-					@@c1 = Gdk::Color.parse("#9022EE")
-					@@c2 = Gdk::Color.parse("#EE2290")
+					@@c1 = Gdk::Color.parse("#EE22EE")
+					@@c2 = Gdk::Color.parse("#EE22EE")
 					@@c1Alt = Gdk::Color.parse("#BB22BB")
 					@@c2Alt = Gdk::Color.parse("#BB22BB")
 				when 3
