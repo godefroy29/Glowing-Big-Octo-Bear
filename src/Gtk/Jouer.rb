@@ -144,11 +144,41 @@ class Jouer
 		}
 
 		boutonReset.signal_connect('clicked'){
-			#Thread.kill(t1)
-			#@nb_indices = 0
-			#@nb_undo = 0
-			fenetre.remove(vbox)
-			Jouer.afficher(fenetre, langue, mode, @id_grille*(-1))
+
+			vbox.remove(@plateauGtk.table)
+			
+			@plateau = Plateau.new(stringDebut,stringFin,boutonUndo,boutonRedo)
+			@plateauGtk = PlateauGtk.creer(vbox,@plateau,len)
+			
+			vbox.remove(boutonAide)
+			vbox.remove(boutonTestGrille)
+			vbox.remove(boutonPause)
+			vbox.remove(hbox)
+			vbox.remove(hbox2)
+			vbox.remove(boutonReset)
+			if (mode == "rapide" && !(ModelJoueur.testAnon($joueur)))
+				vbox.remove(boutonSauvegarde)
+			end
+			vbox.remove(boutonRetour)
+			vbox.remove(labelTimer)
+			
+			
+			vbox.pack_start_defaults(@plateauGtk.table)
+
+			vbox.add(boutonAide)
+			vbox.add(boutonTestGrille)
+			vbox.add(boutonPause)
+			vbox.add(hbox)
+			vbox.add(hbox2)
+			vbox.add(boutonReset)
+			if (mode == "rapide" && !(ModelJoueur.testAnon($joueur)))
+				vbox.add(boutonSauvegarde)
+			end
+			vbox.add(boutonRetour)
+			vbox.add(labelTimer)
+
+			fenetre.show_all
+			
 		}
 
 
@@ -178,7 +208,7 @@ class Jouer
 			md.destroy
 		}
 
-		vbox.add(@plateauGtk.table)
+		vbox.pack_start_defaults(@plateauGtk.table)
 
 		vbox.add(boutonAide)
 		vbox.add(boutonTestGrille)
