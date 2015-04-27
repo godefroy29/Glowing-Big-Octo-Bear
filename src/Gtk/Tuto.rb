@@ -64,18 +64,22 @@ class Tuto
 			md1 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"Bienvenue dans le tutoriel du jeu de Takuzu\nLe but est de compléter la grille\nIl est interdit d'avoir trois tuiles de même couleur adjacentes ")
 			md1.action_area.pack_start(boutonClose1)
 			md1.show_all
+			fenetre.set_sensitive(false)
 			while !n
 				sleep 0.1
 			end
 			n=false
+			fenetre.set_sensitive(true)
 			md1.destroy
 			md2 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"Pour changer la couleur d'une tuile, cliquez une fois dessous pour la rendre rouge, et deux fois pour bleu ")
 			md2.action_area.pack_start(boutonClose2)
 			md2.show_all
+			fenetre.set_sensitive(false)
 			while !n
 				sleep 0.1
 			end
 			n=false
+			fenetre.set_sensitive(true)
 			md2.destroy
 			
 			while(@plateau.getColorStr(2,0)!="bleu" && @plateau.getColorStr(1,1)!="rouge" )
@@ -85,10 +89,12 @@ class Tuto
 			md3 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"La deuxième règle stipule que chaque ligne et colonne doivent contenir le même nombre de tuiles bleues et rouges\nCombinez cette règle et la première pour continuer à avancer")
 			md3.action_area.pack_start(boutonClose3)
 			md3.show_all
+			fenetre.set_sensitive(false)
 			while !n
 				sleep 0.1
 			end
 			n=false
+			fenetre.set_sensitive(true)
 			md3.destroy
 			
 			while(@plateau.getColorStr(1,3)!="bleu" && @plateau.getColorStr(2,3)!="rouge" )
@@ -98,10 +104,12 @@ class Tuto
 			md4 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"La dernière règle stipule que deux lignes ou colonnes ne doivent pas être identiques \nAvec ces trois règles, vous êtes maintenant en mesure de finir toute partie de Takuzu")
 			md4.action_area.pack_start(boutonClose4)
 			md4.show_all
+			fenetre.set_sensitive(false)
 			while !n
 				sleep 0.1
 			end
 			n=false
+			fenetre.set_sensitive(true)
 			md4.destroy
 
 			while (!@plateau.testGrille)
@@ -111,10 +119,12 @@ class Tuto
 			md5 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"Félicitations ! \nVous pouvez relire les règles à tout moment en mettant le jeu en pause.")
 			md5.action_area.pack_start(boutonClose5)
 			md5.show_all
+			fenetre.set_sensitive(false)
 			while !n
 				sleep 0.1
 			end
 			n=false
+			fenetre.set_sensitive(true)
 			md5.destroy
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
