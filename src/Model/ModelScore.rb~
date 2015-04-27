@@ -64,7 +64,7 @@ class ModelScore
 	def ModelScore.getScoreArrayByJoueur(joueur)
 
 
-		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur} ORDER BY id_score DESC LIMIT 5"
+		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur} ORDER BY id_score ASC LIMIT 5"
 
 		if ary.empty?
 			return nil
