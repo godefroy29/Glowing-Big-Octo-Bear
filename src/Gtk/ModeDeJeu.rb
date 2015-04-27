@@ -6,14 +6,15 @@ class ModeDeJeu
 	def ModeDeJeu.afficher(fenetre, langue)
 
 		padding = 20
-
+		
 		boutonJouerRapide = Gtk::Button.new("High Score")
 		boutonChrono = Gtk::Button.new("Timed")
 		boutonRetour = Gtk::Button.new("Retour")
 		boutonQuitter = Gtk::Button.new(langue.quitter)
 
 		vbox = Gtk::VBox.new(false,10)
-
+		
+		
 		boutonJouerRapide.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			PartieRapide.afficher(fenetre, langue, "rapide")
