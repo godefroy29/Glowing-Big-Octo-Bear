@@ -1,9 +1,4 @@
-# encoding: UTF-8
-##
-# Auteur PHILIPPE ARMANGER
-# Version 0.1 : Date : Fri Feb 13 10:15:00 CET 2015
-#
-
+#Classe permettant au joueur de sélectionner l'option dans laquelle il souhaite aller
 class Options
 
 	def Options.afficher(fenetre, langue)
