@@ -1,14 +1,14 @@
-#FinPartie
-# encoding: UTF-8
-
+#Classe qui permet l'affichage de fin de partie.
 class FinPartie
-
+	##
+	#Méthode d'affichage et de gestion de fin de partie
 	def FinPartie.afficher(fenetre, langue, temps, mode, grille, nb_undo, nb_indices)
+		#Ajoute le score dans la base de donnée et affiche le resultat à l'écran en fonction du mode de jeu
 		if mode == "rapide"
 			winText = langue.f_rapide1+"#{temps.to_i.to_s}"+langue.f_rapide2+"#{Score.calculScore(temps,nb_undo,nb_indices).to_i}"
 			Score.ajouteScoreRapide($joueur.id,grille.id,temps.to_i,nb_undo,nb_indices)
 		elsif mode == "chrono"
-			winText = winText = langue.f_chrono1+"#{temps.to_i.to_s}"+langue.f_chrono2
+			winText = langue.f_chrono1+"#{temps.to_i.to_s}"+langue.f_chrono2
 			Score.ajouteScoreChrono($joueur.id,grille.id,temps.to_i,nb_undo,nb_indices)
 		else
 			winText = langue.f_rapide1+"#{temps.to_i.to_s}"+langue.f_rapide2+" #{Score.calculScore(temps,nb_undo,nb_indices).to_i}"
@@ -17,16 +17,16 @@ class FinPartie
 
 		#Score.ajouteScoreRapide(joueur.id,grille.id,chrono,nb_undo,nb_indices)
 		
-
 		label = Gtk::Label.new(winText)
 		boutonRetour = Gtk::Button.new(langue.retour)
-		vbox = Gtk::VBox.new(false,10)
 		
+		#Ajout du signal pour retourner au menu
 		boutonRetour.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
 		}
 
+		vbox = Gtk::VBox.new(false,10)
 		vbox.add(label)
 		vbox.add(boutonRetour)
 
@@ -34,7 +34,4 @@ class FinPartie
 		fenetre.show_all
 	end
 
-	
-
-
-end # Marqueur de fin de classe
+end
