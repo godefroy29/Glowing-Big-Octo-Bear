@@ -176,6 +176,44 @@ class ModelScore
 
 	end
 
+	def ModelScore.getNombreScoreOfJoueur(joueur)
 
+		ary = $database.execute "SELECT COUNT(*) FROM Score WHERE id_joueur = #{joueur}"
+		return ary[0]['COUNT(*)'];
+
+	end
+	def ModelScore.getTempsTotalOfJoueur(joueur)
+
+		ary = $database.execute "SELECT SUM(chrono) FROM Score WHERE id_joueur = #{joueur}"
+		return ary[0]['SUM(chrono)'];
+
+	end
+	def ModelScore.getNombrePauseOfJoueur(joueur)
+
+		ary = $database.execute "SELECT SUM(nb_pause) FROM Score WHERE id_joueur = #{joueur}"
+		return ary[0]['SUM(nb_pause)'];
+
+	end
+	def ModelScore.getNombreUndoOfJoueur(joueur)
+
+		ary = $database.execute "SELECT SUM(nb_undo) FROM Score WHERE id_joueur = #{joueur}"
+		return ary[0]['SUM(nb_undo)'];
+
+	end
+
+	def ModelScore.getScoreTotalOfJoueur(joueur)
+
+		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur}"
+		scoreTotal = 0
+		if ary != nil
+			0.upto ary.size-1 do |x|
+				scoreTotal = scoreTotal + Score.calculScore(ary[x]['chrono'],ary[x]['nb_undo'],ary[x]['nb_pause'])
+			end
+		end
+
+
+		return scoreTotal;
+
+	end
 
 end
