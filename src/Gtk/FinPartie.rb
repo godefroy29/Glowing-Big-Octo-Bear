@@ -19,6 +19,10 @@ class FinPartie
 		
 		label = Gtk::Label.new(winText)
 		boutonRetour = Gtk::Button.new(langue.retour)
+		vbox = Gtk::VBox.new(false,10)
+		
+		vbox.add(label)
+		vbox.add(boutonRetour)
 		
 		#Ajout du signal pour retourner au menu
 		boutonRetour.signal_connect('clicked'){
@@ -26,9 +30,7 @@ class FinPartie
 			Menu.afficher(fenetre, langue)
 		}
 
-		vbox = Gtk::VBox.new(false,10)
-		vbox.add(label)
-		vbox.add(boutonRetour)
+		
 
 		fenetre.add(vbox)
 		fenetre.show_all
