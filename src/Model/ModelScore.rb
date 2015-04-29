@@ -1,3 +1,4 @@
+#Classe qui permet d'interagir avec la table "score" de la base de donnée
 class ModelScore
 
 	##
