@@ -12,13 +12,13 @@ class PartieRapide
 		padding = 20
 		vbox = Gtk::VBox.new(false,10)
 
-		boutonJouer = Gtk::Button.new("Jouer !")
-		boutonAlea = Gtk::Button.new("Grille aleatoire")
-		boutonRetour = Gtk::Button.new("Retour au menu")
+		boutonJouer = Gtk::Button.new(langue.pr_jouer)
+		boutonAlea = Gtk::Button.new(langue.pr_alea)
+		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonQuitter = Gtk::Button.new(langue.quitter)
-		labelDifficulte = Gtk::Label.new("Difficulte")
+		labelDifficulte = Gtk::Label.new(langue.pr_diff)
 		comboBoxDifficulte = Gtk::ComboBox.new()
-		labelTaille = Gtk::Label.new("Taille")
+		labelTaille = Gtk::Label.new(langue.pr_taille)
 		comboBoxTaille = Gtk::ComboBox.new()
 		id_grille = nil
 

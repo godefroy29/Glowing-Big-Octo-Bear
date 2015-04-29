@@ -22,7 +22,7 @@ class Graphique
 		@@couleur1.set_bg(Gtk::STATE_NORMAL, @@c1.red, @@c1.green, @@c1.blue)
 		@@couleur2.set_bg(Gtk::STATE_PRELIGHT, @@c2.red, @@c2.green, @@c2.blue)
 		@@couleur2.set_bg(Gtk::STATE_NORMAL, @@c2.red, @@c2.green, @@c2.blue)
-		@@c1Alt = Gdk::Color.parse("#2222BB")
+		@@c1Alt = Gdk::Color.parse("#0000FF")
 		@@c2Alt = Gdk::Color.parse("#BB2222")
 		@@couleur1Alt = Gtk::Style.new	
 		@@couleur2Alt = Gtk::Style.new
@@ -69,11 +69,11 @@ class Graphique
 				when 1
 					@@c1 = Gdk::Color.parse("#2222EE")
 					@@c2 = Gdk::Color.parse("#EE2222")
-					@@c1Alt = Gdk::Color.parse("#2222BB")
+					@@c1Alt = Gdk::Color.parse("#0000FF")
 					@@c2Alt = Gdk::Color.parse("#BB2222")
 				when 2
-					@@c1 = Gdk::Color.parse("#EE22EE")
-					@@c2 = Gdk::Color.parse("#EE22EE")
+					@@c1 = Gdk::Color.parse("#9022EE")
+					@@c2 = Gdk::Color.parse("#EE2290")
 					@@c1Alt = Gdk::Color.parse("#BB22BB")
 					@@c2Alt = Gdk::Color.parse("#BB22BB")
 				when 3
@@ -84,7 +84,7 @@ class Graphique
 				else
 					@@c1 = Gdk::Color.parse("#2222EE")
 					@@c2 = Gdk::Color.parse("#EE2222")
-					@@c1Alt = Gdk::Color.parse("#2222BB")
+					@@c1Alt = Gdk::Color.parse("#0000FF")
 					@@c2Alt = Gdk::Color.parse("#BB2222")
 			end
 			@@couleur1.set_bg(Gtk::STATE_PRELIGHT, @@c1.red, @@c1.green, @@c1.blue)
@@ -139,7 +139,7 @@ class Graphique
 		}
 
 		label = Gtk::Label.new()
-		label.set_markup("<big>Couleur</big>\nCliquez sur une tuile pour changer sa couleur !")
+		label.set_markup(langue.og_1)
 
 		hbox2 = Gtk::HBox.new(false,40)
 		hbox2.add(Gtk::Label.new("Set: "))
@@ -155,10 +155,10 @@ class Graphique
 
 		vbox.add(label)
 		vbox.add(hbox2)
-		vbox1.add(Gtk::Label.new('Couleur classique'))
+		vbox1.add(Gtk::Label.new(langue.og_2))
 		vbox1.add(boutonCouleur1)
 		vbox1.add(boutonCouleur2)
-		vbox2.add(Gtk::Label.new('Couleur hypothese'))
+		vbox2.add(Gtk::Label.new(langue.og_3))
 		vbox2.add(boutonCouleur1Alt)
 		vbox2.add(boutonCouleur2Alt)
 		hbox.add(vbox1)

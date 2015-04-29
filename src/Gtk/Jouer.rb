@@ -15,13 +15,13 @@ class Jouer
 	def Jouer.afficher(fenetre, langue, mode, id_grille)
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonSauvegarde = Gtk::Button.new("Sauvegarde rapide")
-		boutonReset = Gtk::Button.new('Reset')
-		boutonAide = Gtk::Button.new('Aide')
-		boutonRedo = Gtk::Button.new('Redo')
-		boutonUndo = Gtk::Button.new('Undo')
-		boutonPause = Gtk::Button.new('Pause')
-		boutonHypo = Gtk::Button.new('Débuter hypothese')
-		boutonValHypo = Gtk::Button.new('Valider Hypothese')
+		boutonReset = Gtk::Button.new(langue.j_reset)
+		boutonAide = Gtk::Button.new(langue.j_aide)
+		boutonRedo = Gtk::Button.new(langue.j_redo)
+		boutonUndo = Gtk::Button.new(langue.j_undo)
+		boutonPause = Gtk::Button.new(langue.j_pause)
+		boutonHypo = Gtk::Button.new(langue.j_debHypo)
+		boutonValHypo = Gtk::Button.new(langue.j_valHypo)
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
 		hbox2 = Gtk::HBox.new(false,0)
@@ -91,7 +91,7 @@ class Jouer
 
 		boutonValHypo.signal_connect('clicked'){
 			@hypothese=false
-			boutonHypo.set_label('Débuter hypothese')
+			boutonHypo.set_label(langue.j_debHypo)
 			boutonValHypo.set_sensitive(false)
 			@plateauGtk.validerHypothese
 		}
@@ -100,14 +100,14 @@ class Jouer
 			if @hypothese 
 				@hypothese=false
 				boutonValHypo.set_sensitive(false)
-				boutonHypo.set_label('Débuter hypothese')
+				boutonHypo.set_label(langue.j_debHypo)
 				@plateau.annulerHypothese
 				@plateauGtk.annulerHypothese
 				
 			else
 				@hypothese=true
 				boutonValHypo.set_sensitive(true)
-				boutonHypo.set_label('Abandonner hypothese')
+				boutonHypo.set_label(langue.j_annHypo)
 				@plateau.debuterHypothese
 				@plateauGtk.debuterHypothese
 			end
@@ -135,7 +135,7 @@ class Jouer
 		boutonPause.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			timePause = Time.now
-			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_CLOSE,"  Les 3 règles du Takuzu sont les suivantes :\n_Il est interdit d'aligner plus de deux cases de la même couleur\n_Deux lignes ou colonnes ne doivent pas être identiques\n_Chaque colonne et ligne doivent comporter autant de cases des deux couleurs ")
+			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_CLOSE,langue.t_regle)
 			md.run
 			md.destroy
 			timePause = Time.now()-timePause
@@ -184,7 +184,7 @@ class Jouer
 
 		boutonTestGrille.signal_connect('clicked'){
 			@nb_indices = @nb_indices + 1
-			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::INFO,Gtk::MessageDialog::BUTTONS_CLOSE,"Nombre d'erreurs : " + @plateau.testCurrentGrille.to_s)
+			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::INFO,Gtk::MessageDialog::BUTTONS_CLOSE, langue.t_test + @plateau.testCurrentGrille.to_s)
 			md.run
 			md.destroy
 		}
@@ -192,11 +192,11 @@ class Jouer
 		boutonAide.signal_connect('clicked'){
 			aide = @plateau.aide
 			if aide.regle == 1
-				s = "Regle 1 : Tuile x:#{aide.x+1},y:#{aide.y+1}"
+				s = langue.t_help1 + ":#{aide.x+1},y:#{aide.y+1}"
 			elsif aide.regle == 2
-				s = "Regle 2 : #{aide.type} #{aide.x+1} "
+				s = langue.t_help2 + "#{aide.type} #{aide.x+1}"
 			elsif aide.regle == 3
-				s = "Regle 3 : #{aide.type} #{aide.x+1} et #{aide.type} #{aide.y+1}"
+				s = langue.t_help31 + "#{aide.type} #{aide.x+1}" + langue.t_help32 + "#{aide.type} #{aide.y+1}"
 			end
 			md = Gtk::MessageDialog.new(
 				fenetre,
