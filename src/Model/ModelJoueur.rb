@@ -1,9 +1,9 @@
+#Classe qui permet d'interagir avec la table "joueur" de la base de donnée
 class ModelJoueur
 
 	##
 	#Méthode qui renvoie l'objet Utilisateur correspondant à l'id rentrée en parametre
 	def ModelJoueur.getJoueurById(id)
-
 
 		ary = $database.execute "SELECT * FROM Joueur WHERE id_joueur = #{id}"
 
@@ -12,19 +12,17 @@ class ModelJoueur
 		end
 
 		joueur = Joueur.new(
-	    	ary[0]["id_joueur"], 
-	    	ary[0]['pseudo'],
-	    	ary[0]['password'],
-	    	ary[0]['avatar'])
+	    		ary[0]["id_joueur"], 
+	    		ary[0]['pseudo'],
+		    	ary[0]['password'],
+		 	ary[0]['avatar'])
 
 		return joueur;
-
 	end
 
 	##
 	#Méthode qui renvoie l'objet Utilisateur correspondant au pseudo rentrée en parametre
 	def ModelJoueur.getJoueurByUsername(username)
-
 
 		ary = $database.execute "SELECT * FROM Joueur WHERE pseudo = '#{username}'"
 
@@ -33,13 +31,12 @@ class ModelJoueur
 		end
 
 		joueur = Joueur.new(
-	    	ary[0]["id_joueur"],
-	    	ary[0]['pseudo'],
-	    	ary[0]['password'],
-	    	ary[0]['avatar'])
+		 	ary[0]["id_joueur"],
+		 	ary[0]['pseudo'],
+		 	ary[0]['password'],
+		 	ary[0]['avatar'])
 
 		return joueur;
-
 	end
 
 	##
@@ -47,13 +44,13 @@ class ModelJoueur
 	#return nil si username déjà utilisé
 	def ModelJoueur.createJoueur(username,password)
 		joueur = ModelJoueur.getJoueurByUsername(username)
+		
 		if joueur == nil
 			$database.execute "INSERT INTO Joueur(pseudo,password,avatar) VALUES ('#{username}','#{password}','#{$default_avatar}')"
 			return ModelJoueur.getJoueurByUsername(username)
 		else
 			return nil
 		end
-		
 	end
 
 	##
