@@ -12,11 +12,11 @@ class Tuto
 
 	def Tuto.afficher(fenetre, langue)
 		boutonRetour = Gtk::Button.new(langue.retour)
-		boutonRedo = Gtk::Button.new('Redo')
-		boutonUndo = Gtk::Button.new('Undo')
-		boutonPause = Gtk::Button.new('Pause')
-		boutonHypo = Gtk::Button.new('Débuter hypothese')
-		boutonValHypo = Gtk::Button.new('Valider Hypothese')
+		boutonRedo = Gtk::Button.new(langue.j_redo)
+		boutonUndo = Gtk::Button.new(langue.j_undo)
+		boutonPause = Gtk::Button.new(langue.j_pause)
+		boutonHypo = Gtk::Button.new(langue.j_debHypo)
+		boutonValHypo = Gtk::Button.new(langue.j_debHypo)
 		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
 		vbox = Gtk::VBox.new(false,10)
 		hbox2 = Gtk::HBox.new(false,0)
@@ -61,7 +61,7 @@ class Tuto
 				n=true
 			}
 			sleep 0.5
-			md1 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"Bienvenue dans le tutoriel du jeu de Takuzu\nLe but est de compléter la grille\nIl est interdit d'avoir trois tuiles de même couleur adjacentes ")
+			md1 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,langue.d_1)
 			md1.action_area.pack_start(boutonClose1)
 			md1.show_all
 			fenetre.set_sensitive(false)
@@ -71,7 +71,7 @@ class Tuto
 			n=false
 			fenetre.set_sensitive(true)
 			md1.destroy
-			md2 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"Pour changer la couleur d'une tuile, cliquez une fois dessous pour la rendre rouge, et deux fois pour bleu ")
+			md2 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,langue.d_2)
 			md2.action_area.pack_start(boutonClose2)
 			md2.show_all
 			fenetre.set_sensitive(false)
@@ -86,7 +86,7 @@ class Tuto
 				sleep 0.1
 			end
 			
-			md3 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"La deuxième règle stipule que chaque ligne et colonne doivent contenir le même nombre de tuiles bleues et rouges\nCombinez cette règle et la première pour continuer à avancer")
+			md3 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,langue.d_3)
 			md3.action_area.pack_start(boutonClose3)
 			md3.show_all
 			fenetre.set_sensitive(false)
@@ -101,7 +101,7 @@ class Tuto
 				sleep 0.1
 			end
 			
-			md4 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"La dernière règle stipule que deux lignes ou colonnes ne doivent pas être identiques \nAvec ces trois règles, vous êtes maintenant en mesure de finir toute partie de Takuzu")
+			md4 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,langue.d_4)
 			md4.action_area.pack_start(boutonClose4)
 			md4.show_all
 			fenetre.set_sensitive(false)
@@ -116,7 +116,7 @@ class Tuto
 				sleep 0.1
 			end
 
-			md5 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,"Félicitations ! \nVous pouvez relire les règles à tout moment en mettant le jeu en pause.")
+			md5 = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_NONE,langue.d_5)
 			md5.action_area.pack_start(boutonClose5)
 			md5.show_all
 			fenetre.set_sensitive(false)
@@ -139,7 +139,7 @@ class Tuto
 
 		boutonValHypo.signal_connect('clicked'){
 			@hypothese=false
-			boutonHypo.set_label('Débuter hypothese')
+			boutonHypo.set_label(langue.j_debHypo)
 			boutonValHypo.set_sensitive(false)
 			@plateauGtk.validerHypothese
 		}
@@ -148,14 +148,14 @@ class Tuto
 			if @hypothese 
 				@hypothese=false
 				boutonValHypo.set_sensitive(false)
-				boutonHypo.set_label('Débuter hypothese')
+				boutonHypo.set_label(langue.j_debHypo)
 				@plateau.annulerHypothese
 				@plateauGtk.annulerHypothese
 				
 			else
 				@hypothese=true
 				boutonValHypo.set_sensitive(true)
-				boutonHypo.set_label('Abandonner hypothese')
+				boutonHypo.set_label(langue.j_annHypo)
 				@plateau.debuterHypothese
 				@plateauGtk.debuterHypothese
 			end
@@ -182,7 +182,7 @@ class Tuto
 		
 		boutonPause.signal_connect('clicked'){
 			fenetre.remove(vbox)
-			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_CLOSE,"  Les 3 règles du Takuzu sont les suivantes :\n_Il est interdit d'aligner plus de deux cases de la même couleur\n_Deux lignes ou colonnes ne doivent pas être identiques\n_Chaque colonne et ligne doivent comporter autant de cases des deux couleurs ")
+			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_CLOSE,t.regle)
 			md.run
 			md.destroy
 			fenetre.add(vbox)
@@ -191,7 +191,7 @@ class Tuto
 
 		boutonTestGrille.signal_connect('clicked'){
 			@nb_indices = @nb_indices + 1
-			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::INFO,Gtk::MessageDialog::BUTTONS_CLOSE,"Nombre d'erreurs : " + @plateau.testCurrentGrille.to_s)
+			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::INFO,Gtk::MessageDialog::BUTTONS_CLOSE,t.help + @plateau.testCurrentGrille.to_s)
 			md.run
 			md.destroy
 		}

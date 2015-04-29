@@ -7,9 +7,9 @@ class ModeDeJeu
 
 		padding = 20
 		
-		boutonJouerRapide = Gtk::Button.new("High Score")
-		boutonChrono = Gtk::Button.new("Timed")
-		boutonRetour = Gtk::Button.new("Retour")
+		boutonJouerRapide = Gtk::Button.new(langue.m_hiscor)
+		boutonChrono = Gtk::Button.new(langue.m_chrono)
+		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonQuitter = Gtk::Button.new(langue.quitter)
 
 		vbox = Gtk::VBox.new(false,10)
