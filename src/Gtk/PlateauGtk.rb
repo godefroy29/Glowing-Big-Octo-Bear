@@ -62,7 +62,13 @@ class PlateauGtk
 			@btnArray[x][y].style = nil
 		end
 	end
-	
+
+
+	# Enregistre l'apparence de la grille et change la couleur des prochaines tuiles à la couleur spécifiée pour les hypothse
+        #
+        # *Change @bleu et @rouge à  $optionGraphique.couleur1Alt et $optionGraphique.couleur2Alt respectivement
+        # *Remplit @hypotheseArray de @btnArray[x][y].style (nil) pour une case vide ou 'non' si la tuile ne peut pas être changée
+        
 	def debuterHypothese
 		@hypotheseArray = Array.new(@n){ |i| Array.new(@n)}
 		@bleu = $optionGraphique.couleur1Alt
@@ -78,6 +84,9 @@ class PlateauGtk
 		end
 	end
 	
+	#Rétablit les couleurs de tuiles normales et donne la couleur normale à toutes les tuiles posées durant l'hypothese
+	#
+        # *Change @bleu et @rouge à  $optionGraphique.couleur1 et $optionGraphique.couleur2 respectivement
 	def validerHypothese
 		@bleu = $optionGraphique.couleur1
 		@rouge = $optionGraphique.couleur2
@@ -94,6 +103,10 @@ class PlateauGtk
 		end
 	end
 	
+	#Rétablit les couleurs de tuiles normales et remet les couleurs enregistrées @hypotheseArray
+        #
+        # *Change @bleu et @rouge à  $optionGraphique.couleur1 et $optionGraphique.couleur2 respectivement
+        # *Remplit @btnArray.style de @hypotheseArray[x][y] (nil) pour une case vide ou 'non' si la tuile ne peut pas être changée
 	def annulerHypothese
 		@bleu = $optionGraphique.couleur1
 		@rouge = $optionGraphique.couleur2
