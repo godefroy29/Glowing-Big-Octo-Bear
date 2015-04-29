@@ -54,12 +54,6 @@ class Jouer
 		@plateauGtk = PlateauGtk.creer(vbox,@plateau,len)
 
 		old = ModelScore.getScoreByJoueurAndMode($joueur.id,0)
-		if old != nil && old.grille == @id_grille
-				@nb_undo	=	old.nb_undo
-				@nb_pause	=	old.nb_pause
-				#todo chrono save
-				@plateauGtk.updateFromSave(old.etat)
-		end
 		
 		boutonValHypo.set_sensitive(false)
 		boutonUndo.set_sensitive(false)
@@ -82,6 +76,14 @@ class Jouer
 			FinPartie.afficher(fenetre, langue, @timeFinal, mode, grille, @nb_undo, @nb_pause)
 
 			#enregistrer score dans bdd
+		end
+		
+		if old != nil && old.grille == @id_grille
+				@nb_undo	=	old.nb_undo
+				@nb_pause	=	old.nb_pause
+				sleep 1 #pour que le temps de départ s'initialise dans le thread du timer
+				@timeDebut 	= 	@timeDebut - old.chrono
+				@plateauGtk.updateFromSave(old.etat)
 		end
 		
 		boutonRetour.signal_connect('clicked'){
