@@ -21,6 +21,8 @@ class ModelScore
 
 	end
 
+	##
+	# Methode qui retourne tous les scores d'un joueur correspondant a un mode donné
 	def ModelScore.getScoreByJoueurAndMode(joueur,mode)
 
 
@@ -39,6 +41,8 @@ class ModelScore
 
 	end
 
+	##
+	# Methode qui retourne tous les scores d'un joueur correspondant a un mode donné et a une grille précise
 	def ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 
 
@@ -61,6 +65,8 @@ class ModelScore
 
 	end
 
+	##
+	# Methode qui retourne les 5 derniers score d'un joueur
 	def ModelScore.getScoreArrayByJoueur(joueur)
 
 
@@ -87,6 +93,8 @@ class ModelScore
 
 	end
 
+	##
+	# Methode qui retourne tous les scores correspondant a un mode
 	def ModelScore.getScoreArrayByMode(mode)
 
 
@@ -113,6 +121,8 @@ class ModelScore
 
 	end
 
+	##
+	# Methode qui retourne tous les scores qui ont été fait sur une grille donnée
 	def ModelScore.getScoreArrayByGrille(grille)
 
 
@@ -139,10 +149,14 @@ class ModelScore
 
 	end
 
+	##
+	# Methode d'ajout de score dans la base de donnée
+	# Si il existe déjà un score pour le joueur sur la grille et le mode choisit, on les remplace
 	def ModelScore.createScore(joueur,grille,mode,chrono,nb_undo,nb_pause)
 		#Test si le joueur dispose déjà d'un score sur cette grille
 		score = ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 
+		#Si il ne dispose pas de score sur cete grille dans ce mode, alors on l'insere
 		if score == nil
 			$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause) 
 			VALUES (#{joueur},
@@ -153,8 +167,10 @@ class ModelScore
 				#{nb_pause})"
 			return score
 		else
+			#Sinon si le score présent dans la base de donnée est plus grand que celui que le joueur veut inserer on ne fait rien
 			if score.calculScore >= Score.calculScore(chrono,nb_undo,nb_pause)
 				return score
+			#Sinon on remplace le score déjà présent
 			else
 				$database.execute "UPDATE Score 
 				SET chrono = #{chrono}, nb_undo = #{nb_undo}, nb_pause = #{nb_pause} 
@@ -165,8 +181,8 @@ class ModelScore
 
 	end
 
-	
-
+	##
+	# Méhode qui supprime le score correspondant a l'id mit en parametre
 	def ModelJoueur.suprScoreById(id)
 
 
@@ -176,6 +192,54 @@ class ModelScore
 
 	end
 
+	##
+	# Méthode qui retourne le nombre de partie qu'a fini le joueur
+	def ModelScore.getNombreScoreOfJoueur(joueur)
 
+		ary = $database.execute "SELECT COUNT(*) FROM Score WHERE id_joueur = #{joueur}"
+		return ary[0]['COUNT(*)'];
+
+	end
+	##
+	# Méthode qui retourne le temps total qu'a passe le joueur a joue
+	def ModelScore.getTempsTotalOfJoueur(joueur)
+
+		ary = $database.execute "SELECT SUM(chrono) FROM Score WHERE id_joueur = #{joueur}"
+		return ary[0]['SUM(chrono)'];
+
+	end
+	##
+	# Méthode qui retourne le nombre pause qu'a effecte le joueur
+	def ModelScore.getNombrePauseOfJoueur(joueur)
+
+		ary = $database.execute "SELECT SUM(nb_pause) FROM Score WHERE id_joueur = #{joueur}"
+		return ary[0]['SUM(nb_pause)'];
+
+	end
+	##
+	# Méthode qui retourne le nombre de partie qu'a fini le joueur
+	def ModelScore.getNombreUndoOfJoueur(joueur)
+
+		ary = $database.execute "SELECT SUM(nb_undo) FROM Score WHERE id_joueur = #{joueur}"
+		return ary[0]['SUM(nb_undo)'];
+
+	end
+
+	##
+	# Méthode qui retourne la somme de tous les score du joueur
+	def ModelScore.getScoreTotalOfJoueur(joueur)
+
+		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur}"
+		scoreTotal = 0
+		if ary != nil
+			0.upto ary.size-1 do |x|
+				scoreTotal = scoreTotal + Score.calculScore(ary[x]['chrono'],ary[x]['nb_undo'],ary[x]['nb_pause'])
+			end
+		end
+
+
+		return scoreTotal;
+
+	end
 
 end

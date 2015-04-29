@@ -63,7 +63,7 @@ class Profil
 				tempsMoyen = tempsTotal/nbParties
 				messageStats = messageStats + ", pour un score total de " + scoreTotal.to_s + ", soit un score moyen de " + scoreMoyen.to_s + "."
 				messageStats = messageStats + "\nVous avez joue pendant " + tempsTotal.to_s + " secondes, soit un temps moyen de " + tempsMoyen.to_s + " secondes."
-				messageStats = messageStats + "\nVous avez effectue " + nbUndoTotal.to_s + " undos et " + nbPauseTotal.to_s + " pauses."
+				messageStats = messageStats + "\nVous avez effectue " + nbUndoTotal.to_s + " undos et " + nbPauseTotal + " pauses."
 			end
 			vbox.add(Profil.afficherProfilJoueur)
 			vbox.add(Gtk::Label.new(messageStats))
