@@ -9,7 +9,7 @@ class Score
 	attr_reader :chrono	#temps pour finir la grille
 	attr_reader :nb_undo	#le nombre de fois que le joueur a utilisé la fonction undo durant la partie
 	attr_reader :nb_pause	#le nombre de fois que le joueur a utilisé la fonction undo durant la partie
-	attr_reader :etat
+	attr_reader :etat	#permet de savoir si le joueur a fini ou non sa partie
 
 	def initialize(id,joueur,grille,mode,chrono,nb_undo,nb_pause,etat)
 		@id		=	id
@@ -49,12 +49,14 @@ class Score
 		ModelScore.createSave(joueur,grille,chrono,nb_undo,nb_pause,etat)
 	end
 
+	##
+	#Methode qui permet de supprimer le score d'un joueur
 	def Score.suprSauvergarde(joueur)
 		old = ModelScore.getScoreByJoueurAndMode(joueur,0)
 		if old != nil
 			ModelScore.suprScoreById(old.id)
 		end
-		nil
+		return nil
 	end
 
 	##
