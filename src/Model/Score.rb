@@ -1,12 +1,14 @@
+#Classe qui s'occupe de gérer les scores
+#elle permet d'ajouter et de calculer des scores
 class Score
 
-	attr_reader :id
-	attr_reader :joueur
-	attr_reader :grille
-	attr_reader :mode
-	attr_reader :chrono
-	attr_reader :nb_undo
-	attr_reader :nb_pause
+	attr_reader :id		#id de la grille
+	attr_reader :joueur	#joueur auquel appartient le score
+	attr_reader :grille	#grille sur lequel la partie a été joué
+	attr_reader :mode	#mode de jeu
+	attr_reader :chrono	#temps pour finir la grille
+	attr_reader :nb_undo	#le nombre de fois que le joueur a utilisé la fonction undo durant la partie
+	attr_reader :nb_pause	#le nombre de fois que le joueur a utilisé la fonction undo durant la partie
 
 	def initialize(id,joueur,grille,mode,chrono,nb_undo,nb_pause)
 		@id		=	id
@@ -57,6 +59,8 @@ class Score
 		ModelScore.createScore(joueur,grille,2,chrono,nb_undo,nb_pause)
 	end
 
+	##
+	#Méthode d'affichage de la classe
 	def to_s	
 		return "Score id = #{@id} , chrono = #{@chrono}"
 	end
