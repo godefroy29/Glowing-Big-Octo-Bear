@@ -2,9 +2,8 @@ class ModelGrille
 
 
 	##
-	#==Renvoie un objet grille aléatoirement choisit sur les critères de fifficulte et de taille passé en parametre
+	#Méthode qui renvoie un objet grille aléatoirement choisit sur les critères de fifficulte et de taille passé en parametre
 	def ModelGrille.getRandomGrille(difficulte,taille)
-
 
 		ary = $database.execute "SELECT * FROM Grille WHERE difficulte = #{difficulte} AND taille = #{taille} ORDER BY RANDOM() LIMIT 1"
 
@@ -12,22 +11,19 @@ class ModelGrille
 			return nil
 		end
 
-
 		grille = Grille.new(
-	    	ary[0]["id_grille"],
-	    	ary[0]['taille'],
-	    	ary[0]['difficulte'],
-	    	ary[0]['base'],
-	    	ary[0]['solution'])
+	    		ary[0]["id_grille"],
+	    		ary[0]['taille'],
+		  	ary[0]['difficulte'],
+		    	ary[0]['base'],
+		 	ary[0]['solution'])
 
 		return grille;
-
 	end
 
 	##
-	#Renvoie l'objet Grille correspondant à l'id rentrée en parametre
+	#Méthode qui renvoie l'objet Grille correspondant à l'id rentrée en parametre
 	def ModelGrille.getGrilleById(id)
-
 
 		ary = $database.execute "SELECT * FROM Grille WHERE id_grille = #{id}"
 
@@ -36,20 +32,19 @@ class ModelGrille
 		end
 
 		grille = Grille.new(
-	    	ary[0]["id_grille"],
-	    	ary[0]['taille'],
-	    	ary[0]['difficulte'],
-	    	ary[0]['base'],
-	    	ary[0]['solution'])
-
+	    		ary[0]["id_grille"],
+	    		ary[0]['taille'],
+	    		ary[0]['difficulte'],
+	    		ary[0]['base'],
+	    		ary[0]['solution'])
+	    	
 		return grille;
-
 	end
 
 	##
-	#Renvoie l'objet Grille correspondant à l'id rentrée en parametre
+	#Méthode qui renvoie l'objet Grille correspondant à l'id rentrée en parametre
 	def ModelGrille.getGrilleByDifficulteAndTaille(difficulte, taille)
-
+		
 		ary = $database.execute "SELECT * FROM Grille WHERE difficulte = #{difficulte} AND taille = #{taille} ORDER BY RANDOM() LIMIT 1"
 
 		if ary.empty?
@@ -62,6 +57,8 @@ class ModelGrille
 
 	end
 
+	##
+	#Méthode qui renvoie tout les difficultés possibles
 	def ModelGrille.getDifficulte()
 
 
@@ -72,6 +69,7 @@ class ModelGrille
 		end
 
 		temp = Array.new()
+		
 		ary.each{|x|
 			temp.push(x['difficulte'])
 		}
@@ -79,6 +77,8 @@ class ModelGrille
 		return temp;
 	end
 
+	##
+	#Méthode qui renvoie tout les tailles possibles
 	def ModelGrille.getTaille()
 
 
