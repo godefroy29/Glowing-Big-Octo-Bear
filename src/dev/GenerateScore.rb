@@ -9,7 +9,8 @@ class GenerateScore
 			mode INTEGER,
 			chrono INTEGER,
 			nb_undo INTEGER,
-			nb_pause INTEGER);")
+			nb_pause INTEGER,
+			base VARCHAR(255));")
 
 	end
 

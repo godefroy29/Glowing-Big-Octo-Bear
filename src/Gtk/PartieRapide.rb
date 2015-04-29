@@ -14,6 +14,7 @@ class PartieRapide
 
 		boutonJouer = Gtk::Button.new(langue.pr_jouer)
 		boutonAlea = Gtk::Button.new(langue.pr_alea)
+		boutonSave = Gtk::Button.new("Reprendre une sauvegarde")
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonQuitter = Gtk::Button.new(langue.quitter)
 		labelDifficulte = Gtk::Label.new(langue.pr_diff)
@@ -37,6 +38,16 @@ class PartieRapide
 			else
 				boutonJouer.set_sensitive(false)
 			end
+		}
+
+		boutonSave.signal_connect('clicked'){
+			fenetre.remove(vbox)
+			old = ModelScore.getScoreByJoueurAndMode($joueur.id,0)
+			if old != nil
+				p "old != nil"
+				Jouer.afficher(fenetre, langue, mode, old.grille)
+			end
+			
 		}
 
 		comboBoxTaille.signal_connect('changed'){
@@ -81,9 +92,22 @@ class PartieRapide
 		vbox.pack_start(labelTaille, false, false, padding)
 		vbox.pack_start(comboBoxTaille, false, false, padding)
 		vbox.pack_start(boutonJouer, false, false, padding)
+		vbox.pack_start(boutonSave, false, false, padding)
 		vbox.pack_start(boutonAlea, false, false, padding)
 		vbox.pack_start(boutonRetour, false, false, padding)
 		vbox.pack_start(boutonQuitter, false, false, padding)
+
+		boutonSave.set_sensitive(false)
+
+
+
+		if !(ModelJoueur.testAnon($joueur))
+			old = ModelScore.getScoreByJoueurAndMode($joueur.id,0)
+			if old != nil
+				p "old != nil"
+				boutonSave.set_sensitive(true)
+			end
+		end
 
 		fenetre.add(vbox)
 		fenetre.show_all

@@ -317,6 +317,22 @@ class Plateau
 		ligne
 	end	
 
+	def getEtatCourant
+		s = String.new
+		0.upto (@n-1) do |y|
+			0.upto (@n-1) do |x|
+				if(@plateauJoueur[x][y].couleur == @@CouleurBleu)
+					s+= "0"
+				elsif(@plateauJoueur[x][y].couleur == @@CouleurRouge)
+					s+= "1"
+				elsif(@plateauJoueur[x][y].couleur == @@CouleurVide)
+					s+= "_"
+				end
+			end
+		end
+		return s
+	end
+
 	
 end
 

@@ -8,6 +8,8 @@ class Jouer
 	@timeFinal
 	@nb_indices = 0
 	@nb_undo = 0
+	@nb_pause = 0
+	@nb_aide = 0
 	@id_grille
 	@hypothese
 
@@ -42,12 +44,6 @@ class Jouer
 			grille = ModelGrille.getGrilleById(id_grille)
 		end
 		
-		#if (mode == "rapide" && !(ModelJoueur.testAnon($joueur)))
-		#	old = ModelScore.getScoreByJoueurAndMode($joueur,0)
-		#	if old != nil
-		#		grille = ModelGrille.getGrilleById(old.id_grille)
-		#	end
-		#end
 		
 		@id_grille = grille.id
 
@@ -56,6 +52,14 @@ class Jouer
 		len = Math.sqrt(stringFin.length).to_i
 		@plateau = Plateau.new(stringDebut,stringFin,boutonUndo,boutonRedo)
 		@plateauGtk = PlateauGtk.creer(vbox,@plateau,len)
+
+		old = ModelScore.getScoreByJoueurAndMode($joueur.id,0)
+		if old != nil && old.grille == @id_grille
+				@nb_undo	=	old.nb_undo
+				@nb_pause	=	old.nb_pause
+				#todo chrono save
+				#@plateauGtk.updateFromSave(old.etat)
+		end
 		
 		boutonValHypo.set_sensitive(false)
 		boutonUndo.set_sensitive(false)
@@ -69,19 +73,29 @@ class Jouer
 			end
 			@timeFinal = (Time.now-@timeDebut)
 			fenetre.remove(vbox)
-			FinPartie.afficher(fenetre, langue, @timeFinal, mode, grille, @nb_undo, @nb_indices)
+			#Destruction de la save si on vient de finir la partie auvegardée
+			old = ModelScore.getScoreByJoueurAndMode($joueur.id,0)
+			if old != nil && old.grille == @id_grille
+					Score.suprSauvergarde($joueur.id)
+			end
+			
+			FinPartie.afficher(fenetre, langue, @timeFinal, mode, grille, @nb_undo, @nb_pause)
 
 			#enregistrer score dans bdd
 		end
 		
 		boutonRetour.signal_connect('clicked'){
-			
+			#Destruction de la save si on vient de finir la partie auvegardée
+			old = ModelScore.getScoreByJoueurAndMode($joueur.id,0)
+			if old != nil && old.grille == @id_grille
+					Score.suprSauvergarde($joueur.id)
+			end
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
 		}
 
 		boutonSauvegarde.signal_connect('clicked'){
-			Score.ajouteScoreSauvegarde($joueur.id,grille.id,temps.to_i,nb_undo,nb_indices)
+			Score.ajouteScoreSauvegarde($joueur.id,@id_grille,(Time.now-@timeDebut).to_i,@nb_undo,@nb_pause,@plateau.getEtatCourant)
 			Thread.kill(t1)
 			Thread.kill(t1)
 			fenetre.remove(vbox)
@@ -133,6 +147,7 @@ class Jouer
 		}
 		
 		boutonPause.signal_connect('clicked'){
+			@nb_pause+=1
 			fenetre.remove(vbox)
 			timePause = Time.now
 			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::QUESTION,Gtk::MessageDialog::BUTTONS_CLOSE,langue.t_regle)
@@ -190,6 +205,7 @@ class Jouer
 		}
 
 		boutonAide.signal_connect('clicked'){
+			@nb_aide += 1
 			aide = @plateau.aide
 			if aide.regle == 1
 				s = langue.t_help1 + ":#{aide.x+1},y:#{aide.y+1}"

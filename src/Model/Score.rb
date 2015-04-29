@@ -9,8 +9,9 @@ class Score
 	attr_reader :chrono	#temps pour finir la grille
 	attr_reader :nb_undo	#le nombre de fois que le joueur a utilisé la fonction undo durant la partie
 	attr_reader :nb_pause	#le nombre de fois que le joueur a utilisé la fonction undo durant la partie
+	attr_reader :etat
 
-	def initialize(id,joueur,grille,mode,chrono,nb_undo,nb_pause)
+	def initialize(id,joueur,grille,mode,chrono,nb_undo,nb_pause,etat)
 		@id		=	id
 		@joueur		=	joueur
 		@grille		=	grille
@@ -18,6 +19,7 @@ class Score
 		@chrono		=	chrono
 		@nb_undo	=	nb_undo
 		@nb_pause	=	nb_pause
+		@etat		=	etat
 	end
 
 	##
@@ -36,7 +38,7 @@ class Score
 
 	##
 	# Méthode qui ajoute un score dans la base de donnée
-	def Score.ajouteScoreSauvegarde(joueur,grille,chrono,nb_undo,nb_pause)
+	def Score.ajouteScoreSauvegarde(joueur,grille,chrono,nb_undo,nb_pause,etat)
 		#On vérifie qu'il n'éxiste pas de score pour le joueur dans le mode 0
 		old = ModelScore.getScoreByJoueurAndMode(joueur,0)
 		# Si il en existe 1, on le supprime
@@ -44,7 +46,15 @@ class Score
 			ModelScore.suprScoreById(old.id)
 		end
 		#On ajoute le nouveau score
-		ModelScore.createScore(joueur,grille,0,chrono,nb_undo,nb_pause)
+		ModelScore.createSave(joueur,grille,chrono,nb_undo,nb_pause,etat)
+	end
+
+	def Score.suprSauvergarde(joueur)
+		old = ModelScore.getScoreByJoueurAndMode(joueur,0)
+		if old != nil
+			ModelScore.suprScoreById(old.id)
+		end
+		nil
 	end
 
 	##

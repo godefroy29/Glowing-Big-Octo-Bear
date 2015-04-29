@@ -7,6 +7,10 @@ class ModelScore
 		
 		ary = $database.execute "SELECT * FROM Score WHERE id_score = #{id}"
 
+		if ary.empty?
+			return nil
+		end
+
 		score = Score.new(
 			ary[0]['id_score'],
 	    		ary[0]['id_joueur'],
@@ -14,8 +18,9 @@ class ModelScore
 	    		ary[0]['mode'],
 	    		ary[0]['chrono'],
 	    		ary[0]['nb_undo'],
-		 	ary[0]['nb_pause'])
-	    	
+			 	ary[0]['nb_pause'],
+		    	ary[0]['etat'])
+		    	
 		return score;
 	end
 
@@ -25,6 +30,10 @@ class ModelScore
 
 		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur} AND mode = #{mode} "
 
+		if ary.empty?
+			return nil
+		end
+
 		score = Score.new(
 			ary[0]['id_score'],
 	    		ary[0]['id_joueur'],
@@ -32,7 +41,8 @@ class ModelScore
 	    		ary[0]['mode'],
 	    		ary[0]['chrono'],
 	    		ary[0]['nb_undo'],
-	    		ary[0]['nb_pause'])
+	    		ary[0]['nb_pause'],
+	    		ary[0]['etat'])
 
 		return score;
 	end
@@ -54,7 +64,8 @@ class ModelScore
 	    		ary[0]['mode'],
 	    		ary[0]['chrono'],
 	    		ary[0]['nb_undo'],
-	    		ary[0]['nb_pause'])
+	    		ary[0]['nb_pause'],
+	    		ary[0]['etat'])
 
 		return score;
 	end
@@ -74,12 +85,13 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-	    			ary[x]['id_joueur'],
-	    			ary[x]['id_grille'],
-	    			ary[x]['mode'],
+    			ary[x]['id_joueur'],
+    			ary[x]['id_grille'],
+    			ary[x]['mode'],
 			 	ary[x]['chrono'],
 			 	ary[x]['nb_undo'],
-			 	ary[x]['nb_pause'])
+			 	ary[x]['nb_pause'],
+	    		ary[0]['etat'])
 		end
 
 		return score
@@ -100,12 +112,13 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-			    	ary[x]['id_joueur'],
-			    	ary[x]['id_grille'],
-			    	ary[x]['mode'],
-			    	ary[x]['chrono'],
-			    	ary[x]['nb_undo'],
-			    	ary[x]['nb_pause'])
+		    	ary[x]['id_joueur'],
+		    	ary[x]['id_grille'],
+		    	ary[x]['mode'],
+		    	ary[x]['chrono'],
+		    	ary[x]['nb_undo'],
+		    	ary[x]['nb_pause'],
+    			ary[0]['etat'])
 		end
 
 		return score
@@ -126,12 +139,13 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-			    	ary[x]['id_joueur'],
-			    	ary[x]['id_grille'],
-			    	ary[x]['mode'],
-			    	ary[x]['chrono'],
-			    	ary[x]['nb_undo'],
-			    	ary[x]['nb_pause'])
+		    	ary[x]['id_joueur'],
+		    	ary[x]['id_grille'],
+		    	ary[x]['mode'],
+		    	ary[x]['chrono'],
+		    	ary[x]['nb_undo'],
+		    	ary[x]['nb_pause'],
+	    		ary[0]['etat'])
 		end
 
 		return score
@@ -171,7 +185,7 @@ class ModelScore
 
 	##
 	# Méhode qui supprime le score correspondant a l'id mit en parametre
-	def ModelJoueur.suprScoreById(id)
+	def ModelScore.suprScoreById(id)
 
 		ary = $database.execute "DELETE FROM Score WHERE id_score = #{id}"
 
@@ -227,5 +241,24 @@ class ModelScore
 
 		return scoreTotal;
 	end
+
+	def ModelScore.createSave(joueur,grille,chrono,nb_undo,nb_pause,etat)
+		#Test si le joueur dispose déjà d'un score sur cette grille
+		mode = 0
+		puts("Ajout")
+		puts "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,etat) VALUES (#{joueur}, #{grille}, #{mode}, #{chrono}, #{nb_undo}, #{nb_pause}, #{etat})"
+		$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,etat) 
+		VALUES (#{joueur},
+			#{grille},
+			#{mode},
+			#{chrono},
+			#{nb_undo},
+			#{nb_pause},
+			'#{etat}')"
+			
+
+	end
+
+
 	
 end
