@@ -13,15 +13,18 @@ class Options_score
 	ary = ModelScore.getScoreArrayByJoueur($joueur.id)
 
 	if ary == nil
-		message = "Vous n'avez pas fini de partie"
+		message = langue.os_nil
 	else
 		ary.each do |x|
-		message = "Score: " + x.calculScore.to_s + 
-			", grille: " + x.grille.to_s + 
-			", mode: " + x.mode.to_s + 
-			"\nchrono: " + x.chrono.to_s +
-			", nombre de pause: " + x.nb_pause.to_s + 
-			", nombre de undo: " + x.nb_undo.to_s
+		message = langue.os_score + x.calculScore.to_s + 
+			langue.os_grille + x.grille.to_s + 
+			langue.os_mode + x.mode.to_s + 
+			langue.os_chrono:  + x.chrono.to_s +
+			langue.os_pause:  + x.nb_pause.to_s + 
+			langue.os_undo:  + x.nb_undo.to_s
+
+		lbl = Gtk::Label.new(message)
+		vbox.pack_start(lbl, false, false, padding)
 		end
 	end
 
@@ -30,9 +33,6 @@ class Options_score
 		fenetre.remove(vbox)
 		Options.afficher(fenetre, langue)
 	}
-
-	lbl = Gtk::Label.new(message)
-	vbox.pack_start(lbl, false, false, padding)
 	# Ajout des boutons a la vbox
 	vbox.pack_start(boutonRetour, false, false, padding)
 

@@ -16,13 +16,13 @@ class Profil
 			Profil.creer(fenetre, langue)
 		}
 
-		boutonConnection = Gtk::Button.new("Connexion")
+		boutonConnection = Gtk::Button.new(langue.p_conn)
 		boutonConnection.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Profil.connection(fenetre, langue)
 		}
 
-		boutonDeconnexion = Gtk::Button.new("Deconnexion")
+		boutonDeconnexion = Gtk::Button.new(langue.p_deco)
 		boutonDeconnexion.signal_connect('clicked'){
 			$joueur = ModelJoueur.getAnon
 			Takuzu.set_title("Takuzu Deluxe - " + $joueur.pseudo)
@@ -30,21 +30,21 @@ class Profil
 			Menu.afficher(fenetre, langue)
 		}
 
-		boutonSupprimer = Gtk::Button.new("Supprimer profil")
+		boutonSupprimer = Gtk::Button.new(langue.p_supProf)
 		boutonSupprimer.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Profil.supprimer(fenetre, langue)
 		}
 
 		labelConnexion = Gtk::Label.new()
-		labelConnexion.set_markup("<big>Connectez-vous ou ...</big>")
+		labelConnexion.set_markup(langue.p_lab1)
 		labelCreer = Gtk::Label.new()
-		labelCreer.set_markup("<big>... creez un nouveau profil !</big>")
+		labelCreer.set_markup(langue.p_lab2)
 
 		labelDeconnection = Gtk::Label.new()
-		labelDeconnection.set_markup("<big>Deconnectez-vous ou ...</big>")
+		labelDeconnection.set_markup(langue.p_lab3)
 		labelSuppression = Gtk::Label.new()
-		labelSuppression.set_markup("<big>... supprimez votre profil !</big>")
+		labelSuppression.set_markup(langue.p_lab4)
 
 		if ModelJoueur.testAnon($joueur)
 			vbox.add(labelConnexion)
@@ -57,15 +57,15 @@ class Profil
 			tempsTotal = ModelScore.getTempsTotalOfJoueur($joueur.id)
 			nbUndoTotal = ModelScore.getNombreUndoOfJoueur($joueur.id)
 			nbPauseTotal = ModelScore.getNombrePauseOfJoueur($joueur.id)
-			messageStats = "Vous avez fini " + nbParties.to_s  + " parties"
+			messageStats = langue.p_mStat1 + nbParties.to_s  + langue.p_mStat2
 			if nbParties > 0
 				scoreMoyen = scoreTotal/nbParties
 				tempsMoyen = tempsTotal/nbParties
-				messageStats = messageStats + ", pour un score total de " + scoreTotal.to_s + ", soit un score moyen de " + scoreMoyen.to_s + "."
-				messageStats = messageStats + "\nVous avez joue pendant " + tempsTotal.to_s + " secondes, soit un temps moyen de " + tempsMoyen.to_s + " secondes."
-				messageStats = messageStats + "\nVous avez effectue " + nbUndoTotal.to_s + " undos et " + nbPauseTotal.to_s + " pauses."
+				messageStats = messageStats + langue.p_mStat3 + scoreTotal.to_s + langue.p_mStat4 + scoreMoyen.to_s + "."
+				messageStats = messageStats + langue.p_mStat5 + tempsTotal.to_s + langue.p_mStat6 + tempsMoyen.to_s + langue.p_mStat7
+				messageStats = messageStats + langue.p_mStat8  + nbUndoTotal.to_s + langue.p_mStat9 + nbPauseTotal.to_s + langue.p_mStat10
 			end
-			vbox.add(Profil.afficherProfilJoueur)
+			vbox.add(Profil.afficherProfilJoueur(langue))
 			vbox.add(Gtk::Label.new(messageStats))
 			vbox.add(labelDeconnection)
 			vbox.add(boutonDeconnexion)
@@ -92,13 +92,13 @@ class Profil
 		vb = Gtk::VBox.new(true, 6)
 
 		hb = Gtk::HBox.new(false, 6)
-		hb.pack_start(Gtk::Label.new('Nom'), false, true, 6)
+		hb.pack_start(Gtk::Label.new(langue.pc_nom), false, true, 6)
 		nom = Gtk::Entry.new
 		hb.pack_start(nom, true, true)
 		vb.pack_start(hb)
 
 		hb = Gtk::HBox.new(false, 6)
-		hb.pack_start(Gtk::Label.new('Mot de passe'), false, true, 6)
+		hb.pack_start(Gtk::Label.new(langue.pc_mdp), false, true, 6)
 		pass = Gtk::Entry.new
 		pass.visibility = false
 		hb.pack_start(pass, true, true)
@@ -141,13 +141,13 @@ class Profil
 		vb = Gtk::VBox.new(true, 6)
 
 		hb = Gtk::HBox.new(false, 6)
-		hb.pack_start(Gtk::Label.new('Nom'), false, true, 6)
+		hb.pack_start(Gtk::Label.new(langue.pc_nom), false, true, 6)
 		nom = Gtk::Entry.new
 		hb.pack_start(nom, true, true)
 		vb.pack_start(hb)
 
 		hb = Gtk::HBox.new(false, 6)
-		hb.pack_start(Gtk::Label.new('Mot de passe'), false, true, 6)
+		hb.pack_start(Gtk::Label.new(langue.pc_mdp), false, true, 6)
 		pass = Gtk::Entry.new
 		pass.visibility = false
 		hb.pack_start(pass, true, true)
@@ -185,7 +185,7 @@ class Profil
 			Menu.afficher(fenetre, langue)
 		}
 
-		label = Gtk::Label.new("Attention toute suppression est definitive !!")
+		label = Gtk::Label.new(langue.p_supprConf)
 
 		vbox.add(label)
 
@@ -193,7 +193,7 @@ class Profil
 		vb = Gtk::VBox.new(true, 6)
 
 		hb = Gtk::HBox.new(false, 6)
-		hb.pack_start(Gtk::Label.new('Entrez votre mot de passe'), false, true, 6)
+		hb.pack_start(Gtk::Label.new(langue.p_enterPass), false, true, 6)
 		pass = Gtk::Entry.new
 		pass.visibility = false
 		hb.pack_start(pass, true, true)
@@ -223,8 +223,8 @@ class Profil
 
 
 
-	def Profil.afficherProfilJoueur
-		label = Gtk::Label.new("Utilisateur : "+ $joueur.pseudo)
+	def Profil.afficherProfilJoueur(langue)
+		label = Gtk::Label.new(langue.p_user+ $joueur.pseudo)
 		return label
 	
 	end
