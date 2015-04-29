@@ -158,7 +158,6 @@ class Profil
 			 j_tmp = ModelJoueur.getJoueurByUsername(nom.text)
 			if j_tmp != nil && j_tmp.password == pass.text
 				$joueur = j_tmp
-				p $joueur.pseudo
 			end
 			fenetre.remove(vbox)
 			Takuzu.set_title("Takuzu Deluxe - " + $joueur.pseudo)

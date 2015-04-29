@@ -65,7 +65,7 @@ class Profil
 				messageStats = messageStats + langue.p_mStat5 + tempsTotal.to_s + langue.p_mStat6 + tempsMoyen.to_s + langue.p_mStat7
 				messageStats = messageStats + langue.p_mStat8  + nbUndoTotal.to_s + langue.p_mStat9 + nbPauseTotal.to_s + langue.p_mStat10
 			end
-			vbox.add(Profil.afficherProfilJoueur(langue)
+			vbox.add(Profil.afficherProfilJoueur(langue))
 			vbox.add(Gtk::Label.new(messageStats))
 			vbox.add(labelDeconnection)
 			vbox.add(boutonDeconnexion)
