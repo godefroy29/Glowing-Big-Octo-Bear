@@ -6,7 +6,7 @@ class Jouer
 	@plateauGtk
 	@timeDebut 
 	@timeFinal
-	@nb_indices = 0
+	@nb_test = 0
 	@nb_undo = 0
 	@nb_pause = 0
 	@nb_aide = 0
@@ -73,7 +73,7 @@ class Jouer
 					Score.suprSauvergarde($joueur.id)
 			end
 			
-			FinPartie.afficher(fenetre, langue, @timeFinal, mode, grille, @nb_undo, @nb_pause)
+			FinPartie.afficher(fenetre, langue, @timeFinal, mode, grille, @nb_undo, @nb_pause, @nb_test , @nb_aide)
 
 			#enregistrer score dans bdd
 		end
@@ -81,6 +81,8 @@ class Jouer
 		if old != nil && old.grille == @id_grille
 				@nb_undo	=	old.nb_undo
 				@nb_pause	=	old.nb_pause
+				@nb_undo	=	old.nb_test
+				@nb_pause	=	old.nb_aide
 				sleep 1 #pour que le temps de départ s'initialise dans le thread du timer
 				@timeDebut 	= 	@timeDebut - old.chrono
 				@plateauGtk.updateFromSave(old.etat)
@@ -97,7 +99,7 @@ class Jouer
 		}
 
 		boutonSauvegarde.signal_connect('clicked'){
-			Score.ajouteScoreSauvegarde($joueur.id,@id_grille,(Time.now-@timeDebut).to_i,@nb_undo,@nb_pause,@plateau.getEtatCourant)
+			Score.ajouteScoreSauvegarde($joueur.id,@id_grille,(Time.now-@timeDebut).to_i,@nb_undo,@nb_pause,@nb_test,@nb_aide,@plateau.getEtatCourant)
 			Thread.kill(t1)
 			Thread.kill(t1)
 			fenetre.remove(vbox)
@@ -206,7 +208,7 @@ class Jouer
 
 
 		boutonTestGrille.signal_connect('clicked'){
-			@nb_indices = @nb_indices + 1
+			@nb_test += 1
 			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::INFO,Gtk::MessageDialog::BUTTONS_CLOSE, langue.t_test + @plateau.testCurrentGrille.to_s)
 			md.run
 			md.destroy

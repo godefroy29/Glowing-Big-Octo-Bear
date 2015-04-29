@@ -18,7 +18,9 @@ class ModelScore
 	    		ary[0]['mode'],
 	    		ary[0]['chrono'],
 	    		ary[0]['nb_undo'],
-			 ary[0]['nb_pause'],
+			 	ary[0]['nb_pause'],
+			 	ary[0]['nb_test'],
+			 	ary[0]['nb_aide'],
 		    	ary[0]['etat'])
 		    	
 		return score;
@@ -34,14 +36,17 @@ class ModelScore
 			return nil
 		end
 
+
 		score = Score.new(
-			ary[0]['id_score'],
+				ary[0]['id_score'],
 	    		ary[0]['id_joueur'],
 	    		ary[0]['id_grille'],
 	    		ary[0]['mode'],
 	    		ary[0]['chrono'],
 	    		ary[0]['nb_undo'],
 	    		ary[0]['nb_pause'],
+			 	ary[0]['nb_test'],
+			 	ary[0]['nb_aide'],
 	    		ary[0]['etat'])
 
 		return score;
@@ -65,6 +70,8 @@ class ModelScore
 	    		ary[0]['chrono'],
 	    		ary[0]['nb_undo'],
 	    		ary[0]['nb_pause'],
+			 	ary[0]['nb_test'],
+			 	ary[0]['nb_aide'],
 	    		ary[0]['etat'])
 
 		return score;
@@ -85,13 +92,15 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-    				ary[x]['id_joueur'],
-    				ary[x]['id_grille'],
-    				ary[x]['mode'],
-				ary[x]['chrono'],
-				ary[x]['nb_undo'],
-				ary[x]['nb_pause'],
-	    			ary[0]['etat'])
+    			ary[x]['id_joueur'],
+    			ary[x]['id_grille'],
+    			ary[x]['mode'],
+			 	ary[x]['chrono'],
+			 	ary[x]['nb_undo'],
+			 	ary[x]['nb_pause'],
+			 	ary[0]['nb_test'],
+			 	ary[0]['nb_aide'],
+	    		ary[0]['etat'])
 		end
 
 		return score
@@ -118,6 +127,8 @@ class ModelScore
 		    	ary[x]['chrono'],
 		    	ary[x]['nb_undo'],
 		    	ary[x]['nb_pause'],
+			 	ary[0]['nb_test'],
+			 	ary[0]['nb_aide'],
     			ary[0]['etat'])
 		end
 
@@ -139,13 +150,15 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-			 	ary[x]['id_joueur'],
-			  	ary[x]['id_grille'],
-			   	ary[x]['mode'],
-			    	ary[x]['chrono'],
-			   	ary[x]['nb_undo'],
-			  	ary[x]['nb_pause'],
-	    			ary[0]['etat'])
+		    	ary[x]['id_joueur'],
+		    	ary[x]['id_grille'],
+		    	ary[x]['mode'],
+		    	ary[x]['chrono'],
+		    	ary[x]['nb_undo'],
+		    	ary[x]['nb_pause'],
+			 	ary[0]['nb_test'],
+			 	ary[0]['nb_aide'],
+	    		ary[0]['etat'])
 		end
 
 		return score
@@ -154,28 +167,30 @@ class ModelScore
 	##
 	# Methode d'ajout de score dans la base de donnée
 	# Si il existe déjà un score pour le joueur sur la grille et le mode choisit, on les remplace
-	def ModelScore.createScore(joueur,grille,mode,chrono,nb_undo,nb_pause)
+	def ModelScore.createScore(joueur,grille,mode,chrono,nb_undo,nb_pause,nb_test,nb_aide)
 		#Test si le joueur dispose déjà d'un score sur cette grille
 		score = ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 
 		#Si il ne dispose pas de score sur cete grille dans ce mode, alors on l'insere
 		if score == nil
-			$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause) 
+			$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,nb_test,nb_aide) 
 			VALUES (#{joueur},
 				#{grille},
 				#{mode},
 				#{chrono},
 				#{nb_undo},
-				#{nb_pause})"
+				#{nb_pause},
+				#{nb_test},
+				#{nb_aide})"
 			return score
 		else
 			#Sinon si le score présent dans la base de donnée est plus grand que celui que le joueur veut inserer on ne fait rien
-			if score.calculScore >= Score.calculScore(chrono,nb_undo,nb_pause)
+			if score.calculScore >= Score.calculScore(chrono,nb_undo,nb_pause,nb_test,nb_aide)
 				return score
 			#Sinon on remplace le score déjà présent
 			else
 				$database.execute "UPDATE Score 
-					SET chrono = #{chrono}, nb_undo = #{nb_undo}, nb_pause = #{nb_pause} 
+					SET chrono = #{chrono}, nb_undo = #{nb_undo}, nb_pause = #{nb_pause} ,nb_test = #{nb_test} ,nb_aide = #{nb_aide}
 					WHERE  id_score = #{score.id}"
 				return ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 			end
@@ -235,29 +250,33 @@ class ModelScore
 		
 		if ary != nil
 			0.upto ary.size-1 do |x|
-				scoreTotal = scoreTotal + Score.calculScore(ary[x]['chrono'],ary[x]['nb_undo'],ary[x]['nb_pause'])
+				scoreTotal = scoreTotal + Score.calculScore(ary[x]['chrono'],ary[x]['nb_undo'],ary[x]['nb_pause'],ary[x]['nb_test'],ary[x]['nb_aide'])
 			end
 		end
 
 		return scoreTotal;
 	end
 
-	##
-	#Méthode de création de sauvegarde temporaire
-	def ModelScore.createSave(joueur,grille,chrono,nb_undo,nb_pause,etat)
+	def ModelScore.createSave(joueur,grille,chrono,nb_undo,nb_pause,nb_test,nb_aide,etat)
 		#Test si le joueur dispose déjà d'un score sur cette grille
 		mode = 0
 		puts("Ajout")
-		puts "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,etat) VALUES (#{joueur}, #{grille}, #{mode}, #{chrono}, #{nb_undo}, #{nb_pause}, #{etat})"
-		$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,etat) 
+		puts "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,nb_test,nb_aide,etat) VALUES (#{joueur}, #{grille}, #{mode}, #{chrono}, #{nb_undo}, #{nb_pause}, #{nb_test},
+				#{nb_aide}, #{etat} )"
+		$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,nb_test,nb_aide,etat) 
 		VALUES (#{joueur},
 			#{grille},
 			#{mode},
 			#{chrono},
 			#{nb_undo},
 			#{nb_pause},
+			#{nb_test},
+			#{nb_aide},
 			'#{etat}')"
 			
+
 	end
+
+
 	
 end
