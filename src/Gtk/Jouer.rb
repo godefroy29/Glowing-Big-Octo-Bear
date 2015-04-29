@@ -58,7 +58,7 @@ class Jouer
 				@nb_undo	=	old.nb_undo
 				@nb_pause	=	old.nb_pause
 				#todo chrono save
-				#@plateauGtk.updateFromSave(old.etat)
+				@plateauGtk.updateFromSave(old.etat)
 		end
 		
 		boutonValHypo.set_sensitive(false)

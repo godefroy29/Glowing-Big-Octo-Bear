@@ -123,4 +123,18 @@ class PlateauGtk
 	
 	
 	end
+
+	def updateFromSave(etat)
+		0.upto (@n-1) do |x|
+			0.upto (@n-1) do |y|
+				if etat[x+y*@n]!='_' &&  @btnArray[x][y] != nil
+					if etat[x+y*@n]=="0"
+						changerImgBouton(x,y,0)
+					elsif etat[x+y*@n]=="1"
+						changerImgBouton(x,y,1)
+					end
+				end
+			end
+		end
+	end
 end
