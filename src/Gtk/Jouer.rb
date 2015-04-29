@@ -216,13 +216,20 @@ class Jouer
 
 		boutonAide.signal_connect('clicked'){
 			@nb_aide += 1
-			aide = @plateau.aide
-			if aide.regle == 1
-				s = langue.t_help1 + ":#{aide.x+1},y:#{aide.y+1}"
-			elsif aide.regle == 2
-				s = langue.t_help2 + "#{aide.type} #{aide.x+1}"
-			elsif aide.regle == 3
-				s = langue.t_help31 + "#{aide.type} #{aide.x+1}" + langue.t_help32 + "#{aide.type} #{aide.y+1}"
+			erreur = @plateau.getErreur
+			if erreur != nil
+				s = "Erreur" + ":#{erreur.x+1},y:#{erreur.y+1}"
+			else
+
+				aide = @plateau.aide
+				if aide.regle == 1
+					s = langue.t_help1 + "#{aide.x+1},ligne:#{aide.y+1}"
+				elsif aide.regle == 2
+					s = langue.t_help2 + "#{aide.type} #{aide.x+1}"
+				elsif aide.regle == 3
+					s = langue.t_help31 + "#{aide.type} #{aide.x+1}" + langue.t_help32 + "#{aide.type} #{aide.y+1}"
+				end
+
 			end
 			md = Gtk::MessageDialog.new(
 				fenetre,
