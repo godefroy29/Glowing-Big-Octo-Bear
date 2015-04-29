@@ -1,50 +1,44 @@
 class ModelScore
 
-
 	##
 	#Renvoie l'objet Score correspondant à l'id rentrée en parametre
 	def ModelScore.getScoreById(id)
-
-
+		
 		ary = $database.execute "SELECT * FROM Score WHERE id_score = #{id}"
 
 		score = Score.new(
 			ary[0]['id_score'],
-	    	ary[0]['id_joueur'],
-	    	ary[0]['id_grille'],
-	    	ary[0]['mode'],
-	    	ary[0]['chrono'],
-	    	ary[0]['nb_undo'],
-	    	ary[0]['nb_pause'])
-
+	    		ary[0]['id_joueur'],
+	    		ary[0]['id_grille'],
+	    		ary[0]['mode'],
+	    		ary[0]['chrono'],
+	    		ary[0]['nb_undo'],
+		 	ary[0]['nb_pause'])
+	    	
 		return score;
-
 	end
 
 	##
 	# Methode qui retourne tous les scores d'un joueur correspondant a un mode donné
 	def ModelScore.getScoreByJoueurAndMode(joueur,mode)
 
-
 		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur} AND mode = #{mode} "
 
 		score = Score.new(
 			ary[0]['id_score'],
-	    	ary[0]['id_joueur'],
-	    	ary[0]['id_grille'],
-	    	ary[0]['mode'],
-	    	ary[0]['chrono'],
-	    	ary[0]['nb_undo'],
-	    	ary[0]['nb_pause'])
+	    		ary[0]['id_joueur'],
+	    		ary[0]['id_grille'],
+	    		ary[0]['mode'],
+	    		ary[0]['chrono'],
+	    		ary[0]['nb_undo'],
+	    		ary[0]['nb_pause'])
 
 		return score;
-
 	end
 
 	##
 	# Methode qui retourne tous les scores d'un joueur correspondant a un mode donné et a une grille précise
 	def ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
-
 
 		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur} AND id_grille = #{grille} AND mode = #{mode} "
 
@@ -54,21 +48,19 @@ class ModelScore
 
 		score = Score.new(
 			ary[0]['id_score'],
-	    	ary[0]['id_joueur'],
-	    	ary[0]['id_grille'],
-	    	ary[0]['mode'],
-	    	ary[0]['chrono'],
-	    	ary[0]['nb_undo'],
-	    	ary[0]['nb_pause'])
+	    		ary[0]['id_joueur'],
+	    		ary[0]['id_grille'],
+	    		ary[0]['mode'],
+	    		ary[0]['chrono'],
+	    		ary[0]['nb_undo'],
+	    		ary[0]['nb_pause'])
 
 		return score;
-
 	end
 
 	##
 	# Methode qui retourne les 5 derniers score d'un joueur
 	def ModelScore.getScoreArrayByJoueur(joueur)
-
 
 		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur} ORDER BY id_score DESC LIMIT 5"
 
@@ -79,24 +71,22 @@ class ModelScore
 		score = Array.new
 
 		0.upto ary.size-1 do |x|
-		score[x] = Score.new(
-			ary[x]['id_score'],
-	    	ary[x]['id_joueur'],
-	    	ary[x]['id_grille'],
-	    	ary[x]['mode'],
-	    	ary[x]['chrono'],
-	    	ary[x]['nb_undo'],
-	    	ary[x]['nb_pause'])
+			score[x] = Score.new(
+				ary[x]['id_score'],
+	    			ary[x]['id_joueur'],
+	    			ary[x]['id_grille'],
+	    			ary[x]['mode'],
+			 	ary[x]['chrono'],
+			 	ary[x]['nb_undo'],
+			 	ary[x]['nb_pause'])
 		end
 
 		return score
-
 	end
 
 	##
 	# Methode qui retourne tous les scores correspondant a un mode
 	def ModelScore.getScoreArrayByMode(mode)
-
 
 		ary = $database.execute "SELECT * FROM Score WHERE mode = #{mode}"
 
@@ -107,24 +97,22 @@ class ModelScore
 		score = Array.new
 
 		0.upto ary.size-1 do |x|
-		score[x] = Score.new(
-			ary[x]['id_score'],
-	    	ary[x]['id_joueur'],
-	    	ary[x]['id_grille'],
-	    	ary[x]['mode'],
-	    	ary[x]['chrono'],
-	    	ary[x]['nb_undo'],
-	    	ary[x]['nb_pause'])
+			score[x] = Score.new(
+				ary[x]['id_score'],
+			    	ary[x]['id_joueur'],
+			    	ary[x]['id_grille'],
+			    	ary[x]['mode'],
+			    	ary[x]['chrono'],
+			    	ary[x]['nb_undo'],
+			    	ary[x]['nb_pause'])
 		end
 
 		return score
-
 	end
 
 	##
 	# Methode qui retourne tous les scores qui ont été fait sur une grille donnée
 	def ModelScore.getScoreArrayByGrille(grille)
-
 
 		ary = $database.execute "SELECT * FROM Score WHERE id_grille = #{grille}"
 
@@ -135,18 +123,17 @@ class ModelScore
 		score = Array.new
 
 		0.upto ary.size-1 do |x|
-		score[x] = Score.new(
-			ary[x]['id_score'],
-	    	ary[x]['id_joueur'],
-	    	ary[x]['id_grille'],
-	    	ary[x]['mode'],
-	    	ary[x]['chrono'],
-	    	ary[x]['nb_undo'],
-	    	ary[x]['nb_pause'])
+			score[x] = Score.new(
+				ary[x]['id_score'],
+			    	ary[x]['id_joueur'],
+			    	ary[x]['id_grille'],
+			    	ary[x]['mode'],
+			    	ary[x]['chrono'],
+			    	ary[x]['nb_undo'],
+			    	ary[x]['nb_pause'])
 		end
 
 		return score
-
 	end
 
 	##
@@ -173,8 +160,8 @@ class ModelScore
 			#Sinon on remplace le score déjà présent
 			else
 				$database.execute "UPDATE Score 
-				SET chrono = #{chrono}, nb_undo = #{nb_undo}, nb_pause = #{nb_pause} 
-				WHERE  id_score = #{score.id}"
+					SET chrono = #{chrono}, nb_undo = #{nb_undo}, nb_pause = #{nb_pause} 
+					WHERE  id_score = #{score.id}"
 				return ModelScore.getScoreByJoueurGrilleMode(joueur,grille,mode)
 			end
 		end
@@ -184,7 +171,6 @@ class ModelScore
 	##
 	# Méhode qui supprime le score correspondant a l'id mit en parametre
 	def ModelJoueur.suprScoreById(id)
-
 
 		ary = $database.execute "DELETE FROM Score WHERE id_score = #{id}"
 
@@ -231,15 +217,14 @@ class ModelScore
 
 		ary = $database.execute "SELECT * FROM Score WHERE id_joueur = #{joueur}"
 		scoreTotal = 0
+		
 		if ary != nil
 			0.upto ary.size-1 do |x|
 				scoreTotal = scoreTotal + Score.calculScore(ary[x]['chrono'],ary[x]['nb_undo'],ary[x]['nb_pause'])
 			end
 		end
 
-
 		return scoreTotal;
-
 	end
-
+	
 end
