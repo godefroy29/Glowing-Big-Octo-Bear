@@ -102,14 +102,20 @@ class Jouer
 			Menu.afficher(fenetre, langue)
 		}
 
-
+		#Met fin à l'hypothèse en gardant les changements effectués pendant celle ci
+	 	#
+        	# *passe @hypothese à false et appelle les fonctions validerHypotheses de PlateauGtk et Plateau.
+        	# *Réinitialise l'état du bouton debuter/annuler hypothese et se désactive
 		boutonValHypo.signal_connect('clicked'){
 			@hypothese=false
 			boutonHypo.set_label(langue.j_debHypo)
 			boutonValHypo.set_sensitive(false)
 			@plateauGtk.validerHypothese
 		}
-		
+		#Débute une hypothese ou l'annule si une est déjà en cours
+	 	#
+        	# *Appelle annulerHypothese ou debuterHypothese dans PlateauGtk et Plateau et passe hypothese de vrai à faux et inversement
+        	# *Modifie son label et active ou desactive le bouton Valider Hypothese 
 		boutonHypo.signal_connect('clicked'){
 			if @hypothese 
 				@hypothese=false
