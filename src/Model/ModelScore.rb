@@ -18,7 +18,7 @@ class ModelScore
 	    		ary[0]['mode'],
 	    		ary[0]['chrono'],
 	    		ary[0]['nb_undo'],
-			 	ary[0]['nb_pause'],
+			 ary[0]['nb_pause'],
 		    	ary[0]['etat'])
 		    	
 		return score;
@@ -85,13 +85,13 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-    			ary[x]['id_joueur'],
-    			ary[x]['id_grille'],
-    			ary[x]['mode'],
-			 	ary[x]['chrono'],
-			 	ary[x]['nb_undo'],
-			 	ary[x]['nb_pause'],
-	    		ary[0]['etat'])
+    				ary[x]['id_joueur'],
+    				ary[x]['id_grille'],
+    				ary[x]['mode'],
+				ary[x]['chrono'],
+				ary[x]['nb_undo'],
+				ary[x]['nb_pause'],
+	    			ary[0]['etat'])
 		end
 
 		return score
@@ -139,13 +139,13 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-		    	ary[x]['id_joueur'],
-		    	ary[x]['id_grille'],
-		    	ary[x]['mode'],
-		    	ary[x]['chrono'],
-		    	ary[x]['nb_undo'],
-		    	ary[x]['nb_pause'],
-	    		ary[0]['etat'])
+			 	ary[x]['id_joueur'],
+			  	ary[x]['id_grille'],
+			   	ary[x]['mode'],
+			    	ary[x]['chrono'],
+			   	ary[x]['nb_undo'],
+			  	ary[x]['nb_pause'],
+	    			ary[0]['etat'])
 		end
 
 		return score
@@ -242,6 +242,8 @@ class ModelScore
 		return scoreTotal;
 	end
 
+	##
+	#Méthode de création de sauvegarde temporaire
 	def ModelScore.createSave(joueur,grille,chrono,nb_undo,nb_pause,etat)
 		#Test si le joueur dispose déjà d'un score sur cette grille
 		mode = 0
@@ -256,9 +258,6 @@ class ModelScore
 			#{nb_pause},
 			'#{etat}')"
 			
-
 	end
-
-
 	
 end

@@ -1,8 +1,12 @@
+#Classe qui permet au joueur de gerer ses profils
 class Profil
 
+	##
+	#Méthode d'affichage de l'écran de sélection des profils
 	def Profil.afficher(fenetre, langue)
 		vbox = Gtk::VBox.new(false,40)
 
+		#Création des différents boutons et labels
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonRetour.signal_connect('clicked'){
 			fenetre.remove(vbox)
@@ -46,11 +50,13 @@ class Profil
 		labelSuppression = Gtk::Label.new()
 		labelSuppression.set_markup(langue.p_lab4)
 
+		#Si l'utilisateur est Anonyme, on ajoute les boutons dédié a la connexion
 		if ModelJoueur.testAnon($joueur)
 			vbox.add(labelConnexion)
 			vbox.add(boutonConnection)
 			vbox.add(labelCreer)
 			vbox.add(boutonNouveau)
+		#Sinon on lui affiche ses statistiques de jeu, on lui propose de se déconnecter, de supprimer son compte ou de retourner au menu
 		else
 			nbParties = ModelScore.getNombreScoreOfJoueur($joueur.id)
 			scoreTotal = ModelScore.getScoreTotalOfJoueur($joueur.id)
@@ -78,7 +84,8 @@ class Profil
 		fenetre.show_all
 	end
 
-
+	##
+	#Méthode d'affichage qui permet de demander au joueur les informations nécessaires a la création d'un compte
 	def Profil.creer(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
@@ -87,7 +94,6 @@ class Profil
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
 		}
-
 
 		vb = Gtk::VBox.new(true, 6)
 
@@ -118,8 +124,6 @@ class Profil
 			end
 		}
 
-
-
 		vb.add(boutonEnvoyer)
 
 		vbox.add(vb)
@@ -128,6 +132,8 @@ class Profil
 		fenetre.show_all
 	end
 
+	##
+	#Méthode d'affichage qui permet de demander au joueur les informations nécessaires pour se connecter a son compte (pseudo, mot de passe)
 	def Profil.connection(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
@@ -136,7 +142,6 @@ class Profil
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
 		}
-
 
 		vb = Gtk::VBox.new(true, 6)
 
@@ -164,9 +169,6 @@ class Profil
 			Menu.afficher(fenetre, langue)
 		}
 
-
-
-
 		vb.add(boutonEnvoyer)
 
 		vbox.add(vb)
@@ -175,6 +177,8 @@ class Profil
 		fenetre.show_all
 	end
 
+	##
+	#Méthode d'affichage qui permet au joueur de valider ou non la destruction de son compte
 	def Profil.supprimer(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
@@ -187,7 +191,6 @@ class Profil
 		label = Gtk::Label.new(langue.p_supprConf)
 
 		vbox.add(label)
-
 
 		vb = Gtk::VBox.new(true, 6)
 
@@ -209,9 +212,6 @@ class Profil
 			Menu.afficher(fenetre, langue)
 		}
 
-
-
-
 		vb.add(boutonEnvoyer)
 
 		vbox.add(vb)
@@ -220,13 +220,11 @@ class Profil
 		fenetre.show_all
 	end
 
-
-
+	##
+	#Méthode d'affichage du profil du joueur
 	def Profil.afficherProfilJoueur(langue)
 		label = Gtk::Label.new(langue.p_user+ $joueur.pseudo)
 		return label
-	
 	end
-
 
 end

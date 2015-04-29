@@ -1,5 +1,8 @@
+#Classe qui permet au joueur de consulté ses derniers scores enregistrés
 class Options_score
 
+	##
+	#Méthode d'affichage
 	def Options_score.afficher(fenetre, langue)
 
 	padding = 40
@@ -10,8 +13,10 @@ class Options_score
 	#Création d'une vbox
 	vbox = Gtk::VBox.new(false,10)
 
+	#On récupere les derniers score du joueur
 	ary = ModelScore.getScoreArrayByJoueur($joueur.id)
 
+	#On affiche les scores, un message d'indication apparait s'il y ne possède aucun score
 	if ary == nil
 		message = langue.os_nil
 	else
@@ -33,6 +38,7 @@ class Options_score
 		fenetre.remove(vbox)
 		Options.afficher(fenetre, langue)
 	}
+	
 	# Ajout des boutons a la vbox
 	vbox.pack_start(boutonRetour, false, false, padding)
 

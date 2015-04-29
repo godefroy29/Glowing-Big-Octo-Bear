@@ -1,5 +1,8 @@
+#Classe qui permet au joueur de changer la langue de l'interface
 class Langue
 
+	##
+	#Méthode d'affichage de la sélection de la langue
 	def Langue.afficher(fenetre, langue)
 		vbox = Gtk::VBox.new(false,10)
 
