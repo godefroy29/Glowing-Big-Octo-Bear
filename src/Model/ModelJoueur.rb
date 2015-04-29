@@ -1,7 +1,7 @@
 class ModelJoueur
 
 	##
-	#Renvoie l'objet Utilisateur correspondant à l'id rentrée en parametre
+	#Méthode qui renvoie l'objet Utilisateur correspondant à l'id rentrée en parametre
 	def ModelJoueur.getJoueurById(id)
 
 
@@ -22,7 +22,7 @@ class ModelJoueur
 	end
 
 	##
-	#Renvoie l'objet Utilisateur correspondant au pseudo rentrée en parametre
+	#Méthode qui renvoie l'objet Utilisateur correspondant au pseudo rentrée en parametre
 	def ModelJoueur.getJoueurByUsername(username)
 
 
@@ -43,6 +43,7 @@ class ModelJoueur
 	end
 
 	##
+	#Methode qui ajoute le joueur dans la base de donnée
 	#return nil si username déjà utilisé
 	def ModelJoueur.createJoueur(username,password)
 		joueur = ModelJoueur.getJoueurByUsername(username)
@@ -52,28 +53,26 @@ class ModelJoueur
 		else
 			return nil
 		end
-
 		
 	end
 
-
+	##
+	#Méthode qui supprime le joueur grace a son id
 	def ModelJoueur.suprJoueurById(id)
-
-
 		ary = $database.execute "DELETE FROM Joueur WHERE id_joueur = #{id}"
-
 		return nil;
-
 	end
 
+	##
+	#Méthode qui retourne le joueur par défaut
 	def ModelJoueur.getAnon
 		ModelJoueur.getJoueurById(0)
 	end
 
+	##
+	#Méthode de test du joueur par défaut
 	def ModelJoueur.testAnon(j)
 		return(j.id ==0)
 	end
-
-
 
 end
