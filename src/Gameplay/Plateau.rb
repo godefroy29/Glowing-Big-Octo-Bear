@@ -107,7 +107,9 @@ class Plateau
 		
 	end
 	
-	
+	#Enregistre les positions des tuiles
+        #
+        # *Stocke les valeurs de @plateauJoueur.couleur dans @hypothese
 	def debuterHypothese
 		0.upto(@n-1) do|x| 
 			0.upto(@n-1) {|y| 
@@ -116,7 +118,9 @@ class Plateau
 		end
 	end
 	
-	
+	#Rétablit les tuiles enregistrées au début de l'hypothese
+        #
+        # *Stocke les valeurs de @hypothese dans @plateauJoueur.couleur
 	def annulerHypothese
 		0.upto(@n-1) do|x| 
 			0.upto(@n-1) {|y| 
