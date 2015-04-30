@@ -1,14 +1,15 @@
-# encoding: UTF-8
-
+#Classe qui gére la représentation graphique du jeu
 class PlateauGtk
 
 	attr_reader :table
-	@btnArray
-	@hypotheseArray
-	@bleu
-	@rouge
-	@n
+	@btnArray	#grille de bouton correspondant aux cases
+	@hypotheseArray	#grille secondaire correspodnant aux hypothèses
+	@bleu		#couleur1
+	@rouge		#couleur2
+	@n		#taille de la grille
 	
+	##
+	#Créer et initialise le plateau graphique en fonction du plateau physique
 	def PlateauGtk.creer(fenetre,plateau,n)
 		new(fenetre,plateau,n)
 	end
@@ -21,6 +22,7 @@ class PlateauGtk
 		@bleu = $optionGraphique.couleur1
 		@rouge = $optionGraphique.couleur2
 		@n=n
+		
 		0.upto(n-1) do|x| 
 			0.upto(n-1) {|y| 
 				if plateau.getColorNum(x,y) == - 1 
@@ -53,6 +55,8 @@ class PlateauGtk
 		end
 	end
 	
+	##
+	#Méthode qui change la couleur d'un bouton
 	def changerImgBouton(x,y,couleur)
 		if couleur == 1
 			@btnArray[x][y].style = @rouge
@@ -124,6 +128,8 @@ class PlateauGtk
 	
 	end
 
+	##
+	#Permet de chager une sauvegarde
 	def updateFromSave(etat)
 		0.upto (@n-1) do |x|
 			0.upto (@n-1) do |y|
