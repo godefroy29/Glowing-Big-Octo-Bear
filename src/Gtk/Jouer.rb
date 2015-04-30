@@ -28,7 +28,7 @@ class Jouer
 		
 		vbox = Gtk::VBox.new(false,10)
 		hbox2 = Gtk::HBox.new(false,0)
-		hbox = Gtk::HBox.new(false,0
+		hbox = Gtk::HBox.new(false,0)
 		
 		labelTimer = Gtk::Label.new('Timer : '+'0')
 		@hypothese=false

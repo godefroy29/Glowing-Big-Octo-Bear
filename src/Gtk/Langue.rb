@@ -1,3 +1,4 @@
+# encoding: UTF-8
 #Classe qui contient tout les textes affichés dans le jeu
 #permet au joueur de changer de langue
 class Langue
