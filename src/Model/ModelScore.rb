@@ -18,9 +18,9 @@ class ModelScore
 	    		ary[0]['mode'],
 	    		ary[0]['chrono'],
 	    		ary[0]['nb_undo'],
-			 	ary[0]['nb_pause'],
-			 	ary[0]['nb_test'],
-			 	ary[0]['nb_aide'],
+			ary[0]['nb_pause'],
+			ary[0]['nb_test'],
+			ary[0]['nb_aide'],
 		    	ary[0]['etat'])
 		    	
 		return score;
@@ -39,16 +39,16 @@ class ModelScore
 
 		score = Score.new(
 				ary[0]['id_score'],
-	    		ary[0]['id_joueur'],
-	    		ary[0]['id_grille'],
-	    		ary[0]['mode'],
-	    		ary[0]['chrono'],
-	    		ary[0]['nb_undo'],
-	    		ary[0]['nb_pause'],
+	    			ary[0]['id_joueur'],
+	    			ary[0]['id_grille'],
+	    			ary[0]['mode'],
+	    			ary[0]['chrono'],
+	    			ary[0]['nb_undo'],
+	    			ary[0]['nb_pause'],
 			 	ary[0]['nb_test'],
 			 	ary[0]['nb_aide'],
-	    		ary[0]['etat'])
-
+	    			ary[0]['etat'])
+	
 		return score;
 	end
 
@@ -70,8 +70,8 @@ class ModelScore
 	    		ary[0]['chrono'],
 	    		ary[0]['nb_undo'],
 	    		ary[0]['nb_pause'],
-			 	ary[0]['nb_test'],
-			 	ary[0]['nb_aide'],
+			ary[0]['nb_test'],
+			ary[0]['nb_aide'],
 	    		ary[0]['etat'])
 
 		return score;
@@ -92,15 +92,15 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-    			ary[x]['id_joueur'],
-    			ary[x]['id_grille'],
-    			ary[x]['mode'],
+    				ary[x]['id_joueur'],
+    				ary[x]['id_grille'],
+    				ary[x]['mode'],
 			 	ary[x]['chrono'],
 			 	ary[x]['nb_undo'],
 			 	ary[x]['nb_pause'],
 			 	ary[0]['nb_test'],
 			 	ary[0]['nb_aide'],
-	    		ary[0]['etat'])
+	    			ary[0]['etat'])
 		end
 
 		return score
@@ -121,15 +121,15 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-		    	ary[x]['id_joueur'],
-		    	ary[x]['id_grille'],
-		    	ary[x]['mode'],
-		    	ary[x]['chrono'],
-		    	ary[x]['nb_undo'],
-		    	ary[x]['nb_pause'],
+			   	ary[x]['id_joueur'],
+			   	ary[x]['id_grille'],
+			  	ary[x]['mode'],
+			   	ary[x]['chrono'],
+			   	ary[x]['nb_undo'],
+			  	ary[x]['nb_pause'],
 			 	ary[0]['nb_test'],
 			 	ary[0]['nb_aide'],
-    			ary[0]['etat'])
+    				ary[0]['etat'])
 		end
 
 		return score
@@ -150,15 +150,15 @@ class ModelScore
 		0.upto ary.size-1 do |x|
 			score[x] = Score.new(
 				ary[x]['id_score'],
-		    	ary[x]['id_joueur'],
-		    	ary[x]['id_grille'],
-		    	ary[x]['mode'],
-		    	ary[x]['chrono'],
-		    	ary[x]['nb_undo'],
-		    	ary[x]['nb_pause'],
+		    		ary[x]['id_joueur'],
+			  	ary[x]['id_grille'],
+			  	ary[x]['mode'],
+			   	ary[x]['chrono'],
+			   	ary[x]['nb_undo'],
+			   	ary[x]['nb_pause'],
 			 	ary[0]['nb_test'],
 			 	ary[0]['nb_aide'],
-	    		ary[0]['etat'])
+	    			ary[0]['etat'])
 		end
 
 		return score
@@ -174,14 +174,14 @@ class ModelScore
 		#Si il ne dispose pas de score sur cete grille dans ce mode, alors on l'insere
 		if score == nil
 			$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,nb_test,nb_aide) 
-			VALUES (#{joueur},
-				#{grille},
-				#{mode},
-				#{chrono},
-				#{nb_undo},
-				#{nb_pause},
-				#{nb_test},
-				#{nb_aide})"
+				VALUES (#{joueur},
+					#{grille},
+					#{mode},
+					#{chrono},
+					#{nb_undo},
+					#{nb_pause},
+					#{nb_test},
+					#{nb_aide})"
 			return score
 		else
 			#Sinon si le score présent dans la base de donnée est plus grand que celui que le joueur veut inserer on ne fait rien
@@ -257,6 +257,8 @@ class ModelScore
 		return scoreTotal;
 	end
 
+	##
+	#Méthode qui permet d'ajoute une sauvegarde temporaire dans la base de donnée
 	def ModelScore.createSave(joueur,grille,chrono,nb_undo,nb_pause,nb_test,nb_aide,etat)
 		#Test si le joueur dispose déjà d'un score sur cette grille
 		mode = 0
@@ -264,19 +266,16 @@ class ModelScore
 		puts "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,nb_test,nb_aide,etat) VALUES (#{joueur}, #{grille}, #{mode}, #{chrono}, #{nb_undo}, #{nb_pause}, #{nb_test},
 				#{nb_aide}, #{etat} )"
 		$database.execute "INSERT INTO Score(id_joueur,id_grille,mode,chrono,nb_undo,nb_pause,nb_test,nb_aide,etat) 
-		VALUES (#{joueur},
-			#{grille},
-			#{mode},
-			#{chrono},
-			#{nb_undo},
-			#{nb_pause},
-			#{nb_test},
-			#{nb_aide},
-			'#{etat}')"
+			VALUES (#{joueur},
+				#{grille},
+				#{mode},
+				#{chrono},
+				#{nb_undo},
+				#{nb_pause},
+				#{nb_test},
+				#{nb_aide},
+				'#{etat}')"
 			
-
 	end
-
-
 	
 end
