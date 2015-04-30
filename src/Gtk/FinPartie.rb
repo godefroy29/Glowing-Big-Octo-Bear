@@ -1,5 +1,6 @@
 #Classe qui permet l'affichage de fin de partie.
 class FinPartie
+	
 	##
 	#Méthode d'affichage et de gestion de fin de partie
 	def FinPartie.afficher(fenetre, langue, temps, mode, grille, nb_undo, nb_pause,nb_test,nb_aide)
@@ -29,8 +30,6 @@ class FinPartie
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
 		}
-
-		
 
 		fenetre.add(vbox)
 		fenetre.show_all
