@@ -1,19 +1,19 @@
-# encoding: UTF-8
-
+#Classe qui permet au joueur de jouer
 class Jouer
 
-	@plateau
-	@plateauGtk
-	@timeDebut 
+	@plateau	#plateau de jeu
+	@plateauGtk	#représentation graphique du plateau
+	@timeDebut	#temps 
 	@timeFinal
-	@nb_test = 0
-	@nb_undo = 0
-	@nb_pause = 0
-	@nb_aide = 0
-	@id_grille
-	@hypothese
+	@nb_test = 0	#nombre de test de validité de grille effectuée
+	@nb_undo = 0	#nombre de undo fait par le joueur
+	@nb_pause = 0	#nombre de pause faite par le joueur
+	@nb_aide = 0	#nombre d'aide faite par le joueur
+	@id_grille	#id de la grille sur laquelle le joueur joue
+	@hypothese	#si le joueur est en train de faire une hypothèse
 
-
+	##
+	#Méthode d'affiche de la partie
 	def Jouer.afficher(fenetre, langue, mode, id_grille)
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonSauvegarde = Gtk::Button.new("Sauvegarde rapide")
@@ -24,16 +24,16 @@ class Jouer
 		boutonPause = Gtk::Button.new(langue.j_pause)
 		boutonHypo = Gtk::Button.new(langue.j_debHypo)
 		boutonValHypo = Gtk::Button.new(langue.j_valHypo)
-		boutonTestGrille = Gtk::Button.new("Test")#a integrer dans la langue
+		boutonTestGrille = Gtk::Button.new("Test") #a integrer dans la langue
+		
 		vbox = Gtk::VBox.new(false,10)
 		hbox2 = Gtk::HBox.new(false,0)
-		hbox = Gtk::HBox.new(false,0)
+		hbox = Gtk::HBox.new(false,0
+		
 		labelTimer = Gtk::Label.new('Timer : '+'0')
 		@hypothese=false
 
-
-
-		
+		#On récupere une grille en fonction des choix fait par le joueur durant l'ecran de sélection du mode
 		if (mode == "rapide" && id_grille == 0)
 			grille = ModelGrille.getGrilleById(Random.new(Time.now.sec).rand(1..7000))
 		elsif (mode == "chrono" && id_grille == 0)
@@ -44,12 +44,13 @@ class Jouer
 			grille = ModelGrille.getGrilleById(id_grille)
 		end
 		
-		
 		@id_grille = grille.id
 
 		stringDebut = grille.base
 		stringFin = grille.solution
-		len = Math.sqrt(stringFin.length).to_i
+		len = Math.sqrt(stringFin.length).to_i #a remplacer par la taille de la grille inscrite dans la BdD
+		
+		#On initialise le plateau et son affichage
 		@plateau = Plateau.new(stringDebut,stringFin,boutonUndo,boutonRedo)
 		@plateauGtk = PlateauGtk.creer(vbox,@plateau,len)
 
@@ -59,6 +60,7 @@ class Jouer
 		boutonUndo.set_sensitive(false)
 		boutonRedo.set_sensitive(false)
 		
+		#Création du thread qui s'occupe de la gestion du temps de jeu
 		t1 = Thread.new do
 			@timeDebut = Time.now
 			while (!@plateau.testGrille)
@@ -74,10 +76,10 @@ class Jouer
 			end
 			
 			FinPartie.afficher(fenetre, langue, @timeFinal, mode, grille, @nb_undo, @nb_pause, @nb_test , @nb_aide)
-
 			#enregistrer score dans bdd
 		end
 		
+		#Permet de charger une sauvegarde faite par le joueur
 		if old != nil && old.grille == @id_grille
 				@nb_undo	=	old.nb_undo
 				@nb_pause	=	old.nb_pause
@@ -98,6 +100,7 @@ class Jouer
 			Menu.afficher(fenetre, langue)
 		}
 
+		#Permet au joueur de stopper sa partie actuelle pour la reprendre plus tard
 		boutonSauvegarde.signal_connect('clicked'){
 			Score.ajouteScoreSauvegarde($joueur.id,@id_grille,(Time.now-@timeDebut).to_i,@nb_undo,@nb_pause,@nb_test,@nb_aide,@plateau.getEtatCourant)
 			Thread.kill(t1)
@@ -137,6 +140,7 @@ class Jouer
 			end
 		}
 		
+		#Permet au joueur d'annuler une action faite
 		boutonUndo.signal_connect('clicked'){
 			@nb_undo = @nb_undo + 1
 			mouv=@plateau.undo
@@ -147,6 +151,7 @@ class Jouer
 			@plateauGtk.changerImgBouton(mouv.x,mouv.y,mouv.etatPrecedent)
 		}
 		
+		#Permet au joueur de refaire une action annulée
 		boutonRedo.signal_connect('clicked'){
 			mouv=@plateau.unundo
 			if mouv.flag
@@ -156,6 +161,7 @@ class Jouer
 			@plateauGtk.changerImgBouton(mouv.x,mouv.y,mouv.etatPrecedent)
 		}
 		
+		#Met le jeu en pause, masque le jeu et affiche un popup qui permet au joueur de reprendre sa partie
 		boutonPause.signal_connect('clicked'){
 			@nb_pause+=1
 			fenetre.remove(vbox)
@@ -168,8 +174,8 @@ class Jouer
 			fenetre.add(vbox)
 		}
 
+		#Remet a l'etat initial la grille actuelle
 		boutonReset.signal_connect('clicked'){
-
 			vbox.remove(@plateauGtk.table)
 			
 			@plateau = Plateau.new(stringDebut,stringFin,boutonUndo,boutonRedo)
@@ -187,7 +193,6 @@ class Jouer
 			vbox.remove(boutonRetour)
 			vbox.remove(labelTimer)
 			
-			
 			vbox.pack_start_defaults(@plateauGtk.table)
 
 			vbox.add(boutonAide)
@@ -203,10 +208,9 @@ class Jouer
 			vbox.add(labelTimer)
 
 			fenetre.show_all
-			
 		}
-
-
+		
+		#Permet au joueur de savoir si toutes les cases jouées sont bonnes et affiche le nombre de cases mal placées
 		boutonTestGrille.signal_connect('clicked'){
 			@nb_test += 1
 			md = Gtk::MessageDialog.new(fenetre,Gtk::Dialog::DESTROY_WITH_PARENT,Gtk::MessageDialog::INFO,Gtk::MessageDialog::BUTTONS_CLOSE, langue.t_test + @plateau.testCurrentGrille.to_s)
@@ -214,6 +218,7 @@ class Jouer
 			md.destroy
 		}
 
+		#Affiche un popup qui indique une action a effectué au joueur pour le débloquer
 		boutonAide.signal_connect('clicked'){
 			@nb_aide += 1
 			erreur = @plateau.getErreur
@@ -262,6 +267,5 @@ class Jouer
 		fenetre.add(vbox)
 		fenetre.show_all
 	end
-
-
+	
 end
