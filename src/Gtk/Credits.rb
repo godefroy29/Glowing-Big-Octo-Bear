@@ -1,12 +1,7 @@
-# encoding: UTF-8
-
-##
-# Auteur PHILIPPE ARMANGER
-# Version 0.1 : Date : Wed Jan 21 15:35:38 CET 2015
-#
-
+#Classe qui affiche les crédits
 class Credits
-
+	##
+	#Méthode d'affichage des crédits
 	def Credits.afficher(fenetre, langue)
 		#label = Gtk::Label.new(langue.texte)
 		label = Gtk::Label.new()
@@ -17,19 +12,18 @@ class Credits
 		label.set_size_request(0,600)
 		boutonRetour.set_size_request(0,25)
 		
+		#Permet de revenir au menu principal
 		boutonRetour.signal_connect('clicked'){
 			fenetre.remove(vbox)
 			Menu.afficher(fenetre, langue)
 		}
 
+		#Ajoute les elements a la fenetre
 		vbox.add(label)
 		vbox.add(boutonRetour)
 
 		fenetre.add(vbox)
 		fenetre.show_all
 	end
-
 	
-
-
-end # Marqueur de fin de classe
+end

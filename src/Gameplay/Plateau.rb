@@ -107,7 +107,9 @@ class Plateau
 		
 	end
 	
-	
+	#Enregistre les positions des tuiles
+        #
+        # *Stocke les valeurs de @plateauJoueur.couleur dans @hypothese
 	def debuterHypothese
 		0.upto(@n-1) do|x| 
 			0.upto(@n-1) {|y| 
@@ -116,7 +118,9 @@ class Plateau
 		end
 	end
 	
-	
+	#Rétablit les tuiles enregistrées au début de l'hypothese
+        #
+        # *Stocke les valeurs de @hypothese dans @plateauJoueur.couleur
 	def annulerHypothese
 		0.upto(@n-1) do|x| 
 			0.upto(@n-1) {|y| 
@@ -317,6 +321,38 @@ class Plateau
 		ligne
 	end	
 
+	def getEtatCourant
+		s = String.new
+		0.upto (@n-1) do |y|
+			0.upto (@n-1) do |x|
+				if(@plateauJoueur[x][y].couleur == @@CouleurBleu)
+					s+= "0"
+				elsif(@plateauJoueur[x][y].couleur == @@CouleurRouge)
+					s+= "1"
+				elsif(@plateauJoueur[x][y].couleur == @@CouleurVide)
+					s+= "_"
+				end
+			end
+		end
+		return s
+	end
+
+	#Retourne une erreur aleatoire de la grille
+	def getErreur
+		list = Array.new
+		0.upto (@n-1) do |x|
+			0.upto (@n-1) do |y|
+				if @plateauJoueur[x][y].couleur != Tuile.getCouleurVide && @plateauJoueur[x][y].couleur != plateauSolution[x][y].couleur
+					list.push(Erreur.new(x,y))
+				end
+			end
+		end
+		if list.size == 0
+			return nil
+		end
+		return list[Random.new(Time.now.sec).rand(0..(list.size-1))]
+	end
+
 	
 end
 
@@ -334,6 +370,17 @@ class Aide
 	def initialize(regle,type,x,y)
 		@regle = regle
 		@type = type
+		@x = x
+		@y = y
+	end
+
+end
+
+class Erreur
+	attr_reader :x
+	attr_reader :y
+
+	def initialize(x,y)
 		@x = x
 		@y = y
 	end

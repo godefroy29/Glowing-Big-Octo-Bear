@@ -1,53 +1,64 @@
-#Options_graphiques.rb
-
-
+#Classe permettant au joueur de modifier ses options graphiques et au jeu de savoir les differents paramettes d'affichages
 class Graphique
 
 	#Couleur de jeu (de base rouge/bleu)
-	@@couleur1
-	@@couleur2
-	@@c1
-	@@c2
-	@@couleur1Alt
-	@@couleur2AlT
-	@@c1Alt
-	@@c2Alt
+	@@couleur1	#Gtk::Style permettant au bouton de changer de couleur
+	@@couleur2	#Gtk::Style permettant au bouton de changer de couleur
+	@@c1		#Gdk::Color correspodant au couleur que doivent prendre les Gtk::Style
+	@@c2		#Gdk::Color correspodant au couleur que doivent prendre les Gtk::Style
+	@@couleur1Alt	#Gtk::Style permettant au bouton d'hypothèse de changer de couleur
+	@@couleur2AlT	#Gtk::Style permettant au bouton d'hypothèse de changer de couleur
+	@@c1Alt		#Gdk::Color correspodant au couleur que doivent prendre les Gtk::Style d'hypothèse
+	@@c2Alt		#Gdk::Color correspodant au couleur que doivent prendre les Gtk::Style d'hypothèse
 
 	def initialize()
+		#Transforme les couleur hexadécimales en Gdk::Color utilisable par les Gtk::Style
 		@@c1 = Gdk::Color.parse("#2222EE")
 		@@c2 = Gdk::Color.parse("#EE2222")
+		@@c1Alt = Gdk::Color.parse("#5555FF")
+		@@c2Alt = Gdk::Color.parse("#BB2222")
 		@@couleur1 = Gtk::Style.new	
 		@@couleur2 = Gtk::Style.new
+		@@couleur1Alt = Gtk::Style.new	
+		@@couleur2Alt = Gtk::Style.new
+		
+		#Transforme les Gdk::Color en arrière-plan pour les boutons
 		@@couleur1.set_bg(Gtk::STATE_PRELIGHT, @@c1.red, @@c1.green, @@c1.blue)
 		@@couleur1.set_bg(Gtk::STATE_NORMAL, @@c1.red, @@c1.green, @@c1.blue)
 		@@couleur2.set_bg(Gtk::STATE_PRELIGHT, @@c2.red, @@c2.green, @@c2.blue)
 		@@couleur2.set_bg(Gtk::STATE_NORMAL, @@c2.red, @@c2.green, @@c2.blue)
-		@@c1Alt = Gdk::Color.parse("#5555FF")
-		@@c2Alt = Gdk::Color.parse("#BB2222")
-		@@couleur1Alt = Gtk::Style.new	
-		@@couleur2Alt = Gtk::Style.new
 		@@couleur1Alt.set_bg(Gtk::STATE_PRELIGHT, @@c1Alt.red, @@c1Alt.green, @@c1Alt.blue)
 		@@couleur1Alt.set_bg(Gtk::STATE_NORMAL, @@c1Alt.red, @@c1Alt.green, @@c1Alt.blue)
 		@@couleur2Alt.set_bg(Gtk::STATE_PRELIGHT, @@c2Alt.red, @@c2Alt.green, @@c2Alt.blue)
 		@@couleur2Alt.set_bg(Gtk::STATE_NORMAL, @@c2Alt.red, @@c2Alt.green, @@c2Alt.blue)
 	end
 
+	##
+	#Méthode qui retourne le Gtk::Style permettant au bouton1 de changer de couleur
 	def couleur1
 		return @@couleur1
 	end
 
+	##
+	#Méthode qui retourne le Gtk::Style permettant au bouton2 de changer de couleur
 	def couleur2
 		return @@couleur2
 	end
 	
+	##
+	#Méthode qui retourne le Gtk::Style permettant au bouton1 d'hypothèse de changer de couleur
 	def couleur1Alt
 		return @@couleur1Alt
 	end
 
+	##
+	#Méthode qui retourne le Gtk::Style permettant au bouton2 d'hypothèse de changer de couleur
 	def couleur2Alt
 		return @@couleur2Alt
 	end
 
+	##
+	#Méthode qui permet d'afficher le menu laisse le joueur choisir ses options graphiques
 	def Graphique.afficher(fenetre, langue)
 		
 		vbox = Gtk::VBox.new(false,10)
@@ -55,16 +66,19 @@ class Graphique
 		vbox2 = Gtk::VBox.new(false,10)
 		hbox = Gtk::HBox.new(false,40)
 
+		#Création des Gtk::ColorButton qui permettent au joueur de sélectionner simplement une couleur
 		boutonCouleur1 = Gtk::ColorButton.new(@@c1)
 		boutonCouleur2 = Gtk::ColorButton.new(@@c2)
 		boutonCouleur1Alt = Gtk::ColorButton.new(@@c1Alt)
 		boutonCouleur2Alt = Gtk::ColorButton.new(@@c2Alt)
+		
+		#Permet a l'utilisateur de choisir un set de couleur parmi une liste prédéfinie
 		set = Gtk::ComboBox.new()
 		set.append_text("1")
 		set.append_text("2")
 		set.append_text("3")
-
 		set.signal_connect('changed'){
+			#Quand le joueur choisit un set, on recupere les valeurs associées au set
 			case set.active_text.to_i
 				when 1
 					@@c1 = Gdk::Color.parse("#2222EE")
@@ -87,6 +101,8 @@ class Graphique
 					@@c1Alt = Gdk::Color.parse("#5555FF")
 					@@c2Alt = Gdk::Color.parse("#BB2222")
 			end
+			
+			#On modifie tous les Gtk::Style et boutons par les couleurs du set
 			@@couleur1.set_bg(Gtk::STATE_PRELIGHT, @@c1.red, @@c1.green, @@c1.blue)
 			@@couleur1.set_bg(Gtk::STATE_NORMAL, @@c1.red, @@c1.green, @@c1.blue)
 			@@couleur2.set_bg(Gtk::STATE_PRELIGHT, @@c2.red, @@c2.green, @@c2.blue)

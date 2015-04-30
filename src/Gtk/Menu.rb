@@ -1,12 +1,8 @@
-# encoding: UTF-8
-
-##
-# Auteur PHILIPPE ARMANGER
-# Version 0.1 : Date : Wed Jan 21 13:47:35 CET 2015
-#
-
+#Classe permettant d'afficher un menu laissant le choix au joueur de faire ce qu'il veut
 class Menu
 
+	##
+	#Méthode permettant au joueur de choisir ce qu'il veut faire
 	def Menu.afficher(fenetre, langue)
 
 		padding = 20

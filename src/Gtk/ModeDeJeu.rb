@@ -1,8 +1,8 @@
-#ModeDeJeu
-# encoding: UTF-8
-
+#Classe qui permet au joueur de choisir son mode de jeu avant une partie
 class ModeDeJeu
 
+	##
+	#Méthode d'affichage qui laisse le joueur choisir son mode de jeu
 	def ModeDeJeu.afficher(fenetre, langue)
 
 		padding = 20
@@ -13,7 +13,6 @@ class ModeDeJeu
 		boutonQuitter = Gtk::Button.new(langue.quitter)
 
 		vbox = Gtk::VBox.new(false,10)
-		
 		
 		boutonJouerRapide.signal_connect('clicked'){
 			fenetre.remove(vbox)
@@ -49,4 +48,4 @@ class ModeDeJeu
 		fenetre.reshow_with_initial_size
 	end
 
-end # Marqueur de fin de classe
+end
