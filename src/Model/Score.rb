@@ -9,12 +9,12 @@ class Score
 	attr_reader :chrono	#temps pour finir la grille
 	attr_reader :nb_undo	#le nombre de fois que le joueur a utilisé la fonction undo durant la partie
 	attr_reader :nb_pause	#le nombre de fois que le joueur a utilisé la fonction undo durant la partie
-	attr_reader :etat
-	attr_reader	:nb_test
-	attr_reader :nb_aide
+	attr_reader :etat	#permet de savoir si la partie est fini ou non
+	attr_reader :nb_test	#le nombre de fois que le joueur a vérifié si ses cases placées étaient bonnes durant la partie
+	attr_reader :nb_aide	#le nombre de fois que le joueur a demandé de l'aide durant la partie
 
 	def initialize(id,joueur,grille,mode,chrono,nb_undo,nb_pause,nb_test,nb_aide,etat)
-		@id			=	id
+		@id		=	id
 		@joueur		=	joueur
 		@grille		=	grille
 		@mode		=	mode
