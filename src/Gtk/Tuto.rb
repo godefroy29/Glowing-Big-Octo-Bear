@@ -1,15 +1,15 @@
-# encoding: UTF-8
-
+#Classe qui permet au joueur de jouer au tutoriel
 class Tuto
 
-	@plateau
-	@plateauGtk
-	@nb_indices = 0
-	@nb_undo = 0
-	@id_grille
-	@hypothese
+	@plateau	#plateau de jeu
+	@plateauGtk	#représentation graphique du plateau de jeu
+	@nb_indices = 0	#le nombre d'indices utilisés par le joueur durant le tuto
+	@nb_undo = 0	#le nombre d'indices utilisés par le joueur durant le tuto
+	@id_grille	#id de la grille de tuto
+	@hypothese	#le nombre d'hypothese utilisé
 
-
+	##
+	#Méthode permettant de jouer au tuto
 	def Tuto.afficher(fenetre, langue)
 		boutonRetour = Gtk::Button.new(langue.retour)
 		boutonRedo = Gtk::Button.new(langue.j_redo)
@@ -25,7 +25,9 @@ class Tuto
 
 		stringDebut = "11__0_0________0"
 		stringFin = "1100010100111010"
-		len = Math.sqrt(stringFin.length).to_i
+		len = Math.sqrt(stringFin.length).to_i #a remplacé par la taille de la grille de la BdD
+		
+		#Initialise le plateau et sa représentation graphique
 		@plateau = Plateau.new(stringDebut,stringFin,boutonUndo,boutonRedo)
 		@plateauGtk = PlateauGtk.creer(vbox,@plateau,len)
 		
@@ -33,6 +35,7 @@ class Tuto
 		boutonUndo.set_sensitive(false)
 		boutonRedo.set_sensitive(false)
 		
+		#Thread qui gére le tuto
 		t1 = Thread.new do
 			n = false
 			boutonClose1 = Gtk::Button.new("OK")
