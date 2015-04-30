@@ -1,10 +1,5 @@
-# encoding: UTF-8
-
-##
-# Auteur PHILIPPE ARMANGER
-# Version 0.1 : Date : Wed Jan 21 13:54:13 CET 2015
-#
-
+#Classe qui contient tout les textes affichés dans le jeu
+#permet au joueur de changer de langue
 class Langue
 # Va contenir les différents contenus de textes selon le choix de la langue 
 
@@ -23,6 +18,7 @@ class Langue
 	attr_reader :os_nil,:os_score,:os_grille,:os_mode,:os_chrono,:os_pause,:os_undo #textes des options score
 	attr_reader :p_conn,:p_deco,:p_supProf,:p_lab1,:p_lab2,:p_lab3,:p_lab4,:p_supprConf,:p_enterPass,:p_user #divers textes profil
 	attr_reader :p_mStat1,:p_mStat2,:p_mStat3,:p_mStat4,:p_mStat5,:p_mStat6,:p_mStat7,:p_mStat8,:p_mStat9,:p_mStat10 #plus de textes profils
+
 	def new(lang)
 		initialize(lang)
 	end
@@ -61,5 +57,4 @@ class Langue
 		end
 	end
 
-
-end # Marqueur de fin de classe
+end
